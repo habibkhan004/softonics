@@ -37,7 +37,7 @@ export default function PricingPage() {
               >
                 {tier.highlighted && (
                   <span
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold text-white"
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold text-black"
                     style={{ backgroundImage: "var(--gradient-brand)" }}
                   >
                     Most Popular

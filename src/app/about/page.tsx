@@ -125,7 +125,7 @@ export default function AboutPage() {
             <MotionReveal key={member.name} delay={(i % 4) * 0.08}>
               <Card className="text-center" hover={false}>
                 <div
-                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-lg font-semibold text-white"
+                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-lg font-semibold text-black"
                   style={{ backgroundImage: "var(--gradient-brand)" }}
                 >
                   {member.initials}

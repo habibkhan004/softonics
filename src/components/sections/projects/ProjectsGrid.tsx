@@ -33,7 +33,7 @@ export default function ProjectsGrid() {
             onClick={() => setActive(cat)}
             className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
               active === cat
-                ? "border-transparent text-white"
+                ? "border-transparent text-black"
                 : "border-border text-foreground-muted hover:text-foreground"
             }`}
             style={active === cat ? { backgroundImage: "var(--gradient-brand)" } : undefined}

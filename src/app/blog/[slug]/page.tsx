@@ -65,7 +65,7 @@ export default async function BlogPostPage({
 
           <div className="mt-6 flex items-center gap-3">
             <div
-              className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-black"
               style={{ backgroundImage: "var(--gradient-brand)" }}
             >
               {post.author.name

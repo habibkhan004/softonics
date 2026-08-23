@@ -110,7 +110,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-black transition-opacity hover:opacity-90 disabled:opacity-60"
         style={{ backgroundImage: "var(--gradient-brand)" }}
       >
         {status === "submitting" ? (

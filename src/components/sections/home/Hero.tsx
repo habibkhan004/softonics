@@ -1,101 +1,173 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { heroSlides } from "@/lib/data/heroSlides";
+import { stats } from "@/lib/data/stats";
 
 const AUTO_ADVANCE_MS = 7000;
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  useEffect(() => {
-    const id = setInterval(() => {
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
       setIndex((i) => (i + 1) % heroSlides.length);
     }, AUTO_ADVANCE_MS);
-    return () => clearInterval(id);
   }, []);
+
+  useEffect(() => {
+    resetTimer();
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [resetTimer]);
+
+  const goTo = (i: number) => {
+    setIndex(i);
+    resetTimer();
+  };
+  const goPrev = () => goTo((index - 1 + heroSlides.length) % heroSlides.length);
+  const goNext = () => goTo((index + 1) % heroSlides.length);
 
   const slide = heroSlides[index];
   const [titleBefore, titleAfter] = slide.title.split(slide.gradientWord);
+  const heroStats = [stats[0], stats[1]];
 
   return (
-    <section className="relative flex min-h-[640px] items-center overflow-hidden sm:min-h-[720px]">
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={slide.image}
-            alt=""
-            fill
-            priority={index === 0}
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
-        </motion.div>
-      </AnimatePresence>
+    <section className="relative flex items-center justify-center py-2 sm:py-2">
+      <div className="relative mx-auto flex h-[80vh] w-[90%] min-h-[560px] items-center overflow-hidden shadow-2xl shadow-black/10">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <Image src={slide.image} alt="" fill priority={index === 0} sizes="100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/92 to-background/55" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80" />
+          </motion.div>
+        </AnimatePresence>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-blue backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5" />
-                {slide.eyebrow}
-              </span>
-
-              <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight text-balance sm:text-5xl md:text-6xl">
-                {titleBefore}
-                <span className="gradient-text">{slide.gradientWord}</span>
-                {titleAfter}
-              </h1>
-
-              <p className="mt-6 max-w-lg text-lg text-foreground-muted text-balance">{slide.subtitle}</p>
-
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button href={slide.ctaHref} size="lg">
-                  {slide.ctaLabel} <ArrowRight className="h-4 w-4" />
-                </Button>
-                <Button href="/projects" variant="outline" size="lg">
-                  View Our Work
-                </Button>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="mt-14 flex items-center gap-3">
+        {/* Left rail: eyebrow, prev arrow, dots, counter */}
+        <div className="absolute left-6 top-1/2 z-20 hidden -translate-y-1/2 flex-col items-center gap-7 lg:flex">
+          <span className="rotate-180 text-[11px] font-semibold uppercase tracking-[0.3em] text-foreground-muted [writing-mode:vertical-rl]">
+            {slide.eyebrow}
+          </span>
+          <button
+            onClick={goPrev}
+            aria-label="Previous slide"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted backdrop-blur transition-colors hover:border-accent-indigo/50 hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" />
+          </button>
+          <div className="flex flex-col items-center gap-2.5">
             {heroSlides.map((s, i) => (
               <button
                 key={s.eyebrow}
-                onClick={() => setIndex(i)}
+                onClick={() => goTo(i)}
                 aria-label={`Show slide: ${s.eyebrow}`}
-                className="group flex items-center py-2"
+                className="flex items-center justify-center py-1"
               >
                 <span
-                  className={`h-1 rounded-full transition-all duration-300 ${
-                    i === index ? "w-10 bg-accent-blue" : "w-4 bg-border group-hover:bg-foreground-muted"
+                  className={`w-1 rounded-full transition-all duration-300 ${
+                    i === index ? "h-7 bg-accent-blue" : "h-1.5 bg-border hover:bg-foreground-muted/50"
                   }`}
                 />
               </button>
             ))}
           </div>
+          <span className="rotate-180 text-[11px] font-mono tracking-widest text-foreground-muted [writing-mode:vertical-rl]">
+            {String(index + 1).padStart(2, "0")} / {String(heroSlides.length).padStart(2, "0")}
+          </span>
+        </div>
+
+        <button
+          onClick={goNext}
+          aria-label="Next slide"
+          className="absolute right-6 top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border text-foreground-muted backdrop-blur transition-colors hover:border-accent-indigo/50 hover:text-foreground lg:flex"
+        >
+          <ArrowRight className="h-4 w-4" />
+        </button>
+
+        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-14">
+          <div className="max-w-2xl lg:pl-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.5 }}
+              >
+                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-indigo backdrop-blur">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  {slide.eyebrow}
+                </span>
+
+                <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-balance text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+                  {titleBefore}
+                  <span className="gradient-text">{slide.gradientWord}</span>
+                  {titleAfter}
+                </h1>
+
+                <p className="mt-6 max-w-lg text-lg text-foreground-muted text-balance">{slide.subtitle}</p>
+
+                <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                  {slide.highlights.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-foreground-muted">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-accent-indigo" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                  <Button href={slide.ctaHref} size="lg">
+                    {slide.ctaLabel} <ArrowRight className="h-4 w-4" />
+                  </Button>
+                  <Button href="/projects" variant="outline" size="lg">
+                    View Our Work
+                  </Button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="mt-12 flex items-center gap-3 lg:hidden">
+              {heroSlides.map((s, i) => (
+                <button
+                  key={s.eyebrow}
+                  onClick={() => goTo(i)}
+                  aria-label={`Show slide: ${s.eyebrow}`}
+                  className="group flex items-center py-2"
+                >
+                  <span
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      i === index ? "w-10 bg-accent-blue" : "w-4 bg-border group-hover:bg-foreground-muted"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Floating stat cards */}
+        <div className="absolute bottom-6 right-6 z-20 hidden gap-4 sm:flex lg:right-10">
+          {heroStats.map((stat) => (
+            <div key={stat.label} className="glass-card rounded-2xl px-5 py-4">
+              <div className="text-xs text-foreground-muted">{stat.label}</div>
+              <div className="mt-1 text-2xl font-semibold gradient-text">{stat.value}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

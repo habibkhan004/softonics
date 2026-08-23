@@ -40,7 +40,7 @@ export default function Hero() {
   const heroStats = [stats[0], stats[1]];
 
   return (
-    <section className="relative flex items-center justify-center py-2 sm:py-2">
+    <section className="relative flex items-center justify-center py-6 sm:py-2">
       <div className="relative mx-auto flex h-[80vh] w-[90%] min-h-[560px] items-center overflow-hidden shadow-2xl shadow-black/10">
         <AnimatePresence mode="sync">
           <motion.div

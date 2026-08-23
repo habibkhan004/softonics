@@ -1,0 +1,113 @@
+import { Search, BrainCircuit, Server, Smartphone, ShieldCheck, Gauge } from "lucide-react";
+import type { BlogPost } from "@/lib/types";
+
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "core-web-vitals-seo-2026",
+    title: "Why Core Web Vitals Still Decide Your SEO Ranking in 2026",
+    excerpt:
+      "A practical breakdown of how LCP, INP, and CLS actually influence rankings — and the fixes that move the needle fastest.",
+    category: "SEO",
+    date: "2026-07-14",
+    readTime: "7 min read",
+    icon: Search,
+    author: { name: "Owen Reyes", role: "Head of Growth & SEO" },
+    content: [
+      "Every year someone declares Core Web Vitals dead as a ranking factor, and every year the sites that ignore them keep losing ground to competitors who don't. The truth is more boring than either extreme: Core Web Vitals aren't the single biggest ranking signal, but they're a gating factor — a slow, janky page caps how well even great content can rank.",
+      "Largest Contentful Paint (LCP) measures how long it takes your main content to render. The most common cause of a bad LCP score isn't network speed — it's render-blocking JavaScript and unoptimized hero images. Moving to modern image formats and deferring non-critical scripts typically recovers more than a full second on media-heavy pages.",
+      "Interaction to Next Paint (INP) replaced First Input Delay as the responsiveness metric, and it's far less forgiving. Long JavaScript tasks on the main thread — especially third-party analytics and ad scripts — are the usual culprit. Breaking up long tasks and moving non-essential scripts off the critical path is the highest-leverage fix we implement for clients.",
+      "Cumulative Layout Shift (CLS) is the easiest to fix and the most embarrassing to leave broken: reserve space for images and ads before they load, and avoid injecting content above existing content without a user gesture.",
+      "The practical takeaway: audit with real field data (CrUX, not just lab scores), fix the highest-impact issue first, and re-measure. Most sites we've audited get 80% of the ranking benefit from fixing just two or three specific bottlenecks, not a wholesale rebuild.",
+    ],
+  },
+  {
+    slug: "rag-vs-fine-tuning",
+    title: "RAG vs Fine-Tuning: Choosing the Right AI Architecture for Your Product",
+    excerpt:
+      "When retrieval beats fine-tuning, when it doesn't, and how to prototype both before committing engineering months.",
+    category: "AI & ML",
+    date: "2026-06-02",
+    readTime: "9 min read",
+    icon: BrainCircuit,
+    author: { name: "Yuki Tanaka", role: "Head of AI & ML" },
+    content: [
+      "The RAG-vs-fine-tuning debate gets framed as an either/or decision more often than it should. In practice, the right architecture depends on what's actually changing: your data, or your desired behavior.",
+      "Retrieval-augmented generation (RAG) is the right default when your knowledge base changes frequently and you need the model to cite or ground its answers in specific documents. It's cheaper to update — you just re-index — and it gives you a natural audit trail: you can show exactly which document a claim came from.",
+      "Fine-tuning earns its cost when you need to change how the model behaves, not just what it knows — adjusting tone, teaching a consistent output format, or specializing in a narrow task where few-shot prompting isn't reliable enough. It's a heavier investment: you need labeled examples, an evaluation harness, and a retraining pipeline for when your requirements shift.",
+      "In most production systems we build, the answer is actually both: a fine-tuned model for consistent behavior and formatting, retrieving from a RAG pipeline for up-to-date, citable facts. Treating them as competing options usually means picking the wrong one.",
+      "Before committing engineering months to either, prototype with a small eval set representative of real user queries. We've seen teams fine-tune for weeks to fix a problem that a better retrieval strategy solved in days.",
+    ],
+  },
+  {
+    slug: "legacy-php-migration-guide",
+    title: "A Practical Guide to Migrating Legacy PHP Systems to Modern Stacks",
+    excerpt:
+      "Strangler-fig migration patterns that let you modernize without a risky big-bang rewrite.",
+    category: "Engineering",
+    date: "2026-05-19",
+    readTime: "8 min read",
+    icon: Server,
+    author: { name: "Liam O'Brien", role: "Head of Engineering" },
+    content: [
+      "The instinct when facing a decade-old PHP codebase is to rewrite it from scratch. Resist it. Big-bang rewrites fail more often than they succeed, mostly because the old system encodes years of undocumented business logic that only surfaces once you've broken it.",
+      "The strangler-fig pattern — named after the vine that grows around a host tree until it replaces it — is a safer alternative. You put a routing layer in front of the legacy system, then migrate functionality piece by piece, routing traffic to the new implementation only once it's verified equivalent.",
+      "Start with the parts of the system that change most often, not the parts that are technically worst. High-churn code benefits most immediately from a modern stack, and migrating it first builds momentum and trust with stakeholders watching the project.",
+      "Keep the legacy database as the source of truth for as long as possible, and use an anti-corruption layer to translate between old and new data models. Trying to migrate the database and the application logic simultaneously is where most of these projects go sideways.",
+      "Budget real time for the unglamorous 20% — session handling, cron jobs, and third-party integrations nobody remembers configuring. These are consistently where legacy migrations lose the most time.",
+    ],
+  },
+  {
+    slug: "react-native-vs-native-2026",
+    title: "React Native vs. Native: A 2026 Decision Framework",
+    excerpt:
+      "How we decide per-project whether cross-platform or fully native development is the right call.",
+    category: "Mobile",
+    date: "2026-04-08",
+    readTime: "6 min read",
+    icon: Smartphone,
+    author: { name: "Grace Kim", role: "Director of Engagement" },
+    content: [
+      "React Native has closed most of the performance gap with native development, but 'closed most of the gap' still means there's a gap — and the decision comes down to what your app actually needs to do.",
+      "React Native is the right default for most consumer and business apps: content-driven screens, forms, standard navigation patterns, and moderate animation. A single codebase means faster iteration and lower long-term maintenance cost across iOS and Android.",
+      "Native (Swift/Kotlin) earns its cost when you need deep platform integration — custom camera pipelines, complex background processing, or animations that need to hit 120fps consistently. We've also gone native-first for apps with heavy AR/ML-on-device workloads where bridging overhead becomes a real bottleneck.",
+      "A pattern that works well: build the app in React Native, but treat performance-critical modules as native and bridge them in. You get the iteration speed of cross-platform development without compromising on the handful of screens where it actually matters.",
+      "Whichever you choose, budget for OS-version compatibility maintenance either way — that cost doesn't disappear with either architecture, it just shows up differently.",
+    ],
+  },
+  {
+    slug: "soc2-for-startups",
+    title: "SOC 2 for Startups: What Actually Matters in Your First Audit",
+    excerpt:
+      "The controls that matter early, the ones that can wait, and how to avoid a six-month compliance detour.",
+    category: "Security",
+    date: "2026-03-11",
+    readTime: "10 min read",
+    icon: ShieldCheck,
+    author: { name: "Noah Bennett", role: "Principal DevOps Engineer" },
+    content: [
+      "SOC 2 becomes unavoidable the moment an enterprise prospect's security team asks for it — and startups routinely over-invest in controls that don't matter yet while under-investing in the ones that do.",
+      "Type I audits your controls at a point in time; Type II audits them over a period (usually 3-6 months) and is what most enterprise buyers actually want. Don't spend months preparing for Type I if you know Type II is the eventual ask — go straight there.",
+      "Access control and change management are where most first-time audits stumble. If engineers can push directly to production without review, or IAM roles are broader than they need to be, fix that before anything else — it's the fastest audit finding to trigger and the most expensive to unwind later.",
+      "Logging and monitoring matter more than most founders expect early on. You don't need a full SIEM on day one, but you do need centralized, retained logs for anything touching customer data — retrofitting this after the fact means losing your audit period's evidence.",
+      "Use a compliance automation platform (Vanta, Drata, or similar) from the start rather than building evidence collection manually — it turns a six-month compliance detour into a few focused weeks layered on top of normal engineering work.",
+    ],
+  },
+  {
+    slug: "reducing-infra-cost-without-downtime",
+    title: "Cutting Cloud Infrastructure Costs by 30% Without Touching Uptime",
+    excerpt:
+      "The audit checklist we run before every cost-optimization engagement, from right-sizing to reserved capacity.",
+    category: "Cloud & DevOps",
+    date: "2026-01-22",
+    readTime: "7 min read",
+    icon: Gauge,
+    author: { name: "Noah Bennett", role: "Principal DevOps Engineer" },
+    content: [
+      "Cloud cost optimization has a bad reputation because it's often done carelessly — someone downsizes instances late on a Friday and pages the on-call team by Monday. Done properly, it's one of the lowest-risk, highest-ROI engineering projects you can run.",
+      "Start with right-sizing, not reserved capacity. Most teams provision for peak load and never revisit it. Pulling 30 days of CPU/memory utilization data and right-sizing instances to actual usage, with headroom, is consistently where we find the first 10-15% in savings with zero risk.",
+      "Reserved instances and savings plans come next, but only after right-sizing — committing to reserved capacity on over-provisioned instances just locks in the waste for a year. Once usage is right-sized and stable, a 1-year reserved commitment on baseline load typically saves another 15-20%.",
+      "Audit storage tiers separately from compute. Data that hasn't been accessed in 90 days sitting in standard storage instead of an infrequent-access or archive tier is one of the most common — and most invisible — sources of waste we find.",
+      "Roll out changes gradually with monitoring at each step, never all at once. The goal isn't just lower cost; it's lower cost with the same reliability guarantees you had before — and that only happens when cost work is treated as a real engineering project, not a spreadsheet exercise.",
+    ],
+  },
+];

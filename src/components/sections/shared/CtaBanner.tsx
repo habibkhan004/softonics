@@ -15,7 +15,7 @@ export default function CtaBanner({
   return (
     <SectionWrapper className="pt-0">
       <MotionReveal>
-        <div className="glass-card relative overflow-hidden rounded-3xl px-8 py-16 text-center sm:px-16">
+        <div className="glass-card relative overflow-hidden rounded-3xl px-5 py-12 text-center sm:px-16 sm:py-16">
           <div
             className="glow-orb glow-orb-violet h-[320px] w-[320px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
             aria-hidden="true"

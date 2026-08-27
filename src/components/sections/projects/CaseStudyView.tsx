@@ -17,7 +17,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
       <section className="relative min-h-[72vh] overflow-hidden">
         <Image src={project.coverImage || heroFallback} alt={project.title} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/25" />
-        <div className="relative z-10 mx-auto flex min-h-[72vh] max-w-7xl flex-col justify-end px-6 pb-16 pt-28 lg:px-8">
+        <div className="relative z-10 mx-auto flex min-h-[72vh] w-full min-w-0 max-w-7xl flex-col justify-end px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-28 lg:px-8">
           <Link href="/projects" className="inline-flex w-fit items-center gap-1.5 text-sm text-paper/70 hover:text-paper">
             <ArrowLeft className="h-4 w-4" /> Index of work
           </Link>
@@ -28,12 +28,12 @@ export default function CaseStudyView({ project, related }: { project: Project; 
                 <Badge className="border-white/20 bg-white/10 text-paper">{project.industry}</Badge>
                 <Badge className="border-white/20 bg-white/10 text-paper">{project.year}</Badge>
               </div>
-              <h1 className="mt-5 font-display text-4xl font-bold tracking-tight text-paper text-balance sm:text-6xl">
+              <h1 className="mt-5 break-words font-display text-3xl font-bold tracking-tight text-paper sm:text-6xl">
                 {project.title}
               </h1>
               <p className="mt-4 text-lg text-paper/75">{project.client}</p>
             </div>
-            <div className="editorial-number text-[96px] text-paper/15 sm:text-[140px]">
+            <div className="editorial-number text-[72px] text-paper/15 sm:text-[140px]">
               {project.year.slice(-2)}
             </div>
           </div>
@@ -44,7 +44,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/10 sm:grid-cols-4">
           {(project.metrics.length ? project.metrics : project.results.slice(0, 4).map((result) => ({ value: result, label: "Outcome" }))).map(
             (metric) => (
-              <div key={metric.label + metric.value} className="bg-ink px-6 py-8">
+              <div key={metric.label + metric.value} className="bg-ink px-4 py-6 sm:px-6 sm:py-8">
                 <div className="font-display text-3xl font-bold text-accent-blue sm:text-4xl">{metric.value}</div>
                 <div className="mt-2 text-xs uppercase tracking-[0.18em] text-paper/55">{metric.label}</div>
               </div>
@@ -53,7 +53,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-20 lg:grid-cols-[200px_1fr] lg:px-8">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[200px_1fr] lg:px-8">
         <aside className="hidden lg:block">
           <div className="sticky top-24 flex flex-col gap-3">
             {chapters.map((chapter, i) => (
@@ -181,7 +181,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
 
       {related.length > 0 && (
         <section className="border-t border-border py-20">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-display text-2xl font-bold">More {project.category}</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
               {related.map((item) => (

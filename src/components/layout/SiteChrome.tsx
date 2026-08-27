@@ -16,7 +16,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="min-w-0 flex-1">{children}</main>
       <Footer />
       <BackToTop />
       <WhatsAppButton />

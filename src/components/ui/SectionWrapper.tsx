@@ -21,7 +21,7 @@ export default function SectionWrapper({
           aria-hidden="true"
         />
       )}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">{children}</div>
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   );
 }

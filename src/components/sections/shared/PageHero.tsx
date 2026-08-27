@@ -27,19 +27,19 @@ export default function PageHero({ eyebrow, title, gradientWord, subtitle }: Pag
         aria-hidden="true"
       />
       <div className="grid-pattern pointer-events-none absolute inset-0 opacity-30 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,black,transparent)]" />
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center lg:px-8">
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <MotionReveal>
           <span className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent-blue">
             {eyebrow}
           </span>
         </MotionReveal>
         <MotionReveal delay={0.1}>
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
+          <h1 className="mt-6 break-words text-3xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
             {renderTitle()}
           </h1>
         </MotionReveal>
         <MotionReveal delay={0.2}>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-foreground-muted text-balance">{subtitle}</p>
+          <p className="mx-auto mt-6 max-w-2xl break-words text-base text-foreground-muted sm:text-lg">{subtitle}</p>
         </MotionReveal>
       </div>
     </section>

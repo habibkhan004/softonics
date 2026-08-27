@@ -32,7 +32,7 @@ export default function SectionHeading({
       <span className="inline-flex w-fit items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent-blue">
         {eyebrow}
       </span>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground text-balance">
+      <h2 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground break-words">
         {renderTitle()}
       </h2>
       {subtitle && (

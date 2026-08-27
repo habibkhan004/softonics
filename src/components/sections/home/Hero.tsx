@@ -40,8 +40,8 @@ export default function Hero() {
   const heroStats = [stats[0], stats[1]];
 
   return (
-    <section className="relative flex items-center justify-center py-6 sm:py-6">
-      <div className="relative mx-auto flex h-[80vh] w-[90%] min-h-[560px] items-center overflow-hidden shadow-2xl shadow-black/10">
+    <section className="relative w-full min-w-0 px-3 py-2 sm:px-4 sm:py-6 lg:flex lg:items-center lg:justify-center lg:px-0">
+      <div className="relative mx-auto flex min-h-[32rem] w-full min-w-0 max-w-full flex-col justify-center overflow-hidden rounded-2xl shadow-2xl shadow-black/10 sm:min-h-[560px] lg:h-[80vh] lg:w-[90%] lg:max-w-7xl lg:rounded-none">
         <AnimatePresence mode="sync">
           <motion.div
             key={index}
@@ -98,8 +98,8 @@ export default function Hero() {
           <ArrowRight className="h-4 w-4" />
         </button>
 
-        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-14">
-          <div className="max-w-2xl lg:pl-8">
+        <div className="relative z-10 w-full min-w-0 px-4 py-10 sm:px-10 lg:px-14">
+          <div className="max-w-2xl min-w-0 lg:pl-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={index}
@@ -107,41 +107,44 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.5 }}
+                className="min-w-0"
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-indigo backdrop-blur">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  {slide.eyebrow}
+                <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-widest text-accent-indigo backdrop-blur sm:px-4 sm:text-xs">
+                  <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">{slide.eyebrow}</span>
                 </span>
 
-                <h1 className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-balance text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+                <h1 className="mt-5 break-words text-[1.7rem] font-semibold leading-[1.15] tracking-tight text-foreground sm:mt-6 sm:text-4xl md:text-5xl lg:text-6xl">
                   {titleBefore}
                   <span className="gradient-text">{slide.gradientWord}</span>
                   {titleAfter}
                 </h1>
 
-                <p className="mt-6 max-w-lg text-lg text-foreground-muted text-balance">{slide.subtitle}</p>
+                <p className="mt-5 max-w-lg break-words text-[0.95rem] leading-relaxed text-foreground-muted sm:mt-6 sm:text-lg">
+                  {slide.subtitle}
+                </p>
 
-                <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+                <ul className="mt-5 flex flex-col gap-2 sm:mt-6 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
                   {slide.highlights.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-foreground-muted">
-                      <Check className="h-3.5 w-3.5 shrink-0 text-accent-indigo" />
-                      {item}
+                    <li key={item} className="flex min-w-0 items-start gap-2 text-sm text-foreground-muted">
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent-indigo" />
+                      <span className="break-words">{item}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                  <Button href={slide.ctaHref} size="lg">
+                <div className="mt-8 flex w-full min-w-0 flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
+                  <Button href={slide.ctaHref} size="lg" className="w-full sm:w-auto">
                     {slide.ctaLabel} <ArrowRight className="h-4 w-4" />
                   </Button>
-                  <Button href="/projects" variant="outline" size="lg">
+                  <Button href="/projects" variant="outline" size="lg" className="w-full sm:w-auto">
                     View Our Work
                   </Button>
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            <div className="mt-12 flex items-center gap-3 lg:hidden">
+            <div className="mt-10 flex items-center gap-3 lg:hidden">
               {heroSlides.map((s, i) => (
                 <button
                   key={s.eyebrow}

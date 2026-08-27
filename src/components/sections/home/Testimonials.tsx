@@ -32,7 +32,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
       />
 
       <MotionReveal>
-        <div className="glass-card relative mx-auto mt-14 max-w-3xl rounded-3xl p-8 sm:p-12 min-h-[260px]">
+        <div className="glass-card relative mx-auto mt-14 min-h-[260px] max-w-3xl rounded-3xl p-5 sm:p-12">
           <Quote className="h-10 w-10 text-accent-indigo/40" />
           <AnimatePresence mode="wait">
             <motion.div

@@ -35,7 +35,7 @@ function LogoRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
 
 export default function LogoStrip() {
   return (
-    <div className="border-y border-border py-10">
+    <div className="max-w-full overflow-hidden border-y border-border py-10">
       <MotionReveal>
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-foreground-muted">
           Trusted by teams at

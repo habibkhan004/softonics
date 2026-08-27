@@ -4,12 +4,53 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Logo from "@/components/layout/Logo";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { services } from "@/lib/data/services";
 import { primaryNavLinks } from "@/lib/data/nav";
+
+function MenuToggle({ open, onClick }: { open: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={open ? "Close menu" : "Open menu"}
+      aria-expanded={open}
+      className={`flex shrink-0 items-center gap-2 rounded-xl px-2.5 py-2 transition-colors ${
+        open
+          ? "border border-white/15 bg-white/10"
+          : "border border-accent-indigo/35 bg-gradient-to-br from-accent-blue/15 to-accent-violet/10"
+      }`}
+    >
+      <span
+        className={`font-display text-[10px] font-bold tracking-[0.22em] ${
+          open ? "text-paper" : "text-accent-violet"
+        }`}
+      >
+        {open ? "CLOSE" : "MENU"}
+      </span>
+      <span className="relative flex h-4 w-5 flex-col items-end justify-center">
+        <span
+          className={`absolute h-[1.5px] origin-center rounded-full transition-all duration-300 ${
+            open ? "w-5 translate-y-0 rotate-45 bg-paper" : "w-5 -translate-y-[5px] bg-foreground"
+          }`}
+        />
+        <span
+          className={`absolute h-[1.5px] rounded-full bg-accent-blue transition-all duration-300 ${
+            open ? "w-0 opacity-0" : "w-3.5 opacity-100"
+          }`}
+        />
+        <span
+          className={`absolute h-[1.5px] origin-center rounded-full transition-all duration-300 ${
+            open ? "w-5 translate-y-0 -rotate-45 bg-paper" : "w-4 translate-y-[5px] bg-foreground"
+          }`}
+        />
+      </span>
+    </button>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,15 +74,34 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Mobile-only floating bar */}
+      <header className="sticky top-0 z-50 lg:hidden">
+        <div className="px-3 pt-[max(0.7rem,env(safe-area-inset-top))] pb-2">
+          <div
+            className={`flex h-14 items-center justify-between gap-3 rounded-2xl border px-3 shadow-[0_12px_40px_-18px_rgba(15,14,11,0.35)] backdrop-blur-xl transition-colors duration-300 ${
+              mobileOpen
+                ? "border-white/10 bg-[#0f0e0b]"
+                : scrolled
+                  ? "border-border bg-background/92"
+                  : "border-border/80 bg-background/80"
+            }`}
+          >
+            <Logo inverted={mobileOpen} />
+            <MenuToggle open={mobileOpen} onClick={() => setMobileOpen((v) => !v)} />
+          </div>
+        </div>
+      </header>
+
+      {/* Desktop header */}
       <header
-        className={`glass-card sticky top-0 z-50 w-full border-b transition-shadow duration-300 ${
+        className={`glass-card sticky top-0 z-50 hidden w-full border-b transition-shadow duration-300 lg:block ${
           scrolled ? "shadow-sm" : ""
         }`}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
           <Logo />
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="flex items-center gap-1">
             <Link
               href="/"
               className="rounded-full px-4 py-2 text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
@@ -105,20 +165,9 @@ export default function Navbar() {
               ))}
           </div>
 
-          <div className="hidden lg:block">
-            <Button href="/contact" size="md">
-              Get a Quote
-            </Button>
-          </div>
-
-          <button
-            className="flex h-10 w-10 items-center justify-center rounded-full text-foreground lg:hidden"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label="Toggle menu"
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <Button href="/contact" size="md">
+            Get a Quote
+          </Button>
         </nav>
       </header>
 

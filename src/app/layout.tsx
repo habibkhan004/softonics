@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif, Syne } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/layout/MotionProvider";
@@ -27,6 +27,12 @@ const instrument = Instrument_Serif({
   weight: "400",
   style: "italic",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(brand.siteUrl),

@@ -21,7 +21,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
   if (!job) notFound();
 
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16 lg:px-8">
+    <section className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       <Link href="/careers" className="inline-flex items-center gap-1.5 text-sm text-foreground-muted hover:text-foreground">
         <ArrowLeft className="h-4 w-4" /> All roles
       </Link>

@@ -4,9 +4,8 @@ import {
   Smartphone,
   BrainCircuit,
   Search,
-  Cloud,
+  LayoutTemplate,
   Palette,
-  LifeBuoy,
 } from "lucide-react";
 import type { Service } from "@/lib/types";
 
@@ -92,19 +91,19 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "cloud-devops",
-    icon: Cloud,
-    title: "Cloud & DevOps Engineering",
+    slug: "wordpress-development",
+    icon: LayoutTemplate,
+    title: "WordPress Development",
     shortDescription:
-      "Scalable infrastructure and deployment pipelines that don't page you at 2am.",
+      "Custom themes, plugins, and WooCommerce builds that stay fast and easy to edit.",
     longDescription:
-      "We architect infrastructure on AWS, GCP, and Azure using Infrastructure-as-Code, containerized deployments, and CI/CD pipelines that make releases boring — with observability and cost optimization built in from the start.",
+      "We design and build WordPress sites that marketing teams can actually run — custom themes, Gutenberg blocks, WooCommerce, and headless WordPress when you need a Next.js front-end. Security, performance, and clean editorial workflows are part of the build, not a later phase.",
     features: [
-      "AWS / GCP / Azure infrastructure architecture",
-      "Docker & Kubernetes containerization",
-      "CI/CD pipeline design (GitHub Actions, GitLab CI)",
-      "Infrastructure as Code with Terraform",
-      "Monitoring, alerting & cost optimization",
+      "Custom WordPress themes & Gutenberg blocks",
+      "WooCommerce & membership storefronts",
+      "Advanced Custom Fields & editorial workflows",
+      "Headless WordPress with Next.js",
+      "Performance, security hardening & migrations",
     ],
   },
   {
@@ -121,22 +120,6 @@ export const services: Service[] = [
       "Design systems & component documentation",
       "Accessibility (WCAG 2.1 AA) auditing",
       "Usability testing & iterative refinement",
-    ],
-  },
-  {
-    slug: "consulting-support",
-    icon: LifeBuoy,
-    title: "Consulting & Ongoing Support",
-    shortDescription:
-      "Fractional CTO guidance and long-term maintenance partnerships.",
-    longDescription:
-      "Not every engagement starts with a blank slate. We audit existing codebases, advise on technical strategy and hiring, and provide ongoing maintenance & support retainers so your product stays secure, fast, and up to date long after launch.",
-    features: [
-      "Technical due diligence & codebase audits",
-      "Fractional CTO / technical advisory",
-      "SLA-backed maintenance & support retainers",
-      "Security patching & dependency management",
-      "Team augmentation & embedded engineers",
     ],
   },
 ];

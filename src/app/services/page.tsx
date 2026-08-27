@@ -13,7 +13,7 @@ import { process } from "@/lib/data/process";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom software, web & mobile development, AI/ML solutions, SEO, cloud/DevOps, UI/UX design, and consulting — everything a modern software partner should offer.",
+    "Custom software, web & mobile development, AI/ML solutions, SEO, WordPress, and UI/UX design — everything a modern software partner should offer.",
 };
 
 export default function ServicesPage() {
@@ -23,7 +23,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Everything a modern software partner should offer"
         gradientWord="modern software partner"
-        subtitle="Eight disciplines, one accountable team — from first architecture diagram to long-term growth."
+        subtitle="Seven disciplines, one accountable team — from first architecture diagram to long-term growth."
       />
 
       <SectionWrapper className="pt-0">

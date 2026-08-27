@@ -59,14 +59,14 @@ export const heroSlides: HeroSlide[] = [
     image: unsplash("1487058792275-0ad4aaf24ca7"),
   },
   {
-    eyebrow: "Cloud & DevOps",
-    title: "Infrastructure that scales quietly in the background",
-    gradientWord: "scales quietly in the background",
+    eyebrow: "WordPress Development",
+    title: "WordPress sites your team can actually run",
+    gradientWord: "your team can actually run",
     subtitle:
-      "AWS, Kubernetes, and Infrastructure-as-Code pipelines built so releases stay boring and outages stay rare. We design for the traffic spike you haven't hit yet.",
-    highlights: ["Infrastructure as Code", "Zero-downtime deploys", "24/7 monitoring & alerts"],
-    ctaLabel: "Talk Infrastructure",
-    ctaHref: "/services/cloud-devops",
-    image: unsplash("1519241047957-be31d7379a5d"),
+      "Custom themes, WooCommerce, and headless WordPress — built to stay fast, secure, and easy to edit. We treat WordPress as a product, not a template install.",
+    highlights: ["Custom themes & blocks", "WooCommerce stores", "Headless WordPress + Next.js"],
+    ctaLabel: "Build with WordPress",
+    ctaHref: "/services/wordpress-development",
+    image: unsplash("1486312338219-ce68d2c6f44d"),
   },
 ];

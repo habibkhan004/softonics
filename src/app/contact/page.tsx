@@ -5,16 +5,19 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Card from "@/components/ui/Card";
 import MotionReveal from "@/components/ui/MotionReveal";
 import ContactForm from "@/components/sections/contact/ContactForm";
+import { brand } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with Softonics to discuss your next software, AI/ML, or SEO project.",
+  description: `Get in touch with ${brand.legalName} to discuss your next software, AI/ML, or SEO project.`,
 };
 
-const infoItems = [
-  { icon: Mail, label: "Email", value: "hello@softonics.dev" },
-  { icon: Phone, label: "Phone", value: "+1 (415) 555-0182" },
-  { icon: MapPin, label: "Office", value: "540 Market Street, San Francisco, CA" },
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? brand.email;
+
+const infoItems: { icon: typeof Mail; label: string; value: string; href?: string }[] = [
+  { icon: Mail, label: "Email", value: contactEmail, href: `mailto:${contactEmail}` },
+  { icon: Phone, label: "Phone", value: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+1 (415) 555-0182" },
+  { icon: MapPin, label: "Office", value: process.env.NEXT_PUBLIC_CONTACT_OFFICE ?? "540 Market Street, San Francisco, CA" },
   { icon: Clock, label: "Hours", value: "Mon – Fri, 9am – 6pm PT" },
 ];
 
@@ -45,7 +48,15 @@ export default function ContactPage() {
                       </span>
                       <div>
                         <div className="text-xs text-foreground-muted">{item.label}</div>
-                        <div className="text-sm font-medium text-foreground">{item.value}</div>
+                        <div className="text-sm font-medium text-foreground">
+                          {item.href ? (
+                            <a href={item.href} className="hover:text-accent-blue">
+                              {item.value}
+                            </a>
+                          ) : (
+                            item.value
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}

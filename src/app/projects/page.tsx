@@ -3,14 +3,19 @@ import PageHero from "@/components/sections/shared/PageHero";
 import CtaBanner from "@/components/sections/shared/CtaBanner";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import ProjectsGrid from "@/components/sections/projects/ProjectsGrid";
+import { listPublishedProjects } from "@/lib/queries";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Projects & Case Studies",
   description:
-    "Selected case studies across e-commerce, AI/ML, mobile, SEO, and cloud engineering — with real, quantified results.",
+    "Selected case studies across e-commerce, AI/ML, mobile, SEO, and WordPress — with real, quantified results.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await listPublishedProjects();
+
   return (
     <>
       <PageHero
@@ -21,7 +26,7 @@ export default function ProjectsPage() {
       />
 
       <SectionWrapper className="pt-0">
-        <ProjectsGrid />
+        <ProjectsGrid projects={projects} />
       </SectionWrapper>
 
       <CtaBanner />

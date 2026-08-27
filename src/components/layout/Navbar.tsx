@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/layout/Logo";
 import MobileMenu from "@/components/layout/MobileMenu";
 import { services } from "@/lib/data/services";
 import { primaryNavLinks } from "@/lib/data/nav";
@@ -38,14 +39,7 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight">
-            <span
-              className="h-7 w-7 rounded-lg"
-              style={{ backgroundImage: "var(--gradient-brand)" }}
-              aria-hidden="true"
-            />
-            Soft<span className="gradient-text">onics</span>
-          </Link>
+          <Logo />
 
           <div className="hidden items-center gap-1 lg:flex">
             <Link

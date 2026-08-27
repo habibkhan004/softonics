@@ -1,4 +1,4 @@
-import { Code2, Server, BrainCircuit, Cloud, Database } from "lucide-react";
+import { Code2, Server, BrainCircuit, LayoutTemplate, Database } from "lucide-react";
 import type { TechCategory } from "@/lib/types";
 
 export const techStack: TechCategory[] = [
@@ -18,9 +18,9 @@ export const techStack: TechCategory[] = [
     items: ["PyTorch & TensorFlow", "LLM & RAG Pipelines", "LangChain", "OpenAI & Anthropic APIs"],
   },
   {
-    category: "Cloud & DevOps",
-    icon: Cloud,
-    items: ["AWS & GCP", "Docker & Kubernetes", "Terraform", "GitHub Actions"],
+    category: "WordPress",
+    icon: LayoutTemplate,
+    items: ["WordPress & PHP", "WooCommerce", "Advanced Custom Fields", "Headless WP + Next.js"],
   },
   {
     category: "Data",

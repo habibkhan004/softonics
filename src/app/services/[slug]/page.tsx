@@ -9,9 +9,11 @@ import Card from "@/components/ui/Card";
 import MotionReveal from "@/components/ui/MotionReveal";
 import CtaBanner from "@/components/sections/shared/CtaBanner";
 import { services } from "@/lib/data/services";
-import { projects } from "@/lib/data/projects";
-import { serviceImages, projectImages } from "@/lib/images";
+import { serviceImages } from "@/lib/images";
 import { process } from "@/lib/data/process";
+import { listPublishedProjects } from "@/lib/queries";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -37,7 +39,8 @@ export default async function ServiceDetailPage({
   const service = services.find((s) => s.slug === slug);
   if (!service) notFound();
 
-  const relatedProjects = projects.slice(0, 2);
+  const allProjects = await listPublishedProjects();
+  const relatedProjects = allProjects.slice(0, 2);
   const otherServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
   return (
@@ -120,7 +123,7 @@ export default async function ServiceDetailPage({
               className="glass-card group flex items-center gap-4 rounded-2xl p-5 transition-colors hover:bg-surface-hover"
             >
               <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
-                <Image src={projectImages[p.slug]} alt={p.title} fill sizes="64px" className="object-cover" />
+                <Image src={p.coverImage} alt={p.title} fill sizes="64px" className="object-cover" />
               </div>
               <div>
                 <h3 className="font-medium text-foreground group-hover:text-accent-blue">{p.title}</h3>

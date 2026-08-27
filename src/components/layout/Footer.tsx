@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { footerColumns, socialLinks } from "@/lib/data/nav";
+import Logo from "@/components/layout/Logo";
+import { submitNewsletterAction } from "@/lib/actions";
+import { brand } from "@/lib/brand";
 
 const socialInitials: Record<string, string> = {
   GitHub: "GH",
@@ -15,17 +18,10 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 text-lg font-semibold tracking-tight">
-              <span
-                className="h-7 w-7 rounded-lg"
-                style={{ backgroundImage: "var(--gradient-brand)" }}
-                aria-hidden="true"
-              />
-              Soft<span className="gradient-text">onics</span>
-            </Link>
+            <Logo variant="lockup" />
             <p className="mt-4 max-w-xs text-sm text-foreground-muted">
-              We design and build custom software, web & mobile apps, AI/ML systems, and SEO-driven growth
-              for ambitious teams.
+              {brand.legalName} designs and builds custom software, web & mobile apps, AI/ML systems, and SEO-driven
+              growth for ambitious teams.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -66,12 +62,10 @@ export default function Footer() {
             <p className="mt-4 text-sm text-foreground-muted">
               Occasional notes on software, AI, and SEO. No spam.
             </p>
-            <form
-              className="mt-4 flex flex-col gap-2"
-              onSubmit={(e) => e.preventDefault()}
-            >
+            <form className="mt-4 flex flex-col gap-2" action={submitNewsletterAction}>
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="you@company.com"
                 className="rounded-full border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-foreground-muted/70 outline-none focus:border-accent-indigo/60"
@@ -89,7 +83,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-xs text-foreground-muted">
-            &copy; {new Date().getFullYear()} Softonics. All rights reserved.
+            &copy; {new Date().getFullYear()} {brand.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-xs text-foreground-muted hover:text-foreground">

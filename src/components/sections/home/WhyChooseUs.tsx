@@ -17,7 +17,7 @@ export default function WhyChooseUs() {
       <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
         <MotionReveal>
           <span className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent-blue">
-            Why Softonics
+            Why Desynt
           </span>
           <h2 className="mt-6 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
             Built for teams who&apos;ve been burned by agencies before

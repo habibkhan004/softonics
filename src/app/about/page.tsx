@@ -11,10 +11,11 @@ import MotionReveal from "@/components/ui/MotionReveal";
 import { stats } from "@/lib/data/stats";
 import { team } from "@/lib/data/team";
 import { aboutImages } from "@/lib/images";
+import { brand } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "The story, mission, and team behind Softonics — a software company built by engineers, for engineers.",
+  description: `The story, mission, and team behind ${brand.legalName} — a software company built by engineers, for engineers.`,
 };
 
 const values = [
@@ -44,10 +45,10 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About Softonics"
+        eyebrow={`About ${brand.shortName}`}
         title="Built by engineers who were tired of agency theater"
         gradientWord="agency theater"
-        subtitle="We started Softonics to build the kind of software partner we always wished we could hire."
+        subtitle={`We started ${brand.legalName} to build the kind of software partner we always wished we could hire.`}
       />
 
       <SectionWrapper className="pt-0">
@@ -55,7 +56,7 @@ export default function AboutPage() {
           <MotionReveal>
             <div className="space-y-6 text-foreground-muted">
               <p>
-                Softonics was founded in 2018 by a small team of engineers frustrated with bloated agency
+                {brand.legalName} was founded in 2018 by a small team of engineers frustrated with bloated agency
                 processes — endless discovery decks, junior developers learning on client dollars, and
                 scope creep dressed up as &ldquo;flexibility.&rdquo; We set out to build something different: a
                 software company where senior engineers do the actual engineering, and clients get a
@@ -63,7 +64,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Since then we&apos;ve grown into a full-service partner spanning custom software, web and
-                mobile development, AI/ML systems, SEO, and cloud infrastructure — but the founding
+                mobile development, AI/ML systems, SEO, and WordPress — but the founding
                 principle hasn&apos;t changed. Every engagement is staffed by senior people, scoped honestly,
                 and delivered with the kind of transparency we wished we&apos;d gotten as clients ourselves.
               </p>
@@ -71,7 +72,7 @@ export default function AboutPage() {
           </MotionReveal>
           <MotionReveal delay={0.1}>
             <div className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
-              <Image src={aboutImages.hero} alt="The Softonics team collaborating" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={aboutImages.hero} alt={`The ${brand.legalName} team collaborating`} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
             </div>
           </MotionReveal>
@@ -106,7 +107,7 @@ export default function AboutPage() {
       <SectionWrapper className="pt-0">
         <MotionReveal>
           <div className="relative h-56 w-full overflow-hidden rounded-3xl sm:h-72">
-            <Image src={aboutImages.culture} alt="Softonics team culture" fill sizes="100vw" className="object-cover" />
+            <Image src={aboutImages.culture} alt={`${brand.legalName} team culture`} fill sizes="100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/30 to-transparent" />
             <div className="relative flex h-full max-w-md flex-col justify-center px-8 sm:px-12">
               <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">Remote-first, output-focused</h3>

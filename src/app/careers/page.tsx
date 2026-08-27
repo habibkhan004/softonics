@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Globe2, HeartPulse, GraduationCap, Palmtree, ArrowRight } from "lucide-react";
 import PageHero from "@/components/sections/shared/PageHero";
 import CtaBanner from "@/components/sections/shared/CtaBanner";
@@ -7,11 +8,14 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import MotionReveal from "@/components/ui/MotionReveal";
-import { jobs } from "@/lib/data/jobs";
+import { listPublishedJobs } from "@/lib/queries";
+import { brand } from "@/lib/brand";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Open roles at Softonics — join a remote-first team building custom software, AI/ML, and growth systems.",
+  description: `Open roles at ${brand.legalName} — join a remote-first team building custom software, AI/ML, and growth systems.`,
 };
 
 const perks = [
@@ -21,9 +25,10 @@ const perks = [
   { icon: Palmtree, title: "Flexible PTO", description: "Take the time you need — we trust you to manage your workload." },
 ];
 
-const departments = Array.from(new Set(jobs.map((j) => j.department)));
+export default async function CareersPage() {
+  const jobs = await listPublishedJobs();
+  const departments = Array.from(new Set(jobs.map((j) => j.department)));
 
-export default function CareersPage() {
   return (
     <>
       <PageHero
@@ -34,7 +39,7 @@ export default function CareersPage() {
       />
 
       <SectionWrapper className="pt-0">
-        <SectionHeading eyebrow="Why Softonics" title="Benefits that respect your time" gradientWord="respect your time" />
+        <SectionHeading eyebrow={`Why ${brand.shortName}`} title="Benefits that respect your time" gradientWord="respect your time" />
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {perks.map((perk, i) => (
             <MotionReveal key={perk.title} delay={i * 0.08}>
@@ -58,9 +63,9 @@ export default function CareersPage() {
                 {jobs
                   .filter((job) => job.department === dept)
                   .map((job, i) => (
-                    <MotionReveal key={job.title} delay={i * 0.05}>
-                      <a
-                        href="/contact"
+                    <MotionReveal key={job.id} delay={i * 0.05}>
+                      <Link
+                        href={`/careers/${job.slug}`}
                         className="glass-card flex flex-col gap-3 rounded-2xl p-5 transition-colors hover:bg-surface-hover sm:flex-row sm:items-center sm:justify-between"
                       >
                         <div>
@@ -73,12 +78,13 @@ export default function CareersPage() {
                         <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue">
                           Apply <ArrowRight className="h-3.5 w-3.5" />
                         </span>
-                      </a>
+                      </Link>
                     </MotionReveal>
                   ))}
               </div>
             </div>
           ))}
+          {jobs.length === 0 && <p className="text-foreground-muted">No open roles right now — send a note anyway.</p>}
         </div>
       </SectionWrapper>
 

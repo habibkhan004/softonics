@@ -3,7 +3,7 @@ import type { PricingTier, FaqItem } from "@/lib/types";
 export const pricingTiers: PricingTier[] = [
   {
     name: "Starter",
-    price: "$4,500",
+    price: "$2,000",
     period: "starting price / project",
     description: "For a focused MVP, landing site, or single-feature build.",
     features: [
@@ -17,7 +17,7 @@ export const pricingTiers: PricingTier[] = [
   },
   {
     name: "Growth",
-    price: "$12,000",
+    price: "$5,000",
     period: "starting price / month",
     description: "For ongoing product development with a dedicated squad.",
     features: [

@@ -17,6 +17,7 @@ export const footerColumns: FooterLinkColumn[] = [
       { label: "Web Applications", href: "/services/web-application-development" },
       { label: "Mobile Apps", href: "/services/mobile-app-development" },
       { label: "AI & Machine Learning", href: "/services/ai-machine-learning" },
+      { label: "WordPress Development", href: "/services/wordpress-development" },
       { label: "SEO & Digital Growth", href: "/services/seo-digital-growth" },
     ],
   },

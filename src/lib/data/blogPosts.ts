@@ -1,8 +1,9 @@
-import { Search, BrainCircuit, Server, Smartphone, ShieldCheck, Gauge } from "lucide-react";
 import type { BlogPost } from "@/lib/types";
+import { blogImages } from "@/lib/images";
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "post-0001-0000-4000-8000-000000000001",
     slug: "core-web-vitals-seo-2026",
     title: "Why Core Web Vitals Still Decide Your SEO Ranking in 2026",
     excerpt:
@@ -10,7 +11,8 @@ export const blogPosts: BlogPost[] = [
     category: "SEO",
     date: "2026-07-14",
     readTime: "7 min read",
-    icon: Search,
+    coverImage: blogImages["core-web-vitals-seo-2026"],
+    published: true,
     author: { name: "Owen Reyes", role: "Head of Growth & SEO" },
     content: [
       "Every year someone declares Core Web Vitals dead as a ranking factor, and every year the sites that ignore them keep losing ground to competitors who don't. The truth is more boring than either extreme: Core Web Vitals aren't the single biggest ranking signal, but they're a gating factor — a slow, janky page caps how well even great content can rank.",
@@ -21,6 +23,7 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    id: "post-0002-0000-4000-8000-000000000002",
     slug: "rag-vs-fine-tuning",
     title: "RAG vs Fine-Tuning: Choosing the Right AI Architecture for Your Product",
     excerpt:
@@ -28,7 +31,8 @@ export const blogPosts: BlogPost[] = [
     category: "AI & ML",
     date: "2026-06-02",
     readTime: "9 min read",
-    icon: BrainCircuit,
+    coverImage: blogImages["rag-vs-fine-tuning"],
+    published: true,
     author: { name: "Yuki Tanaka", role: "Head of AI & ML" },
     content: [
       "The RAG-vs-fine-tuning debate gets framed as an either/or decision more often than it should. In practice, the right architecture depends on what's actually changing: your data, or your desired behavior.",
@@ -39,6 +43,7 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    id: "post-0003-0000-4000-8000-000000000003",
     slug: "legacy-php-migration-guide",
     title: "A Practical Guide to Migrating Legacy PHP Systems to Modern Stacks",
     excerpt:
@@ -46,7 +51,8 @@ export const blogPosts: BlogPost[] = [
     category: "Engineering",
     date: "2026-05-19",
     readTime: "8 min read",
-    icon: Server,
+    coverImage: blogImages["legacy-php-migration-guide"],
+    published: true,
     author: { name: "Liam O'Brien", role: "Head of Engineering" },
     content: [
       "The instinct when facing a decade-old PHP codebase is to rewrite it from scratch. Resist it. Big-bang rewrites fail more often than they succeed, mostly because the old system encodes years of undocumented business logic that only surfaces once you've broken it.",
@@ -57,6 +63,7 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    id: "post-0004-0000-4000-8000-000000000004",
     slug: "react-native-vs-native-2026",
     title: "React Native vs. Native: A 2026 Decision Framework",
     excerpt:
@@ -64,7 +71,8 @@ export const blogPosts: BlogPost[] = [
     category: "Mobile",
     date: "2026-04-08",
     readTime: "6 min read",
-    icon: Smartphone,
+    coverImage: blogImages["react-native-vs-native-2026"],
+    published: true,
     author: { name: "Grace Kim", role: "Director of Engagement" },
     content: [
       "React Native has closed most of the performance gap with native development, but 'closed most of the gap' still means there's a gap — and the decision comes down to what your app actually needs to do.",
@@ -75,6 +83,7 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    id: "post-0005-0000-4000-8000-000000000005",
     slug: "soc2-for-startups",
     title: "SOC 2 for Startups: What Actually Matters in Your First Audit",
     excerpt:
@@ -82,8 +91,9 @@ export const blogPosts: BlogPost[] = [
     category: "Security",
     date: "2026-03-11",
     readTime: "10 min read",
-    icon: ShieldCheck,
-    author: { name: "Noah Bennett", role: "Principal DevOps Engineer" },
+    coverImage: blogImages["soc2-for-startups"],
+    published: true,
+    author: { name: "Noah Bennett", role: "Principal WordPress Engineer" },
     content: [
       "SOC 2 becomes unavoidable the moment an enterprise prospect's security team asks for it — and startups routinely over-invest in controls that don't matter yet while under-investing in the ones that do.",
       "Type I audits your controls at a point in time; Type II audits them over a period (usually 3-6 months) and is what most enterprise buyers actually want. Don't spend months preparing for Type I if you know Type II is the eventual ask — go straight there.",
@@ -93,15 +103,17 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    id: "post-0006-0000-4000-8000-000000000006",
     slug: "reducing-infra-cost-without-downtime",
     title: "Cutting Cloud Infrastructure Costs by 30% Without Touching Uptime",
     excerpt:
       "The audit checklist we run before every cost-optimization engagement, from right-sizing to reserved capacity.",
-    category: "Cloud & DevOps",
+    category: "Engineering",
     date: "2026-01-22",
     readTime: "7 min read",
-    icon: Gauge,
-    author: { name: "Noah Bennett", role: "Principal DevOps Engineer" },
+    coverImage: blogImages["reducing-infra-cost-without-downtime"],
+    published: true,
+    author: { name: "Noah Bennett", role: "Principal WordPress Engineer" },
     content: [
       "Cloud cost optimization has a bad reputation because it's often done carelessly — someone downsizes instances late on a Friday and pages the on-call team by Monday. Done properly, it's one of the lowest-risk, highest-ROI engineering projects you can run.",
       "Start with right-sizing, not reserved capacity. Most teams provision for peak load and never revisit it. Pulling 30 days of CPU/memory utilization data and right-sizing instances to actual usage, with headroom, is consistently where we find the first 10-15% in savings with zero risk.",

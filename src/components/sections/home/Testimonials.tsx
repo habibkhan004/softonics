@@ -6,19 +6,22 @@ import { Quote } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import MotionReveal from "@/components/ui/MotionReveal";
-import { testimonials } from "@/lib/data/testimonials";
+import type { Testimonial } from "@/lib/types";
 
-export default function Testimonials() {
+export default function Testimonials({ items }: { items: Testimonial[] }) {
   const [index, setIndex] = useState(0);
+  const list = items.length ? items : [];
 
   useEffect(() => {
+    if (list.length < 2) return;
     const id = setInterval(() => {
-      setIndex((i) => (i + 1) % testimonials.length);
+      setIndex((i) => (i + 1) % list.length);
     }, 6000);
     return () => clearInterval(id);
-  }, []);
+  }, [list.length]);
 
-  const current = testimonials[index];
+  if (!list.length) return null;
+  const current = list[index];
 
   return (
     <SectionWrapper glow="violet">
@@ -33,7 +36,7 @@ export default function Testimonials() {
           <Quote className="h-10 w-10 text-accent-indigo/40" />
           <AnimatePresence mode="wait">
             <motion.div
-              key={index}
+              key={current.id}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -52,9 +55,9 @@ export default function Testimonials() {
           </AnimatePresence>
 
           <div className="mt-8 flex items-center gap-2">
-            {testimonials.map((t, i) => (
+            {list.map((t, i) => (
               <button
-                key={t.name}
+                key={t.id}
                 onClick={() => setIndex(i)}
                 aria-label={`Show testimonial from ${t.name}`}
                 className={`h-1.5 rounded-full transition-all ${

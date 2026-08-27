@@ -7,12 +7,10 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import Badge from "@/components/ui/Badge";
 import MotionReveal from "@/components/ui/MotionReveal";
 import CtaBanner from "@/components/sections/shared/CtaBanner";
-import { blogPosts } from "@/lib/data/blogPosts";
-import { blogImages } from "@/lib/images";
+import { getPostBySlug, listPublishedPosts } from "@/lib/queries";
+import { postIcon } from "@/lib/icons";
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -20,21 +18,18 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
   return { title: post.title, description: post.excerpt };
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  const related = blogPosts.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2);
+  const all = await listPublishedPosts();
+  const related = all.filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 2);
 
   return (
     <>
@@ -82,7 +77,7 @@ export default async function BlogPostPage({
 
         <MotionReveal delay={0.1}>
           <div className="relative mt-10 h-64 w-full overflow-hidden rounded-3xl sm:h-96">
-            <Image src={blogImages[post.slug]} alt={post.title} fill priority sizes="100vw" className="object-cover" />
+            <Image src={post.coverImage} alt={post.title} fill priority sizes="100vw" className="object-cover" />
           </div>
         </MotionReveal>
       </SectionWrapper>
@@ -103,19 +98,22 @@ export default async function BlogPostPage({
         <SectionWrapper glow="indigo">
           <h2 className="text-2xl font-semibold text-foreground">Related Reading</h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {related.map((r) => (
-              <Link
-                key={r.slug}
-                href={`/blog/${r.slug}`}
-                className="glass-card group flex items-center gap-4 rounded-2xl p-5 transition-colors hover:bg-surface-hover"
-              >
-                <r.icon className="h-8 w-8 shrink-0 text-accent-blue" strokeWidth={1.5} />
-                <div>
-                  <h3 className="font-medium text-foreground group-hover:text-accent-blue">{r.title}</h3>
-                  <p className="mt-1 text-xs text-foreground-muted">{r.readTime}</p>
-                </div>
-              </Link>
-            ))}
+            {related.map((r) => {
+              const Icon = postIcon(r.category);
+              return (
+                <Link
+                  key={r.slug}
+                  href={`/blog/${r.slug}`}
+                  className="glass-card group flex items-center gap-4 rounded-2xl p-5 transition-colors hover:bg-surface-hover"
+                >
+                  <Icon className="h-8 w-8 shrink-0 text-accent-blue" strokeWidth={1.5} />
+                  <div>
+                    <h3 className="font-medium text-foreground group-hover:text-accent-blue">{r.title}</h3>
+                    <p className="mt-1 text-xs text-foreground-muted">{r.readTime}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </SectionWrapper>
       )}

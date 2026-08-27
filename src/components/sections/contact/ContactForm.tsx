@@ -1,21 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { submitInquiryAction } from "@/lib/actions";
 
 const budgets = ["Under $10k", "$10k – $25k", "$25k – $75k", "$75k+", "Not sure yet"];
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
+  const [state, action, pending] = useActionState(submitInquiryAction, undefined);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-    setTimeout(() => setStatus("success"), 700);
-  };
-
-  if (status === "success") {
+  if (state?.ok) {
     return (
       <div className="glass-card flex flex-col items-center justify-center gap-4 rounded-2xl p-10 text-center">
         <CheckCircle2 className="h-12 w-12 text-accent-blue" />
@@ -32,7 +27,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-card flex flex-col gap-5 rounded-2xl p-6 sm:p-8">
+    <form action={action} className="glass-card flex flex-col gap-5 rounded-2xl p-6 sm:p-8">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -107,13 +102,15 @@ export default function ContactForm() {
         />
       </div>
 
+      {state?.error && <p className="text-sm text-accent-indigo">{state.error}</p>}
+
       <button
         type="submit"
-        disabled={status === "submitting"}
+        disabled={pending}
         className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-black transition-opacity hover:opacity-90 disabled:opacity-60"
         style={{ backgroundImage: "var(--gradient-brand)" }}
       >
-        {status === "submitting" ? (
+        {pending ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" /> Sending...
           </>

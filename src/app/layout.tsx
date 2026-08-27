@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif, Syne } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import MotionProvider from "@/components/layout/MotionProvider";
-import BackToTop from "@/components/layout/BackToTop";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import SiteChrome from "@/components/layout/SiteChrome";
+import { brand } from "@/lib/brand";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,25 +15,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const syne = Syne({
+  variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
+});
+
+const instrument = Instrument_Serif({
+  variable: "--font-instrument",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://softonics.dev"),
+  metadataBase: new URL(brand.siteUrl),
   title: {
-    default: "Softonics — Custom Software, Web, AI/ML & SEO Engineering",
-    template: "%s | Softonics",
+    default: `${brand.legalName} — Custom Software, Web, AI/ML & SEO Engineering`,
+    template: `%s | ${brand.legalName}`,
   },
   description:
-    "Softonics is a full-service software company building custom software, web & mobile apps, AI/ML solutions, and SEO-driven digital growth for ambitious teams.",
+    "Desynt Digital Solutions is a full-service software company building custom software, web & mobile apps, AI/ML solutions, and SEO-driven digital growth for ambitious teams.",
   openGraph: {
-    title: "Softonics — Custom Software, Web, AI/ML & SEO Engineering",
+    title: `${brand.legalName} — Custom Software, Web, AI/ML & SEO Engineering`,
     description:
       "Custom software, web & mobile apps, AI/ML solutions, and SEO-driven digital growth for ambitious teams.",
-    siteName: "Softonics",
+    siteName: brand.legalName,
     type: "website",
   },
 };
@@ -44,15 +49,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${instrument.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+      <body className="relative flex min-h-full flex-col bg-background font-sans text-foreground">
+        <div className="grain-overlay" aria-hidden="true" />
         <MotionProvider>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <BackToTop />
-          <WhatsAppButton />
+          <SiteChrome>{children}</SiteChrome>
         </MotionProvider>
       </body>
     </html>

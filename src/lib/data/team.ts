@@ -8,5 +8,5 @@ export const team: TeamMember[] = [
   { name: "Sofia Alvarez", role: "Head of Design", initials: "SA" },
   { name: "Owen Reyes", role: "Head of Growth & SEO", initials: "OR" },
   { name: "Grace Kim", role: "Director of Engagement", initials: "GK" },
-  { name: "Noah Bennett", role: "Principal DevOps Engineer", initials: "NB" },
+  { name: "Noah Bennett", role: "Principal WordPress Engineer", initials: "NB" },
 ];

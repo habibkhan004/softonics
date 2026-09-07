@@ -16,6 +16,7 @@ export type Collections = {
 };
 
 const DIR = path.join(process.cwd(), "data");
+const readOnlyFs = process.env.VERCEL === "1";
 
 const seeds: Collections = {
   projects,
@@ -26,25 +27,38 @@ const seeds: Collections = {
   testimonials,
 };
 
-async function ensureDir() {
-  await mkdir(DIR, { recursive: true });
+async function canWriteLocalFiles() {
+  if (readOnlyFs) return false;
+  try {
+    await mkdir(DIR, { recursive: true });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export async function readCollection<K extends keyof Collections>(name: K): Promise<Collections[K]> {
-  await ensureDir();
   const file = path.join(DIR, `${name}.json`);
   try {
     const raw = await readFile(file, "utf8");
     return JSON.parse(raw) as Collections[K];
   } catch {
-    const seed = seeds[name];
-    await writeFile(file, JSON.stringify(seed, null, 2), "utf8");
-    return structuredClone(seed);
+    const seed = structuredClone(seeds[name]);
+    if (await canWriteLocalFiles()) {
+      try {
+        await writeFile(file, JSON.stringify(seed, null, 2), "utf8");
+      } catch {
+        // Serverless / read-only disk — keep serving seed data from memory.
+      }
+    }
+    return seed;
   }
 }
 
 export async function writeCollection<K extends keyof Collections>(name: K, items: Collections[K]) {
-  await ensureDir();
+  if (!(await canWriteLocalFiles())) {
+    throw new Error("Local JSON storage is not writable here. Configure Supabase for production.");
+  }
   await writeFile(path.join(DIR, `${name}.json`), JSON.stringify(items, null, 2), "utf8");
 }
 

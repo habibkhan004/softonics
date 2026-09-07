@@ -4,11 +4,21 @@ import { hasSupabaseServiceRole, isSupabaseConfigured } from "@/lib/env";
 
 export async function supabaseRead() {
   if (!isSupabaseConfigured()) return null;
-  return (await createServerSupabase()) ?? createServiceSupabase();
+  try {
+    return (await createServerSupabase()) ?? createServiceSupabase();
+  } catch (error) {
+    console.error("[cms] supabase client failed", error);
+    return null;
+  }
 }
 
 export async function supabaseWrite() {
   if (!isSupabaseConfigured()) return null;
-  if (hasSupabaseServiceRole()) return createServiceSupabase();
-  return createServerSupabase();
+  try {
+    if (hasSupabaseServiceRole()) return createServiceSupabase();
+    return createServerSupabase();
+  } catch (error) {
+    console.error("[cms] supabase write client failed", error);
+    return null;
+  }
 }

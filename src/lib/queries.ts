@@ -24,14 +24,34 @@ import type {
   Testimonial,
 } from "@/lib/types";
 
-export async function listPublishedProjects(): Promise<Project[]> {
+type DbClient = NonNullable<Awaited<ReturnType<typeof supabaseRead>>>;
+
+async function queryOrFallback<T>(
+  run: (db: DbClient) => PromiseLike<{ data: unknown; error: { message: string } | null }>,
+  fallback: () => Promise<T>,
+  map: (data: unknown) => T,
+): Promise<T> {
   const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("projects").select("*").eq("published", true).order("year", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapProject(row as Record<string, unknown>));
+  if (!db) return fallback();
+  try {
+    const { data, error } = await run(db);
+    if (error) {
+      console.error("[cms] supabase read failed:", error.message);
+      return fallback();
+    }
+    return map(data);
+  } catch (error) {
+    console.error("[cms] supabase read threw:", error);
+    return fallback();
   }
-  return (await readCollection("projects")).filter((p) => p.published);
+}
+
+export async function listPublishedProjects(): Promise<Project[]> {
+  return queryOrFallback(
+    (db) => db.from("projects").select("*").eq("published", true).order("year", { ascending: false }),
+    async () => (await readCollection("projects")).filter((p) => p.published),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapProject(row)),
+  );
 }
 
 export async function listFeaturedProjects(): Promise<Project[]> {
@@ -41,33 +61,27 @@ export async function listFeaturedProjects(): Promise<Project[]> {
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("projects").select("*").eq("slug", slug).eq("published", true).maybeSingle();
-    if (error) throw error;
-    return data ? mapProject(data as Record<string, unknown>) : null;
-  }
-  return (await readCollection("projects")).find((p) => p.slug === slug && p.published) ?? null;
+  return queryOrFallback(
+    (db) => db.from("projects").select("*").eq("slug", slug).eq("published", true).maybeSingle(),
+    async () => (await readCollection("projects")).find((p) => p.slug === slug && p.published) ?? null,
+    (data) => (data ? mapProject(data as Record<string, unknown>) : null),
+  );
 }
 
 export async function listAllProjects(): Promise<Project[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("projects").select("*").order("created_at", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapProject(row as Record<string, unknown>));
-  }
-  return readCollection("projects");
+  return queryOrFallback(
+    (db) => db.from("projects").select("*").order("created_at", { ascending: false }),
+    () => readCollection("projects"),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapProject(row)),
+  );
 }
 
 export async function getProjectById(id: string): Promise<Project | null> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("projects").select("*").eq("id", id).maybeSingle();
-    if (error) throw error;
-    return data ? mapProject(data as Record<string, unknown>) : null;
-  }
-  return (await readCollection("projects")).find((p) => p.id === id) ?? null;
+  return queryOrFallback(
+    (db) => db.from("projects").select("*").eq("id", id).maybeSingle(),
+    async () => (await readCollection("projects")).find((p) => p.id === id) ?? null,
+    (data) => (data ? mapProject(data as Record<string, unknown>) : null),
+  );
 }
 
 export async function saveProject(input: Partial<Project> & { title: string; slug: string; client: string; category: Project["category"] }) {
@@ -122,43 +136,35 @@ export async function deleteProject(id: string) {
 }
 
 export async function listPublishedJobs(): Promise<JobOpening[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("jobs").select("*").eq("published", true).order("created_at", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapJob(row as Record<string, unknown>));
-  }
-  return (await readCollection("jobs")).filter((j) => j.published);
+  return queryOrFallback(
+    (db) => db.from("jobs").select("*").eq("published", true).order("created_at", { ascending: false }),
+    async () => (await readCollection("jobs")).filter((j) => j.published),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapJob(row)),
+  );
 }
 
 export async function getJobBySlug(slug: string): Promise<JobOpening | null> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("jobs").select("*").eq("slug", slug).eq("published", true).maybeSingle();
-    if (error) throw error;
-    return data ? mapJob(data as Record<string, unknown>) : null;
-  }
-  return (await readCollection("jobs")).find((j) => j.slug === slug && j.published) ?? null;
+  return queryOrFallback(
+    (db) => db.from("jobs").select("*").eq("slug", slug).eq("published", true).maybeSingle(),
+    async () => (await readCollection("jobs")).find((j) => j.slug === slug && j.published) ?? null,
+    (data) => (data ? mapJob(data as Record<string, unknown>) : null),
+  );
 }
 
 export async function listAllJobs(): Promise<JobOpening[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("jobs").select("*").order("created_at", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapJob(row as Record<string, unknown>));
-  }
-  return readCollection("jobs");
+  return queryOrFallback(
+    (db) => db.from("jobs").select("*").order("created_at", { ascending: false }),
+    () => readCollection("jobs"),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapJob(row)),
+  );
 }
 
 export async function getJobById(id: string): Promise<JobOpening | null> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("jobs").select("*").eq("id", id).maybeSingle();
-    if (error) throw error;
-    return data ? mapJob(data as Record<string, unknown>) : null;
-  }
-  return (await readCollection("jobs")).find((j) => j.id === id) ?? null;
+  return queryOrFallback(
+    (db) => db.from("jobs").select("*").eq("id", id).maybeSingle(),
+    async () => (await readCollection("jobs")).find((j) => j.id === id) ?? null,
+    (data) => (data ? mapJob(data as Record<string, unknown>) : null),
+  );
 }
 
 export async function saveJob(input: Partial<JobOpening> & { title: string; slug: string; department: string; location: string; type: string }) {
@@ -197,43 +203,35 @@ export async function deleteJob(id: string) {
 }
 
 export async function listPublishedPosts(): Promise<BlogPost[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("blog_posts").select("*").eq("published", true).order("date", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapPost(row as Record<string, unknown>));
-  }
-  return (await readCollection("blog_posts")).filter((p) => p.published);
+  return queryOrFallback(
+    (db) => db.from("blog_posts").select("*").eq("published", true).order("date", { ascending: false }),
+    async () => (await readCollection("blog_posts")).filter((p) => p.published),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapPost(row)),
+  );
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("blog_posts").select("*").eq("slug", slug).eq("published", true).maybeSingle();
-    if (error) throw error;
-    return data ? mapPost(data as Record<string, unknown>) : null;
-  }
-  return (await readCollection("blog_posts")).find((p) => p.slug === slug && p.published) ?? null;
+  return queryOrFallback(
+    (db) => db.from("blog_posts").select("*").eq("slug", slug).eq("published", true).maybeSingle(),
+    async () => (await readCollection("blog_posts")).find((p) => p.slug === slug && p.published) ?? null,
+    (data) => (data ? mapPost(data as Record<string, unknown>) : null),
+  );
 }
 
 export async function listAllPosts(): Promise<BlogPost[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("blog_posts").select("*").order("date", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapPost(row as Record<string, unknown>));
-  }
-  return readCollection("blog_posts");
+  return queryOrFallback(
+    (db) => db.from("blog_posts").select("*").order("date", { ascending: false }),
+    () => readCollection("blog_posts"),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapPost(row)),
+  );
 }
 
 export async function getPostById(id: string): Promise<BlogPost | null> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("blog_posts").select("*").eq("id", id).maybeSingle();
-    if (error) throw error;
-    return data ? mapPost(data as Record<string, unknown>) : null;
-  }
-  return (await readCollection("blog_posts")).find((p) => p.id === id) ?? null;
+  return queryOrFallback(
+    (db) => db.from("blog_posts").select("*").eq("id", id).maybeSingle(),
+    async () => (await readCollection("blog_posts")).find((p) => p.id === id) ?? null,
+    (data) => (data ? mapPost(data as Record<string, unknown>) : null),
+  );
 }
 
 export async function savePost(input: Partial<BlogPost> & { title: string; slug: string }) {
@@ -272,23 +270,19 @@ export async function deletePost(id: string) {
 }
 
 export async function listPublishedTestimonials(): Promise<Testimonial[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("testimonials").select("*").eq("published", true).order("sort_order");
-    if (error) throw error;
-    return (data ?? []).map((row) => mapTestimonial(row as Record<string, unknown>));
-  }
-  return (await readCollection("testimonials")).filter((t) => t.published);
+  return queryOrFallback(
+    (db) => db.from("testimonials").select("*").eq("published", true).order("sort_order"),
+    async () => (await readCollection("testimonials")).filter((t) => t.published),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapTestimonial(row)),
+  );
 }
 
 export async function listAllTestimonials(): Promise<Testimonial[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("testimonials").select("*").order("sort_order");
-    if (error) throw error;
-    return (data ?? []).map((row) => mapTestimonial(row as Record<string, unknown>));
-  }
-  return readCollection("testimonials");
+  return queryOrFallback(
+    (db) => db.from("testimonials").select("*").order("sort_order"),
+    () => readCollection("testimonials"),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapTestimonial(row)),
+  );
 }
 
 export async function saveTestimonial(input: Partial<Testimonial> & { quote: string; name: string; role: string; company: string }) {
@@ -362,13 +356,11 @@ export async function createInquiry(input: Omit<Inquiry, "id" | "createdAt" | "s
 }
 
 export async function listInquiries(): Promise<Inquiry[]> {
-  const db = await supabaseRead();
-  if (db) {
-    const { data, error } = await db.from("inquiries").select("*").order("created_at", { ascending: false });
-    if (error) throw error;
-    return (data ?? []).map((row) => mapInquiry(row as Record<string, unknown>));
-  }
-  return readCollection("inquiries");
+  return queryOrFallback(
+    (db) => db.from("inquiries").select("*").order("created_at", { ascending: false }),
+    () => readCollection("inquiries"),
+    (data) => ((data as Record<string, unknown>[] | null) ?? []).map((row) => mapInquiry(row)),
+  );
 }
 
 export async function updateInquiryStatus(id: string, status: InquiryStatus) {

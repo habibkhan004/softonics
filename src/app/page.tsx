@@ -7,7 +7,7 @@ import ProcessSteps from "@/components/sections/home/ProcessSteps";
 import Testimonials from "@/components/sections/home/Testimonials";
 import TechStack from "@/components/sections/home/TechStack";
 import TeamSection from "@/components/sections/shared/TeamSection";
-import CtaBanner from "@/components/sections/shared/CtaBanner";
+import VisionCta from "@/components/sections/shared/VisionCta";
 import { listFeaturedProjects, listPublishedTestimonials } from "@/lib/queries";
 
 export const dynamic = "force-dynamic";
@@ -26,7 +26,7 @@ export default async function Home() {
       <TeamSection />
       <Testimonials items={testimonials} />
       <TechStack />
-      <CtaBanner />
+      <VisionCta />
     </>
   );
 }

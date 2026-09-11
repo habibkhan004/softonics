@@ -3,13 +3,13 @@ import Image from "next/image";
 import { Hammer, Eye, Zap, Handshake } from "lucide-react";
 import PageHero from "@/components/sections/shared/PageHero";
 import CtaBanner from "@/components/sections/shared/CtaBanner";
+import TeamSection from "@/components/sections/shared/TeamSection";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import StatCard from "@/components/ui/StatCard";
 import MotionReveal from "@/components/ui/MotionReveal";
 import { stats } from "@/lib/data/stats";
-import { team } from "@/lib/data/team";
 import { aboutImages } from "@/lib/images";
 import { brand } from "@/lib/brand";
 
@@ -119,25 +119,7 @@ export default function AboutPage() {
         </MotionReveal>
       </SectionWrapper>
 
-      <SectionWrapper grid>
-        <SectionHeading eyebrow="The Team" title="Leaders behind the work" gradientWord="behind the work" />
-        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((member, i) => (
-            <MotionReveal key={member.name} delay={(i % 4) * 0.08}>
-              <Card className="text-center" hover={false}>
-                <div
-                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full text-lg font-semibold text-black"
-                  style={{ backgroundImage: "var(--gradient-brand)" }}
-                >
-                  {member.initials}
-                </div>
-                <h3 className="mt-4 text-sm font-semibold text-foreground">{member.name}</h3>
-                <p className="mt-1 text-xs text-foreground-muted">{member.role}</p>
-              </Card>
-            </MotionReveal>
-          ))}
-        </div>
-      </SectionWrapper>
+      <TeamSection />
 
       <CtaBanner />
     </>

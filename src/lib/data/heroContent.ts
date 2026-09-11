@@ -5,13 +5,11 @@ export interface HeroHeadlineLine {
 }
 
 export const heroContent: {
-  eyebrow: string;
   headline: HeroHeadlineLine[];
   subtitle: string;
   ctaLabel: string;
   ctaHref: string;
 } = {
-  eyebrow: "Software · Web · Mobile · SEO",
   // Line breaks are intentional — the display type is not meant to auto-wrap on desktop,
   // so lines are kept short enough to hold on one line at the largest size.
   headline: [

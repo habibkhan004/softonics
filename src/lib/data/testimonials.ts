@@ -1,5 +1,13 @@
 import type { Testimonial } from "@/lib/types";
 
+/**
+ * Placeholder portraits — stock photos of unrelated people standing in for client
+ * headshots. Replace with real (permitted) photos before the site goes public.
+ */
+function portrait(id: string) {
+  return `https://images.unsplash.com/photo-${id}?q=80&w=400&auto=format&fit=crop`;
+}
+
 export const testimonials: Testimonial[] = [
   {
     id: "tst-0001-0000-4000-8000-000000000001",
@@ -8,6 +16,7 @@ export const testimonials: Testimonial[] = [
     name: "Elena Marsh",
     role: "VP of Engineering",
     company: "Vantage Retail Group",
+    photo: portrait("1519085360753-af0119f7cbe7"),
     published: true,
     sortOrder: 1,
   },
@@ -18,16 +27,18 @@ export const testimonials: Testimonial[] = [
     name: "Daniel Osei",
     role: "Co-Founder & CTO",
     company: "Helios Robotics",
+    photo: portrait("1568602471122-7832951cc4c5"),
     published: true,
     sortOrder: 2,
   },
   {
     id: "tst-0003-0000-4000-8000-000000000003",
     quote:
-      "The RAG-based decisioning assistant they built has become the single most-used internal tool at our company. Auditors love the transparency.",
+      "The internal reporting platform they built has become the single most-used tool at our company. Auditors love the transparency.",
     name: "Priya Nataraj",
     role: "Head of Data Science",
     company: "Northwind Analytics",
+    photo: portrait("1580489944761-15a19d654956"),
     published: true,
     sortOrder: 3,
   },
@@ -38,6 +49,7 @@ export const testimonials: Testimonial[] = [
     name: "Marcus Webb",
     role: "Director of Growth",
     company: "BrightPath Education",
+    photo: portrait("1531427186611-ecfd6d936c79"),
     published: true,
     sortOrder: 4,
   },
@@ -48,6 +60,7 @@ export const testimonials: Testimonial[] = [
     name: "Sofia Reyes",
     role: "Head of Platform",
     company: "Cascade Logistics",
+    photo: portrait("1607746882042-944635dfe10e"),
     published: true,
     sortOrder: 5,
   },

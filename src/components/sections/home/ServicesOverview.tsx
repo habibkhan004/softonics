@@ -1,38 +1,69 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import Card from "@/components/ui/Card";
-import SectionHeading from "@/components/ui/SectionHeading";
-import SectionWrapper from "@/components/ui/SectionWrapper";
+import CTAButton from "@/components/ui/CTAButton";
+import GridBackground from "@/components/ui/GridBackground";
 import MotionReveal from "@/components/ui/MotionReveal";
+import ServiceArtwork from "@/components/sections/home/ServiceArtwork";
 import { services } from "@/lib/data/services";
 
 export default function ServicesOverview() {
   return (
-    <SectionWrapper grid>
-      <SectionHeading
-        eyebrow="What We Do"
-        title="Everything a modern software partner should offer"
-        gradientWord="modern software partner"
-        subtitle="From first line of code to long-term growth, we cover the full stack of what a software company needs to deliver."
-      />
+    /*
+     * Note: no `overflow-hidden` on this section — it would break the sticky left column.
+     * That's why this doesn't use SectionWrapper.
+     */
+    <section className="relative border-y border-border/60 py-16 sm:py-24">
+      <GridBackground />
 
-      <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, i) => (
-          <MotionReveal key={service.slug} delay={(i % 3) * 0.08}>
-            <Card className="h-full">
-              <service.icon className="h-9 w-9 text-accent-blue" strokeWidth={1.5} />
-              <h3 className="mt-5 text-lg font-semibold text-foreground">{service.title}</h3>
-              <p className="mt-2 text-sm text-foreground-muted">{service.shortDescription}</p>
-              <Link
-                href={`/services/${service.slug}`}
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-blue transition-opacity hover:opacity-80"
-              >
-                Learn more <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </Card>
-          </MotionReveal>
-        ))}
+      <div className="app-container relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,40fr)_minmax(0,60fr)] lg:items-start lg:gap-14">
+        {/* Left column stays pinned while the cards scroll past it. */}
+        <div className="text-center lg:sticky lg:top-28 lg:self-start lg:text-left">
+          <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[Our Services]</p>
+
+          <h2 className="font-hero mt-6 text-[1.9rem] leading-[1.12] sm:text-[2.4rem] lg:text-[2.9rem]">
+            <span className="block text-accent-indigo">Focus on what matters.</span>
+            <span className="block text-white">Ship the work that moves the business.</span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-[520px] text-[15px] leading-[1.6] text-foreground-muted sm:text-[17px] lg:mx-0">
+            Six disciplines under one roof, staffed by senior people. Start with one and add the rest as you
+            grow — the same team carries the context through instead of handing it off.
+          </p>
+
+          <div className="mt-8 flex justify-center lg:justify-start">
+            <CTAButton href="/services" variant="outline">
+              All services
+            </CTAButton>
+          </div>
+        </div>
+
+        {/* Right column — the scrolling stack. */}
+        <div className="flex flex-col gap-4">
+          {services.map((service, i) => (
+            <MotionReveal key={service.slug} delay={0.05}>
+              <article className="relative rounded-sm bg-surface p-6 sm:p-8">
+                <span className="absolute right-6 top-6 font-mono text-[13px] text-accent-indigo">
+                  [{String(i + 1).padStart(2, "0")}]
+                </span>
+
+                <ServiceArtwork icon={service.icon} index={i} />
+
+                <h3 className="font-hero mt-6 text-[1.3rem] text-white sm:text-[1.6rem]">{service.title}</h3>
+
+                <p className="mt-3 max-w-[560px] text-[15px] leading-[1.6] text-foreground-muted sm:text-[17px]">
+                  {service.shortDescription}
+                </p>
+
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="mt-5 inline-block text-[15px] text-accent-indigo underline underline-offset-4 transition-opacity hover:opacity-75"
+                >
+                  Read more
+                </Link>
+              </article>
+            </MotionReveal>
+          ))}
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

@@ -23,7 +23,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         title="Everything a modern software partner should offer"
         gradientWord="modern software partner"
-        subtitle="Seven disciplines, one accountable team — from first architecture diagram to long-term growth."
+        subtitle="Six disciplines, one accountable team — from first architecture diagram to long-term growth."
       />
 
       <SectionWrapper className="pt-0">

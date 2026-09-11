@@ -43,7 +43,7 @@ export default function LogoStrip() {
       </MotionReveal>
 
       <div className="group mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused]">
+        <div className="flex w-max animate-marquee gap-4">
           <LogoRow />
           <LogoRow ariaHidden />
         </div>

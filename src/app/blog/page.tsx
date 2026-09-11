@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: `Insights on software engineering, AI, SEO, and WordPress from the ${brand.legalName} team.`,
+  description: `Insights on software engineering, SEO, and WordPress from the ${brand.legalName} team.`,
 };
 
 export default async function BlogPage() {
@@ -24,8 +24,8 @@ export default async function BlogPage() {
     <>
       <PageHero
         eyebrow="Blog"
-        title="Insights on software, AI, and growth"
-        gradientWord="AI, and growth"
+        title="Insights on software, the web, and growth"
+        gradientWord="the web, and growth"
         subtitle={`Notes from the engineers, designers, and strategists building at ${brand.legalName}.`}
       />
 

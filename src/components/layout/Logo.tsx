@@ -48,7 +48,7 @@ export default function Logo({
       </span>
       <span className="flex min-w-0 flex-col leading-none">
         <span
-          className={`font-hero text-[14px] tracking-[0.16em] sm:text-[15px] sm:tracking-[0.18em] ${
+          className={`font-display text-[14px] font-semibold tracking-[0.18em] sm:text-[15px] sm:tracking-[0.2em] ${
             inverted ? "text-paper" : "text-foreground"
           }`}
         >

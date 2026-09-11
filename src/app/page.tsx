@@ -6,6 +6,7 @@ import FeaturedProjects from "@/components/sections/home/FeaturedProjects";
 import ProcessSteps from "@/components/sections/home/ProcessSteps";
 import Testimonials from "@/components/sections/home/Testimonials";
 import TechStack from "@/components/sections/home/TechStack";
+import TeamSection from "@/components/sections/shared/TeamSection";
 import CtaBanner from "@/components/sections/shared/CtaBanner";
 import { listFeaturedProjects, listPublishedTestimonials } from "@/lib/queries";
 
@@ -22,6 +23,7 @@ export default async function Home() {
       <WhyChooseUs />
       <FeaturedProjects projects={featured} />
       <ProcessSteps />
+      <TeamSection />
       <Testimonials items={testimonials} />
       <TechStack />
       <CtaBanner />

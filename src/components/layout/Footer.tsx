@@ -60,7 +60,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-foreground">Stay in the loop</h3>
             <p className="mt-4 text-sm text-foreground-muted">
-              Occasional notes on software, AI, and SEO. No spam.
+              Occasional notes on software, the web, and SEO. No spam.
             </p>
             <form className="mt-4 flex flex-col gap-2" action={submitNewsletterAction}>
               <input

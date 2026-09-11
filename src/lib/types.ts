@@ -77,6 +77,8 @@ export interface Testimonial {
   company: string;
   published: boolean;
   sortOrder: number;
+  /** Optional portrait. Falls back to an initials avatar when absent. */
+  photo?: string;
 }
 
 export interface Stat {
@@ -172,6 +174,11 @@ export interface TeamMember {
   name: string;
   role: string;
   initials: string;
+  /** Shown on card hover. */
+  bio: string;
+  linkedin: string;
+  /** Optional portrait. Falls back to a monogram tile when absent. */
+  photo?: string;
 }
 
 export interface NavLink {

@@ -9,10 +9,10 @@ export const projects: Project[] = [
     client: "Vantage Retail Group",
     category: "E-Commerce",
     industry: "Retail",
-    tags: ["Next.js", "Shopify Plus", "AI Search"],
+    tags: ["Next.js", "Shopify Plus", "Semantic Search"],
     techStack: ["Next.js", "Shopify Plus", "Algolia + embeddings", "Vercel", "Segment"],
     summary:
-      "Migrated a legacy monolithic storefront to a headless Next.js front-end over Shopify Plus, with an AI-powered semantic search replacing basic keyword matching.",
+      "Migrated a legacy monolithic storefront to a headless Next.js front-end over Shopify Plus, with a semantic search layer replacing basic keyword matching.",
     overview:
       "Vantage Retail is a multi-brand group whose holiday traffic routinely 4x's weekday volume. Their Magento storefront was the bottleneck: slow mobile LCP, a search experience that missed intent, and a merchandising team that couldn't ship a campaign without an engineering ticket. We replatformed the customer-facing experience without freezing the catalog mid-season.",
     challenge:

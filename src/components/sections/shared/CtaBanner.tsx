@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import Button from "@/components/ui/Button";
+import CTAButton from "@/components/ui/CTAButton";
 import MotionReveal from "@/components/ui/MotionReveal";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 
@@ -15,21 +14,17 @@ export default function CtaBanner({
   return (
     <SectionWrapper className="pt-0">
       <MotionReveal>
-        <div className="glass-card relative overflow-hidden rounded-3xl px-5 py-12 text-center sm:px-16 sm:py-16">
-          <div
-            className="glow-orb glow-orb-violet h-[320px] w-[320px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            aria-hidden="true"
-          />
-          <div className="relative z-10">
-            <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">{title}</h2>
-            <p className="mx-auto mt-4 max-w-xl text-foreground-muted text-balance">{subtitle}</p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button href="/contact" size="lg">
-                Start a Project <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button href="/projects" variant="outline" size="lg">
+        <div className="relative overflow-hidden rounded-sm border border-border bg-surface px-6 py-14 sm:px-14 sm:py-16">
+          <div className="relative z-10 max-w-2xl">
+            <h2 className="display-type text-[1.75rem] text-white sm:text-[2.5rem]">{title}</h2>
+            <p className="mt-5 max-w-[650px] text-[16px] leading-[1.55] text-foreground-muted sm:text-[18px]">
+              {subtitle}
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <CTAButton href="/contact">Start a Project</CTAButton>
+              <CTAButton href="/projects" variant="outline">
                 View Our Work
-              </Button>
+              </CTAButton>
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </span>
           </div>
 
-          <h1 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl md:text-5xl">
+          <h1 className="display-type mt-5 max-w-3xl text-[1.9rem] text-white sm:text-[2.75rem]">
             {post.title}
           </h1>
 
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </MotionReveal>
 
         <MotionReveal delay={0.1}>
-          <div className="relative mt-10 h-64 w-full overflow-hidden rounded-3xl sm:h-96">
+          <div className="relative mt-10 h-64 w-full overflow-hidden rounded-sm sm:h-96">
             <Image src={post.coverImage} alt={post.title} fill priority sizes="100vw" className="object-cover" />
           </div>
         </MotionReveal>
@@ -95,8 +95,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </SectionWrapper>
 
       {related.length > 0 && (
-        <SectionWrapper glow="indigo">
-          <h2 className="text-2xl font-semibold text-foreground">Related Reading</h2>
+        <SectionWrapper grid>
+          <h2 className="display-type text-2xl text-white">Related Reading</h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {related.map((r) => {
               const Icon = postIcon(r.category);
@@ -104,7 +104,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <Link
                   key={r.slug}
                   href={`/blog/${r.slug}`}
-                  className="glass-card group flex items-center gap-4 rounded-2xl p-5 transition-colors hover:bg-surface-hover"
+                  className="glass-card group flex items-center gap-4 rounded-sm p-5 transition-colors hover:bg-surface-hover"
                 >
                   <Icon className="h-8 w-8 shrink-0 text-accent-blue" strokeWidth={1.5} />
                   <div>

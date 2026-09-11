@@ -28,7 +28,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
           <button
             key={cat}
             onClick={() => setActive(cat)}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+            className={`rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
               active === cat ? "border-transparent text-black" : "border-border text-foreground-muted hover:text-foreground"
             }`}
             style={active === cat ? { backgroundImage: "var(--gradient-brand)" } : undefined}
@@ -41,7 +41,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
       <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
         {filtered.map((project, i) => (
           <MotionReveal key={project.slug} delay={(i % 2) * 0.08}>
-            <Link href={`/projects/${project.slug}`} className="group block overflow-hidden rounded-3xl border border-border">
+            <Link href={`/projects/${project.slug}`} className="group block overflow-hidden rounded-sm border border-border">
               <div className="relative h-64 w-full overflow-hidden">
                 <Image
                   src={project.coverImage}
@@ -60,11 +60,11 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   <Badge>{project.category}</Badge>
                   <span className="text-xs text-foreground-muted">{project.industry}</span>
                 </div>
-                <h3 className="mt-3 font-display text-2xl font-semibold group-hover:text-accent-blue">{project.title}</h3>
+                <h3 className="mt-3 text-xl font-medium group-hover:text-accent-indigo">{project.title}</h3>
                 <p className="mt-1 text-sm text-foreground-muted">{project.client}</p>
                 <p className="mt-3 text-sm text-foreground-muted">{project.summary}</p>
                 {project.metrics[0] && (
-                  <p className="mt-4 font-display text-xl font-bold text-accent-blue">
+                  <p className="mt-4 display-type text-xl text-accent-indigo">
                     {project.metrics[0].value}{" "}
                     <span className="text-sm font-medium text-foreground-muted">{project.metrics[0].label}</span>
                   </p>

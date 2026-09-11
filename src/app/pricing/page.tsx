@@ -29,7 +29,7 @@ export default function PricingPage() {
           {pricingTiers.map((tier, i) => (
             <MotionReveal key={tier.name} delay={i * 0.1}>
               <div
-                className={`relative flex h-full flex-col rounded-2xl p-8 ${
+                className={`relative flex h-full flex-col rounded-sm p-8 ${
                   tier.highlighted
                     ? "border-2 border-accent-indigo/60 bg-surface"
                     : "glass-card"
@@ -37,7 +37,7 @@ export default function PricingPage() {
               >
                 {tier.highlighted && (
                   <span
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-xs font-semibold text-black"
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-md px-3 py-1 text-xs font-semibold text-black"
                     style={{ backgroundImage: "var(--gradient-brand)" }}
                   >
                     Most Popular
@@ -80,7 +80,7 @@ export default function PricingPage() {
         </MotionReveal>
       </SectionWrapper>
 
-      <SectionWrapper glow="blue">
+      <SectionWrapper grid>
         <SectionHeading eyebrow="FAQ" title="Common pricing questions" gradientWord="pricing questions" />
         <div className="mt-14">
           <PricingFaq items={pricingFaqs} />

@@ -8,7 +8,7 @@ import { services } from "@/lib/data/services";
 
 export default function ServicesOverview() {
   return (
-    <SectionWrapper glow="indigo">
+    <SectionWrapper grid>
       <SectionHeading
         eyebrow="What We Do"
         title="Everything a modern software partner should offer"

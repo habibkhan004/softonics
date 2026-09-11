@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, Syne } from "next/font/google";
+import { Archivo_Black, Geist, Geist_Mono, Instrument_Serif, Syne } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "@/components/layout/MotionProvider";
 import SiteChrome from "@/components/layout/SiteChrome";
@@ -26,6 +26,12 @@ const instrument = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: "italic",
+});
+
+const archivoBlack = Archivo_Black({
+  variable: "--font-archivo-black",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const viewport: Viewport = {
@@ -55,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${instrument.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${instrument.variable} ${archivoBlack.variable} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col bg-background font-sans text-foreground">
         <div className="grain-overlay" aria-hidden="true" />

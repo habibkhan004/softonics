@@ -1,28 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --background-elevated: #faf9f6;
-  --surface: #f7f2f2;
-  --surface-hover: #efece1;
-  --border: #e4dfd0;
-  --foreground: #0f0e0b;
-  --foreground-muted: #5c584e;
+  --background: #111522;
+  --background-elevated: #171c2c;
+  --surface: #222838;
+  --surface-hover: #2a3143;
+  --border: #2b3346;
+  --foreground: #ffffff;
+  --foreground-muted: #9ca8bd;
 
-  --accent-indigo: #b78f0c;
-  --accent-violet: #886304;
-  --accent-blue: #cb950a;
-  --ink: #0f0e0b;
-  --paper: #faf9f6;
+  /* Accent green is the single brand accent; violet is reserved for 3D artwork. */
+  --accent-indigo: #65df80;
+  --accent-violet: #7313eb;
+  --accent-blue: #65df80;
+  --ink: #111522;
+  --paper: #ffffff;
 
-  --gradient-brand: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo) 45%, var(--accent-violet));
-  --gradient-radial-glow: radial-gradient(circle at 50% 0%, rgba(201, 162, 39, 0.22), transparent 60%);
+  --grid-line: rgba(150, 160, 180, 0.1);
+
+  /* Flat green — the reference uses solid accent fills, not gradients. */
+  --gradient-brand: linear-gradient(135deg, var(--accent-indigo), var(--accent-indigo));
+  --gradient-radial-glow: radial-gradient(circle at 50% 0%, rgba(101, 223, 128, 0.16), transparent 60%);
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
   overflow-x: clip;
 }
+
+/*
+ * Display face. The reference uses PP Formula (Pangram Pangram, commercial licence) —
+ * it is not present in this repo and cannot be fetched from a CDN. Archivo Black is the
+ * closest freely available 900-weight grotesque and is loaded via next/font.
+ * To switch to the real face: drop PP-Formula.woff2 into /public/fonts/ and uncomment
+ * the block below — no other change is needed, the stack already prefers it.
+ */
+/*
+@font-face {
+  font-family: "PP Formula";
+  src: url("/fonts/PP-Formula.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+*/
 
 @theme inline {
   --color-background: var(--background);
@@ -41,6 +62,7 @@ html {
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-syne);
   --font-serif: var(--font-instrument);
+  --font-hero: "PP Formula", var(--font-archivo-black), Arial, system-ui, sans-serif;
   --radius-xl: 1.25rem;
   --radius-2xl: 1.75rem;
 }
@@ -59,8 +81,13 @@ canvas {
   max-width: 100%;
 }
 
+/*
+ * Headings default to the body sans — matching the reference, where only the large
+ * editorial headings use the display face (via .display-type / .display-hero) and
+ * card titles stay in the clean sans.
+ */
 h1, h2, h3, h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
 }
 
 .gradient-text {
@@ -81,7 +108,7 @@ h1, h2, h3, h4 {
   position: absolute;
   border-radius: 9999px;
   filter: blur(90px);
-  opacity: 0.2;
+  opacity: 0.35;
   pointer-events: none;
   z-index: 0;
 }
@@ -100,9 +127,55 @@ h1, h2, h3, h4 {
 
 .grid-pattern {
   background-image:
-    linear-gradient(color-mix(in oklab, var(--foreground) 8%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in oklab, var(--foreground) 8%, transparent) 1px, transparent 1px);
+    linear-gradient(color-mix(in oklab, var(--foreground) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--foreground) 10%, transparent) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+/* Technical layout grid — large cells, barely-there lines. Sits behind all content. */
+.tech-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--tech-grid-size, 240px) var(--tech-grid-size, 240px);
+  background-position: center top;
+}
+
+/* Editorial display type — page and section headings across the site. */
+.display-type {
+  font-family: var(--font-hero);
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.03;
+}
+
+/* Huge editorial display type for the hero headline. */
+.display-hero {
+  font-family: var(--font-hero);
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  /* Scales with the column, capped at the reference's 92px. */
+  font-size: clamp(2.1rem, 8.5vw, 5.75rem);
+  line-height: 1;
+}
+
+.display-hero > span {
+  display: block;
+}
+
+/* Hold the intended line breaks once there is room for them. */
+@media (min-width: 768px) {
+  .display-hero {
+    font-size: clamp(2.6rem, 5.1vw, 5.75rem);
+  }
+
+  .display-hero > span {
+    white-space: nowrap;
+  }
 }
 
 .grain-overlay {
@@ -163,8 +236,8 @@ h1, h2, h3, h4 {
 }
 
 ::selection {
-  background: var(--accent-indigo);
-  color: black;
+  background: var(--accent-violet);
+  color: white;
 }
 
 .admin-root {
@@ -175,12 +248,12 @@ h1, h2, h3, h4 {
   --border: #3a3426;
   --foreground: #faf9f6;
   --foreground-muted: #a39b8a;
-  --accent-indigo: #b78f0c;
-  --accent-violet: #886304;
-  --accent-blue: #cb950a;
-  --ink: #0f0e0b;
-  --paper: #faf9f6;
-  --gradient-brand: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo) 45%, var(--accent-violet));
+  --accent-indigo: #65df80;
+  --accent-violet: #7313eb;
+  --accent-blue: #65df80;
+  --ink: #111522;
+  --paper: #ffffff;
+  --gradient-brand: linear-gradient(135deg, var(--accent-indigo), var(--accent-indigo));
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);

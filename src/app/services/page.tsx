@@ -32,7 +32,7 @@ export default function ServicesPage() {
             <MotionReveal key={service.slug} delay={(i % 2) * 0.1}>
               <Card className="scroll-mt-24" id={service.slug}>
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr]">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-indigo/10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-accent-indigo/10">
                     <service.icon className="h-7 w-7 text-accent-blue" strokeWidth={1.5} />
                   </div>
                   <div>
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper glow="indigo">
+      <SectionWrapper grid>
         <SectionHeading
           eyebrow="How We Work"
           title="A process built for predictable delivery"

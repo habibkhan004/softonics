@@ -68,11 +68,11 @@ export default function Footer() {
                 name="email"
                 required
                 placeholder="you@company.com"
-                className="rounded-full border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-foreground-muted/70 outline-none focus:border-accent-indigo/60"
+                className="rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-foreground placeholder:text-foreground-muted/70 outline-none focus:border-accent-indigo/60"
               />
               <button
                 type="submit"
-                className="rounded-full px-4 py-2.5 text-sm font-medium text-black transition-opacity hover:opacity-90"
+                className="rounded-md px-4 py-2.5 text-sm font-medium text-black transition-opacity hover:opacity-90"
                 style={{ backgroundImage: "var(--gradient-brand)" }}
               >
                 Subscribe

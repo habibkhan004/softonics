@@ -63,7 +63,7 @@ export default function ContactPage() {
                 </div>
               </Card>
 
-              <div className="glass-card grid-pattern relative flex h-48 items-center justify-center overflow-hidden rounded-2xl">
+              <div className="glass-card grid-pattern relative flex h-48 items-center justify-center overflow-hidden rounded-sm">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-indigo/10 via-transparent to-accent-violet/10" />
                 <div className="relative text-center">
                   <MapPin className="mx-auto h-6 w-6 text-accent-blue" />

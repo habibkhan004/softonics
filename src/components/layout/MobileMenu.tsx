@@ -51,7 +51,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           transition={{ duration: 0.28 }}
           className="fixed inset-0 z-40 lg:hidden"
         >
-          <div className="absolute inset-0 bg-[#0f0e0b]" />
+          <div className="absolute inset-0 bg-background" />
           <div
             className="pointer-events-none absolute inset-0 opacity-20"
             style={{
@@ -62,7 +62,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
           />
           <div
             className="pointer-events-none absolute -left-16 top-24 h-64 w-64 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, #b78f0c, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, #65df80, transparent 70%)" }}
           />
 
           <div className="relative flex h-full min-h-0 flex-col pt-[calc(4.6rem+env(safe-area-inset-top))]">
@@ -87,7 +87,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                       <span className="font-mono text-[11px] text-accent-blue">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="font-display text-[1.65rem] font-semibold leading-none tracking-tight text-paper transition-colors group-hover:text-accent-blue">
+                      <span className="display-type text-[1.55rem] text-paper transition-colors group-hover:text-accent-blue">
                         {link.label}
                       </span>
                     </Link>
@@ -108,7 +108,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                       key={service.slug}
                       href={`/services/${service.slug}`}
                       onClick={onClose}
-                      className="rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-[13px] text-white/75 transition-colors hover:border-accent-indigo/40 hover:text-paper"
+                      className="rounded-sm border border-white/10 bg-white/5 px-3 py-2.5 text-[13px] text-white/75 transition-colors hover:border-accent-indigo/40 hover:text-paper"
                     >
                       {service.title}
                     </Link>
@@ -132,7 +132,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               <Link
                 href="/contact"
                 onClick={onClose}
-                className="mt-3 flex w-full items-center justify-between rounded-full px-5 py-3.5 text-sm font-semibold text-black"
+                className="mt-3 flex w-full items-center justify-between rounded-md px-5 py-3.5 text-sm font-semibold text-black"
                 style={{ backgroundImage: "var(--gradient-brand)" }}
               >
                 Start a Project

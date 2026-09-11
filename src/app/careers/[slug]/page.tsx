@@ -30,12 +30,12 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
         <Badge>{job.location}</Badge>
         <Badge>{job.type}</Badge>
       </div>
-      <h1 className="mt-4 font-display text-4xl font-bold sm:text-5xl">{job.title}</h1>
+      <h1 className="display-type mt-5 text-[2rem] text-white sm:text-[3rem]">{job.title}</h1>
       <p className="mt-6 max-w-3xl text-lg text-foreground-muted">{job.description}</p>
 
       <div className="mt-12 grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
         <div>
-          <h2 className="font-display text-2xl font-semibold">What you&apos;ll bring</h2>
+          <h2 className="display-type text-2xl text-white">What you&apos;ll bring</h2>
           <ul className="mt-5 flex flex-col gap-3">
             {job.requirements.map((item) => (
               <li key={item} className="flex gap-3 text-foreground-muted">
@@ -46,7 +46,7 @@ export default async function JobDetailPage({ params }: { params: Promise<{ slug
           </ul>
           {job.niceToHave.length > 0 && (
             <>
-              <h2 className="mt-10 font-display text-2xl font-semibold">Nice to have</h2>
+              <h2 className="display-type mt-10 text-2xl text-white">Nice to have</h2>
               <ul className="mt-5 flex flex-col gap-3">
                 {job.niceToHave.map((item) => (
                   <li key={item} className="flex gap-3 text-foreground-muted">

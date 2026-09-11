@@ -12,7 +12,7 @@ export default function ContactForm() {
 
   if (state?.ok) {
     return (
-      <div className="glass-card flex flex-col items-center justify-center gap-4 rounded-2xl p-10 text-center">
+      <div className="glass-card flex flex-col items-center justify-center gap-4 rounded-sm p-10 text-center">
         <CheckCircle2 className="h-12 w-12 text-accent-blue" />
         <h3 className="text-xl font-semibold text-foreground">Thanks — message received</h3>
         <p className="max-w-sm text-sm text-foreground-muted">
@@ -27,7 +27,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form action={action} className="glass-card flex flex-col gap-5 rounded-2xl p-6 sm:p-8">
+    <form action={action} className="glass-card flex flex-col gap-5 rounded-sm p-6 sm:p-8">
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -38,7 +38,7 @@ export default function ContactForm() {
             name="name"
             type="text"
             required
-            className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
+            className="rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -50,7 +50,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
-            className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
+            className="rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
           />
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function ContactForm() {
           id="company"
           name="company"
           type="text"
-          className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
+          className="rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
         />
       </div>
 
@@ -75,7 +75,7 @@ export default function ContactForm() {
           id="budget"
           name="budget"
           defaultValue=""
-          className="rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
+          className="rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none focus:border-accent-indigo/60"
         >
           <option value="" disabled>
             Select a range
@@ -98,7 +98,7 @@ export default function ContactForm() {
           required
           rows={5}
           placeholder="What are you trying to build?"
-          className="resize-none rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none placeholder:text-foreground-muted/60 focus:border-accent-indigo/60"
+          className="resize-none rounded-md border border-border bg-surface px-4 py-2.5 text-sm text-foreground outline-none placeholder:text-foreground-muted/60 focus:border-accent-indigo/60"
         />
       </div>
 
@@ -107,7 +107,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-black transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="mt-2 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium text-black transition-opacity hover:opacity-90 disabled:opacity-60"
         style={{ backgroundImage: "var(--gradient-brand)" }}
       >
         {pending ? (

@@ -10,7 +10,7 @@ export default function PricingFaq({ items }: { items: FaqItem[] }) {
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-3">
       {items.map((item, i) => (
-        <div key={item.question} className="glass-card overflow-hidden rounded-2xl">
+        <div key={item.question} className="glass-card overflow-hidden rounded-sm">
           <button
             onClick={() => setOpen(open === i ? null : i)}
             className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"

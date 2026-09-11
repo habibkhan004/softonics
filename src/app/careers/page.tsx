@@ -53,7 +53,7 @@ export default async function CareersPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper glow="indigo">
+      <SectionWrapper grid>
         <SectionHeading eyebrow="Open Roles" title="Find your next role" gradientWord="next role" />
         <div className="mt-14 flex flex-col gap-10">
           {departments.map((dept) => (
@@ -66,7 +66,7 @@ export default async function CareersPage() {
                     <MotionReveal key={job.id} delay={i * 0.05}>
                       <Link
                         href={`/careers/${job.slug}`}
-                        className="glass-card flex flex-col gap-3 rounded-2xl p-5 transition-colors hover:bg-surface-hover sm:flex-row sm:items-center sm:justify-between"
+                        className="glass-card flex flex-col gap-3 rounded-sm p-5 transition-colors hover:bg-surface-hover sm:flex-row sm:items-center sm:justify-between"
                       >
                         <div>
                           <h4 className="font-medium text-foreground">{job.title}</h4>

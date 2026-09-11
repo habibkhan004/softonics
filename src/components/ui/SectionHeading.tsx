@@ -1,6 +1,7 @@
 interface SectionHeadingProps {
   eyebrow: string;
   title: string;
+  /** Rendered in the accent green. */
   gradientWord?: string;
   subtitle?: string;
   align?: "center" | "left";
@@ -11,7 +12,7 @@ export default function SectionHeading({
   title,
   gradientWord,
   subtitle,
-  align = "center",
+  align = "left",
 }: SectionHeadingProps) {
   const alignClasses = align === "center" ? "text-center items-center mx-auto" : "text-left items-start";
 
@@ -21,22 +22,20 @@ export default function SectionHeading({
     return (
       <>
         {parts[0]}
-        <span className="gradient-text">{gradientWord}</span>
+        <span className="text-accent-indigo">{gradientWord}</span>
         {parts[1]}
       </>
     );
   };
 
   return (
-    <div className={`flex flex-col gap-4 max-w-2xl ${alignClasses}`}>
-      <span className="inline-flex w-fit items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent-blue">
-        {eyebrow}
-      </span>
-      <h2 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-foreground break-words">
+    <div className={`flex max-w-3xl flex-col gap-5 ${alignClasses}`}>
+      <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[{eyebrow}]</p>
+      <h2 className="display-type text-[1.75rem] text-white sm:text-[2.5rem] lg:text-[3rem]">
         {renderTitle()}
       </h2>
       {subtitle && (
-        <p className="text-base sm:text-lg text-foreground-muted text-balance">{subtitle}</p>
+        <p className="max-w-[650px] text-[16px] leading-[1.55] text-foreground-muted sm:text-[18px]">{subtitle}</p>
       )}
     </div>
   );

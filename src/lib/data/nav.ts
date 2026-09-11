@@ -9,6 +9,14 @@ export const primaryNavLinks: NavLink[] = [
   { label: "Blog", href: "/blog" },
 ];
 
+export const companyNavLinks: (NavLink & { description: string })[] = [
+  { label: "About", href: "/about", description: "Our story, mission, and the team behind the work." },
+  { label: "Pricing", href: "/pricing", description: "Straightforward packages and how we scope projects." },
+  { label: "Careers", href: "/careers", description: "Open roles on a remote-first, senior team." },
+  { label: "Blog", href: "/blog", description: "Notes on software, AI, and growth." },
+  { label: "Contact", href: "/contact", description: "Tell us about your project, get a reply in a day." },
+];
+
 export const footerColumns: FooterLinkColumn[] = [
   {
     title: "Services",

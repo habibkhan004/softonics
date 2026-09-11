@@ -71,7 +71,7 @@ export default function AboutPage() {
             </div>
           </MotionReveal>
           <MotionReveal delay={0.1}>
-            <div className="relative h-72 w-full overflow-hidden rounded-3xl sm:h-96">
+            <div className="relative h-72 w-full overflow-hidden rounded-sm sm:h-96">
               <Image src={aboutImages.hero} alt={`The ${brand.legalName} team collaborating`} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
             </div>
@@ -79,7 +79,7 @@ export default function AboutPage() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper glow="violet">
+      <SectionWrapper grid>
         <SectionHeading eyebrow="What We Value" title="Principles that shape every engagement" gradientWord="every engagement" />
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value, i) => (
@@ -106,11 +106,11 @@ export default function AboutPage() {
 
       <SectionWrapper className="pt-0">
         <MotionReveal>
-          <div className="relative h-56 w-full overflow-hidden rounded-3xl sm:h-72">
+          <div className="relative h-56 w-full overflow-hidden rounded-sm sm:h-72">
             <Image src={aboutImages.culture} alt={`${brand.legalName} team culture`} fill sizes="100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/30 to-transparent" />
             <div className="relative flex h-full max-w-md flex-col justify-center px-8 sm:px-12">
-              <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">Remote-first, output-focused</h3>
+              <h3 className="display-type text-2xl text-white sm:text-3xl">Remote-first, output-focused</h3>
               <p className="mt-2 text-sm text-foreground-muted">
                 We hire the best people wherever they are and measure work by what ships, not hours online.
               </p>
@@ -119,7 +119,7 @@ export default function AboutPage() {
         </MotionReveal>
       </SectionWrapper>
 
-      <SectionWrapper glow="indigo">
+      <SectionWrapper grid>
         <SectionHeading eyebrow="The Team" title="Leaders behind the work" gradientWord="behind the work" />
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member, i) => (

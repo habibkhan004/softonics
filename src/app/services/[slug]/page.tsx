@@ -55,7 +55,7 @@ export default async function ServiceDetailPage({
           </Link>
 
           <div className="mt-8 flex items-start gap-5">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-accent-indigo/10">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-sm bg-accent-indigo/10">
               <service.icon className="h-8 w-8 text-accent-blue" strokeWidth={1.5} />
             </div>
             <div>
@@ -68,7 +68,7 @@ export default async function ServiceDetailPage({
         </MotionReveal>
 
         <MotionReveal delay={0.1}>
-          <div className="relative mt-10 h-64 w-full overflow-hidden rounded-3xl sm:h-96">
+          <div className="relative mt-10 h-64 w-full overflow-hidden rounded-sm sm:h-96">
             <Image src={serviceImages[service.slug]} alt={service.title} fill priority sizes="100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
           </div>
@@ -100,7 +100,7 @@ export default async function ServiceDetailPage({
         </div>
       </SectionWrapper>
 
-      <SectionWrapper glow="indigo">
+      <SectionWrapper grid>
         <SectionHeading eyebrow="How We Work" title="What to expect, start to finish" gradientWord="start to finish" />
         <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5">
           {process.map((item, i) => (
@@ -120,7 +120,7 @@ export default async function ServiceDetailPage({
             <Link
               key={p.slug}
               href={`/projects/${p.slug}`}
-              className="glass-card group flex items-center gap-4 rounded-2xl p-5 transition-colors hover:bg-surface-hover"
+              className="glass-card group flex items-center gap-4 rounded-sm p-5 transition-colors hover:bg-surface-hover"
             >
               <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
                 <Image src={p.coverImage} alt={p.title} fill sizes="64px" className="object-cover" />
@@ -140,7 +140,7 @@ export default async function ServiceDetailPage({
               <Link
                 key={s.slug}
                 href={`/services/${s.slug}`}
-                className="glass-card group flex flex-col gap-2 rounded-2xl p-5 transition-colors hover:bg-surface-hover"
+                className="glass-card group flex flex-col gap-2 rounded-sm p-5 transition-colors hover:bg-surface-hover"
               >
                 <s.icon className="h-6 w-6 text-accent-blue" strokeWidth={1.5} />
                 <h3 className="text-sm font-medium text-foreground group-hover:text-accent-blue">{s.title}</h3>

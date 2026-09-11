@@ -36,7 +36,7 @@ export default async function BlogPage() {
             return (
               <MotionReveal key={post.slug} delay={(i % 3) * 0.08}>
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
-                  <div className="relative h-44 w-full overflow-hidden rounded-2xl">
+                  <div className="relative h-44 w-full overflow-hidden rounded-sm">
                     <Image
                       src={post.coverImage}
                       alt={post.title}

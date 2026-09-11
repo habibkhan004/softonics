@@ -10,7 +10,7 @@ import type { Project } from "@/lib/types";
 
 export default function FeaturedProjects({ projects }: { projects: Project[] }) {
   return (
-    <SectionWrapper glow="blue">
+    <SectionWrapper grid>
       <div className="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading
           eyebrow="Selected Work"
@@ -26,7 +26,7 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
       <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {projects.map((project, i) => (
           <MotionReveal key={project.slug} delay={i * 0.1}>
-            <Link href={`/projects/${project.slug}`} className="group block h-full overflow-hidden rounded-3xl border border-border">
+            <Link href={`/projects/${project.slug}`} className="group block h-full overflow-hidden rounded-sm border border-border">
               <div className="relative h-52 w-full overflow-hidden">
                 <Image
                   src={project.coverImage}
@@ -39,7 +39,7 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
               </div>
               <div className="p-5">
                 <Badge>{project.category}</Badge>
-                <h3 className="mt-3 font-display text-lg font-semibold group-hover:text-accent-blue">{project.title}</h3>
+                <h3 className="mt-3 text-lg font-medium group-hover:text-accent-indigo">{project.title}</h3>
                 <p className="mt-1 text-sm text-foreground-muted">{project.client}</p>
                 <p className="mt-3 text-sm font-medium text-accent-blue">
                   {project.metrics[0]?.value ?? project.results[0]}

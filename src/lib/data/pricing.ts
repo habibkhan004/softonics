@@ -24,7 +24,7 @@ export const pricingTiers: PricingTier[] = [
       "Dedicated 4-person cross-functional team",
       "Weekly sprint demos & roadmap planning",
       "Design, engineering & QA included",
-      "AI/ML or SEO specialist available on request",
+      "SEO specialist available on request",
       "90 days of post-launch support",
     ],
     highlighted: true,

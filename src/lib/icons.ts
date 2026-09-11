@@ -4,7 +4,6 @@ import {
   Building2,
   Code2,
   LayoutTemplate,
-  LineChart,
   type LucideIcon,
   Palette,
   Rocket,
@@ -19,7 +18,6 @@ import type { ProjectCategory } from "@/lib/types";
 export const categoryIcons: Record<ProjectCategory, LucideIcon> = {
   "Web Development": Activity,
   "Mobile Apps": Building2,
-  "AI & ML": LineChart,
   "E-Commerce": ShoppingCart,
   WordPress: LayoutTemplate,
   "SEO & Growth": Rocket,
@@ -27,7 +25,6 @@ export const categoryIcons: Record<ProjectCategory, LucideIcon> = {
 
 export const blogCategoryIcons: Record<string, LucideIcon> = {
   SEO: Search,
-  "AI & ML": BrainCircuit,
   Engineering: Server,
   Mobile: Smartphone,
   Security: ShieldCheck,

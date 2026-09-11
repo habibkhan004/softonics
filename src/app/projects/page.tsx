@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Projects & Case Studies",
   description:
-    "Selected case studies across e-commerce, AI/ML, mobile, SEO, and WordPress — with real, quantified results.",
+    "Selected case studies across e-commerce, mobile, SEO, and WordPress — with real, quantified results.",
 };
 
 export default async function ProjectsPage() {

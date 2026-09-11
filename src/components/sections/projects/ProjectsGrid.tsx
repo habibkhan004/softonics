@@ -11,7 +11,6 @@ const categories: (ProjectCategory | "All")[] = [
   "All",
   "Web Development",
   "Mobile Apps",
-  "AI & ML",
   "E-Commerce",
   "WordPress",
   "SEO & Growth",
@@ -38,16 +37,19 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
         ))}
       </div>
 
-      <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filtered.map((project, i) => (
-          <MotionReveal key={project.slug} delay={(i % 2) * 0.08}>
-            <Link href={`/projects/${project.slug}`} className="group block overflow-hidden rounded-sm border border-border">
-              <div className="relative h-64 w-full overflow-hidden">
+          <MotionReveal key={project.slug} delay={(i % 3) * 0.08}>
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group block h-full overflow-hidden rounded-sm border border-border"
+            >
+              <div className="relative h-52 w-full overflow-hidden">
                 <Image
                   src={project.coverImage}
                   alt={project.title}
                   fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
@@ -55,12 +57,12 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
                   {String(i + 1).padStart(2, "0")} / {project.year}
                 </span>
               </div>
-              <div className="bg-background-elevated p-6">
+              <div className="bg-background-elevated p-5">
                 <div className="flex items-center justify-between gap-2">
                   <Badge>{project.category}</Badge>
                   <span className="text-xs text-foreground-muted">{project.industry}</span>
                 </div>
-                <h3 className="mt-3 text-xl font-medium group-hover:text-accent-indigo">{project.title}</h3>
+                <h3 className="mt-3 text-lg font-medium group-hover:text-accent-indigo">{project.title}</h3>
                 <p className="mt-1 text-sm text-foreground-muted">{project.client}</p>
                 <p className="mt-3 text-sm text-foreground-muted">{project.summary}</p>
                 {project.metrics[0] && (

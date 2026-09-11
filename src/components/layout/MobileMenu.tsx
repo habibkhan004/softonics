@@ -82,14 +82,15 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                     <Link
                       href={link.href}
                       onClick={onClose}
-                      className="group flex items-baseline gap-4 border-b border-white/10 py-3.5"
+                      className="group flex items-center gap-4 border-b border-white/[0.07] py-4"
                     >
-                      <span className="font-mono text-[11px] text-accent-blue">
+                      <span className="font-mono text-[11px] tabular-nums text-accent-indigo/70 transition-colors group-hover:text-accent-indigo">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="display-type text-[1.55rem] text-paper transition-colors group-hover:text-accent-blue">
+                      <span className="font-hero text-[1.05rem] tracking-tight text-paper/90 transition-colors group-hover:text-accent-indigo">
                         {link.label}
                       </span>
+                      <span className="ml-auto h-px w-0 bg-accent-indigo transition-all duration-300 group-hover:w-6" />
                     </Link>
                   </motion.div>
                 ))}

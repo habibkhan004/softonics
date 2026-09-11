@@ -15,12 +15,12 @@ const socialInitials: Record<string, string> = {
 export default function Footer() {
   return (
     <footer className="relative border-t border-border">
-      <div className="mx-auto w-full min-w-0 max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="app-container py-16">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Logo variant="lockup" />
             <p className="mt-4 max-w-xs text-sm text-foreground-muted">
-              {brand.legalName} designs and builds custom software, web & mobile apps, AI/ML systems, and SEO-driven
+              {brand.legalName} designs and builds custom software, web & mobile apps, WordPress sites, and SEO-driven
               growth for ambitious teams.
             </p>
             <div className="mt-6 flex items-center gap-3">

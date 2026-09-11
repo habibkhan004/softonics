@@ -141,6 +141,14 @@ h1, h2, h3, h4 {
   background-position: center top;
 }
 
+/* Shared page container — 90% of the viewport, centred, capped on very wide screens. */
+.app-container {
+  width: 85%;
+  max-width: 1600px;
+  margin-inline: auto;
+  min-width: 0;
+}
+
 /* Editorial display type — page and section headings across the site. */
 .display-type {
   font-family: var(--font-hero);
@@ -159,7 +167,7 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   letter-spacing: -0.015em;
   /* Scales with the column, capped at the reference's 92px. */
-  font-size: clamp(2.1rem, 8.5vw, 5.75rem);
+  font-size: clamp(1.5rem, 7vw, 4rem);
   line-height: 1;
 }
 
@@ -170,7 +178,8 @@ h1, h2, h3, h4 {
 /* Hold the intended line breaks once there is room for them. */
 @media (min-width: 768px) {
   .display-hero {
-    font-size: clamp(2.6rem, 5.1vw, 5.75rem);
+    font-size: clamp(1.5rem, 4vw, 4rem);
+    line-height: 65px;
   }
 
   .display-hero > span {

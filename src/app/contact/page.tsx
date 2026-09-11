@@ -9,7 +9,7 @@ import { brand } from "@/lib/brand";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: `Get in touch with ${brand.legalName} to discuss your next software, AI/ML, or SEO project.`,
+  description: `Get in touch with ${brand.legalName} to discuss your next software, web, or SEO project.`,
 };
 
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? brand.email;

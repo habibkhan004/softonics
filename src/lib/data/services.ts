@@ -2,7 +2,6 @@ import {
   Code2,
   Globe,
   Smartphone,
-  BrainCircuit,
   Search,
   LayoutTemplate,
   Palette,
@@ -56,22 +55,6 @@ export const services: Service[] = [
       "Offline-first data sync & push notifications",
       "App Store / Play Store release management",
       "Ongoing OS-version compatibility maintenance",
-    ],
-  },
-  {
-    slug: "ai-machine-learning",
-    icon: BrainCircuit,
-    title: "AI & Machine Learning Solutions",
-    shortDescription:
-      "From predictive models to production-grade LLM applications.",
-    longDescription:
-      "From predictive analytics pipelines to custom LLM-powered chat interfaces, we design and ship ML systems using PyTorch, TensorFlow, and modern RAG architectures — not just API wrappers. We handle everything from data pipelines to model evaluation and monitoring in production.",
-    features: [
-      "Custom LLM applications & RAG pipelines",
-      "Predictive analytics & forecasting models",
-      "Computer vision & document intelligence",
-      "MLOps: training, evaluation & monitoring pipelines",
-      "AI feature integration into existing products",
     ],
   },
   {

@@ -12,7 +12,6 @@ export interface Service {
 export type ProjectCategory =
   | "Web Development"
   | "Mobile Apps"
-  | "AI & ML"
   | "E-Commerce"
   | "WordPress"
   | "SEO & Growth";
@@ -20,7 +19,6 @@ export type ProjectCategory =
 export const PROJECT_CATEGORIES: ProjectCategory[] = [
   "Web Development",
   "Mobile Apps",
-  "AI & ML",
   "E-Commerce",
   "WordPress",
   "SEO & Growth",

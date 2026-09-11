@@ -43,15 +43,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(brand.siteUrl),
   title: {
-    default: `${brand.legalName} — Custom Software, Web, AI/ML & SEO Engineering`,
+    default: `${brand.legalName} — Custom Software, Web, Mobile & SEO Engineering`,
     template: `%s | ${brand.legalName}`,
   },
   description:
-    "Desynt Digital Solutions is a full-service software company building custom software, web & mobile apps, AI/ML solutions, and SEO-driven digital growth for ambitious teams.",
+    "Desynt Digital Solutions is a full-service software company building custom software, web & mobile apps, WordPress sites, and SEO-driven growth for ambitious teams.",
   openGraph: {
-    title: `${brand.legalName} — Custom Software, Web, AI/ML & SEO Engineering`,
+    title: `${brand.legalName} — Custom Software, Web, Mobile & SEO Engineering`,
     description:
-      "Custom software, web & mobile apps, AI/ML solutions, and SEO-driven digital growth for ambitious teams.",
+      "Custom software, web & mobile apps, WordPress sites, and SEO-driven growth for ambitious teams.",
     siteName: brand.legalName,
     type: "website",
   },

@@ -100,54 +100,6 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "33333333-3333-4333-8333-333333333333",
-    slug: "northwind-analytics-loan-decisioning",
-    title: "AI-Assisted Loan Decisioning Engine",
-    client: "Northwind Analytics",
-    category: "AI & ML",
-    industry: "Fintech",
-    tags: ["Python", "PyTorch", "RAG", "AWS SageMaker"],
-    techStack: ["Python", "PyTorch", "AWS SageMaker", "pgvector", "FastAPI", "React"],
-    summary:
-      "Designed a hybrid rules + ML underwriting pipeline with a retrieval-augmented documentation assistant to help analysts explain model decisions to auditors.",
-    overview:
-      "Northwind's credit team was stuck between a brittle rules engine and a growing backlog of edge cases. Auditors wanted a paper trail; analysts wanted a model that could adapt. We built a hybrid pipeline that scores risk, explains itself, and cites the policy it used.",
-    challenge:
-      "Northwind's underwriting team relied on a rigid rules engine that couldn't adapt to new risk patterns, while manual reviews created a decision backlog. Auditors also struggled to get consistent, defensible explanations for edge-case decisions.",
-    solution:
-      "We built a hybrid pipeline combining the existing rules engine with a PyTorch risk model, deployed on SageMaker, plus a retrieval-augmented assistant that lets analysts query underlying policy documents to generate audit-ready explanations.",
-    approach: [
-      "Trained and validated a risk-scoring model against 5 years of historical outcomes",
-      "Deployed the model on AWS SageMaker with automated retraining pipelines",
-      "Built a RAG assistant over internal policy documentation for analysts",
-      "Established a full audit trail linking each decision to its contributing factors",
-    ],
-    results: [
-      "43% faster average decision turnaround",
-      "99.2% model uptime over 12 months",
-      "Full audit-trail compliance achieved",
-    ],
-    metrics: [
-      { value: "43%", label: "Faster decisions" },
-      { value: "99.2%", label: "Model uptime" },
-      { value: "5 yrs", label: "Outcomes in training set" },
-      { value: "100%", label: "Decisions with an audit trail" },
-    ],
-    year: "2024",
-    duration: "24 weeks",
-    teamSize: "8 people",
-    coverImage: projectImages["northwind-analytics-loan-decisioning"],
-    gallery: projectGalleries["northwind-analytics-loan-decisioning"],
-    featured: true,
-    published: true,
-    testimonial: {
-      quote:
-        "The RAG-based decisioning assistant they built has become the single most-used internal tool at our company. Auditors love the transparency.",
-      name: "Priya Nataraj",
-      role: "Head of Data Science",
-    },
-  },
-  {
     id: "44444444-4444-4444-8444-444444444444",
     slug: "meridian-health-patient-portal",
     title: "Patient Portal & Telehealth Platform",

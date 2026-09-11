@@ -20,23 +20,6 @@ export const jobs: JobOpening[] = [
     published: true,
   },
   {
-    id: "job-0002-0000-4000-8000-000000000002",
-    slug: "machine-learning-engineer",
-    title: "Machine Learning Engineer",
-    department: "Engineering",
-    location: "Remote",
-    type: "Full-time",
-    description:
-      "You'll design, train, and productionize models for client products — retrieval pipelines, ranking, and the unglamorous evaluation harness that makes the demo survive contact with real users.",
-    requirements: [
-      "3+ years shipping ML systems past the notebook",
-      "Python, PyTorch or similar, and a retrieval stack you've operated",
-      "Clear written communication with non-ML stakeholders",
-    ],
-    niceToHave: ["RAG in production", "SageMaker or Vertex", "Eval-driven development"],
-    published: true,
-  },
-  {
     id: "job-0003-0000-4000-8000-000000000003",
     slug: "wordpress-developer",
     title: "WordPress Developer",

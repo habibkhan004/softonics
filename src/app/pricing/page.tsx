@@ -11,7 +11,7 @@ import { pricingTiers, pricingFaqs } from "@/lib/data/pricing";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Transparent, project-based and retainer pricing for software development, AI/ML, and SEO engagements.",
+  description: "Transparent, project-based and retainer pricing for software development, web, and SEO engagements.",
 };
 
 export default function PricingPage() {

@@ -16,10 +16,10 @@ export default function HeroArtwork({ src }: { src?: string }) {
     <div className="relative w-full">
       {/* Annotations pinned around the artwork */}
       <TechnicalLabel className="absolute right-[2%] top-[22%] z-10 hidden lg:block">Apps</TechnicalLabel>
-      <TechnicalLabel className="absolute right-[1%] top-[52%] z-10 hidden lg:block">AI</TechnicalLabel>
+      <TechnicalLabel className="absolute right-[1%] top-[52%] z-10 hidden lg:block">SEO</TechnicalLabel>
       <TechnicalLabel className="absolute bottom-[2%] left-[6%] z-10 hidden lg:block">Frontends</TechnicalLabel>
       <TechnicalLabel className="absolute bottom-[2%] left-[46%] z-10 hidden lg:block">Backends</TechnicalLabel>
-      <TechnicalLabel className="absolute bottom-[2%] right-[2%] z-10 hidden lg:block">TS/React</TechnicalLabel>
+      <TechnicalLabel className="absolute bottom-[2%] right-[2%] z-10 hidden lg:block">WordPress</TechnicalLabel>
 
       <span className="absolute right-[8%] top-[17%] hidden select-none text-sm text-accent-indigo/50 lg:block">+</span>
       <span className="absolute right-[8%] top-[47%] hidden select-none text-sm text-accent-indigo/50 lg:block">+</span>

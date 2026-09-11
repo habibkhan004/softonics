@@ -23,10 +23,10 @@ export default function PageHero({ eyebrow, title, gradientWord, subtitle }: Pag
   };
 
   return (
-    <section className="relative overflow-hidden border-b border-border/60 pb-14 pt-16 sm:pb-20 sm:pt-24">
+    <section className="relative overflow-hidden border-b border-border/60 pb-12 pt-10 sm:pb-16 sm:pt-14">
       <GridBackground size={240} markers={[[72, 22], [86, 62]]} />
 
-      <div className="relative z-10 mx-auto w-full min-w-0 max-w-[1600px] px-6 sm:px-7">
+      <div className="app-container relative z-10">
         <MotionReveal>
           <p className="font-mono text-[14px] leading-none text-accent-indigo sm:text-[16px]">[{eyebrow}]</p>
         </MotionReveal>

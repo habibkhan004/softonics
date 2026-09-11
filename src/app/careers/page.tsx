@@ -15,7 +15,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: `Open roles at ${brand.legalName} — join a remote-first team building custom software, AI/ML, and growth systems.`,
+  description: `Open roles at ${brand.legalName} — join a remote-first team building custom software, web platforms, and growth systems.`,
 };
 
 const perks = [

@@ -2,7 +2,7 @@ export const brand = {
   name: "DESYNT",
   shortName: "Desynt",
   legalName: "Desynt Digital Solutions",
-  tagline: "Custom software, web & mobile apps, AI/ML, and SEO-driven growth.",
+  tagline: "Custom software, web & mobile apps, WordPress, and SEO-driven growth.",
   email: "hello@desynt.com",
   siteUrl: "https://desynt.com",
   mark: "/brand/logo-mark.png",

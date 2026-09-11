@@ -17,7 +17,7 @@ export default function Logo({
 }) {
   if (variant === "lockup") {
     return (
-      <Link href={href} className="inline-flex overflow-hidden rounded-lg bg-black">
+      <Link href={href} className="inline-flex overflow-hidden rounded-sm bg-white p-2">
         <Image
           src={brand.lockup}
           alt={brand.legalName}
@@ -33,23 +33,22 @@ export default function Logo({
   if (variant === "mark") {
     return (
       <Link href={href} className="inline-flex" aria-label={brand.legalName}>
-        <Image src={brand.mark} alt="" width={72} height={72} className="h-9 w-9 object-contain mix-blend-multiply" />
+        {/* The mark's artwork is dark, so it sits on a white chip to stay legible on the dark UI. */}
+        <span className="flex h-9 w-9 items-center justify-center rounded-sm bg-white p-1">
+          <Image src={brand.mark} alt="" width={72} height={72} className="h-full w-full object-contain" />
+        </span>
       </Link>
     );
   }
 
   return (
     <Link href={href} className="flex min-w-0 items-center gap-2.5" aria-label={brand.legalName}>
-      <Image
-        src={brand.mark}
-        alt=""
-        width={72}
-        height={72}
-        className={`h-8 w-8 shrink-0 object-contain sm:h-9 sm:w-9 ${inverted ? "brightness-0 invert" : "mix-blend-multiply"}`}
-      />
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-white p-[3px] sm:h-9 sm:w-9">
+        <Image src={brand.mark} alt="" width={72} height={72} className="h-full w-full object-contain" />
+      </span>
       <span className="flex min-w-0 flex-col leading-none">
         <span
-          className={`font-display text-[14px] font-bold tracking-[0.18em] sm:text-[15px] sm:tracking-[0.2em] ${
+          className={`font-hero text-[14px] tracking-[0.16em] sm:text-[15px] sm:tracking-[0.18em] ${
             inverted ? "text-paper" : "text-foreground"
           }`}
         >

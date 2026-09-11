@@ -23,26 +23,6 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    id: "post-0002-0000-4000-8000-000000000002",
-    slug: "rag-vs-fine-tuning",
-    title: "RAG vs Fine-Tuning: Choosing the Right AI Architecture for Your Product",
-    excerpt:
-      "When retrieval beats fine-tuning, when it doesn't, and how to prototype both before committing engineering months.",
-    category: "AI & ML",
-    date: "2026-06-02",
-    readTime: "9 min read",
-    coverImage: blogImages["rag-vs-fine-tuning"],
-    published: true,
-    author: { name: "Yuki Tanaka", role: "Head of AI & ML" },
-    content: [
-      "The RAG-vs-fine-tuning debate gets framed as an either/or decision more often than it should. In practice, the right architecture depends on what's actually changing: your data, or your desired behavior.",
-      "Retrieval-augmented generation (RAG) is the right default when your knowledge base changes frequently and you need the model to cite or ground its answers in specific documents. It's cheaper to update — you just re-index — and it gives you a natural audit trail: you can show exactly which document a claim came from.",
-      "Fine-tuning earns its cost when you need to change how the model behaves, not just what it knows — adjusting tone, teaching a consistent output format, or specializing in a narrow task where few-shot prompting isn't reliable enough. It's a heavier investment: you need labeled examples, an evaluation harness, and a retraining pipeline for when your requirements shift.",
-      "In most production systems we build, the answer is actually both: a fine-tuned model for consistent behavior and formatting, retrieving from a RAG pipeline for up-to-date, citable facts. Treating them as competing options usually means picking the wrong one.",
-      "Before committing engineering months to either, prototype with a small eval set representative of real user queries. We've seen teams fine-tune for weeks to fix a problem that a better retrieval strategy solved in days.",
-    ],
-  },
-  {
     id: "post-0003-0000-4000-8000-000000000003",
     slug: "legacy-php-migration-guide",
     title: "A Practical Guide to Migrating Legacy PHP Systems to Modern Stacks",

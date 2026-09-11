@@ -11,9 +11,9 @@ interface SectionWrapperProps {
 
 export default function SectionWrapper({ children, className = "", grid = false, id }: SectionWrapperProps) {
   return (
-    <section id={id} className={`relative overflow-hidden py-20 sm:py-28 ${className}`}>
+    <section id={id} className={`relative overflow-hidden py-16 sm:py-24 ${className}`}>
       {grid && <GridBackground size={240} />}
-      <div className="relative z-10 mx-auto w-full min-w-0 max-w-[1600px] px-6 sm:px-7">{children}</div>
+      <div className="app-container relative z-10">{children}</div>
     </section>
   );
 }

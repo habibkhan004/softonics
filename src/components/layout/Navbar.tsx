@@ -62,7 +62,7 @@ function NavDropdown({
   return (
     <div className="flex h-full items-center" onMouseEnter={onOpen} onMouseLeave={onClose}>
       <button
-        className={`flex items-center gap-1 text-[15px] transition-colors duration-200 ${
+        className={`font-hero flex items-center gap-1 text-[14px] tracking-tight transition-colors duration-200 ${
           open ? "text-accent-indigo" : "text-white hover:text-accent-indigo"
         }`}
         aria-expanded={open}
@@ -104,7 +104,7 @@ export default function Navbar() {
     <>
       {/* Mobile bar */}
       <header className="sticky top-0 z-50 border-b border-border bg-background lg:hidden">
-        <div className="flex h-16 items-center justify-between px-5 pt-[env(safe-area-inset-top)]">
+        <div className="app-container flex h-16 items-center justify-between pt-[env(safe-area-inset-top)]">
           <Logo />
           <MenuToggle open={mobileOpen} onClick={() => setMobileOpen((v) => !v)} />
         </div>
@@ -112,7 +112,7 @@ export default function Navbar() {
 
       {/* Desktop header */}
       <header className="sticky top-0 z-50 hidden w-full border-b border-border/60 bg-background lg:block">
-        <nav className="relative mx-auto flex h-20 w-full max-w-[1600px] items-center justify-between px-7">
+        <nav className="app-container relative flex h-[72px] items-center justify-between">
           <Logo />
 
           <div className="flex h-full items-center gap-9">
@@ -131,7 +131,7 @@ export default function Navbar() {
 
             <Link
               href="/projects"
-              className="text-[15px] text-white transition-colors duration-200 hover:text-accent-indigo"
+              className="font-hero text-[14px] tracking-tight text-white transition-colors duration-200 hover:text-accent-indigo"
             >
               Case Studies
             </Link>
@@ -153,7 +153,7 @@ export default function Navbar() {
               <Search className="h-4 w-4" />
             </button>
 
-            <CTAButton href="/contact" variant="outline" className="px-5 py-2.5">
+            <CTAButton href="/contact" variant="outline" className="font-hero px-5 py-2.5 text-[13px] tracking-tight">
               Get a Quote
             </CTAButton>
           </div>

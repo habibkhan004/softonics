@@ -1,4 +1,4 @@
-import { Code2, Server, BrainCircuit, LayoutTemplate, Database } from "lucide-react";
+import { Code2, Server, LayoutTemplate, Database } from "lucide-react";
 import type { TechCategory } from "@/lib/types";
 
 export const techStack: TechCategory[] = [
@@ -11,11 +11,6 @@ export const techStack: TechCategory[] = [
     category: "Backend",
     icon: Server,
     items: ["Node.js & NestJS", "Python & Django", "GraphQL & REST", "Go"],
-  },
-  {
-    category: "AI / ML",
-    icon: BrainCircuit,
-    items: ["PyTorch & TensorFlow", "LLM & RAG Pipelines", "LangChain", "OpenAI & Anthropic APIs"],
   },
   {
     category: "WordPress",

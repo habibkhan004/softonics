@@ -34,7 +34,7 @@ export default function ServiceMegaMenu({
       transition={{ duration: 0.22, ease: "easeOut" }}
       className="absolute left-0 right-0 top-full z-40 border-b border-border bg-background-elevated"
     >
-      <div className="mx-auto flex w-full max-w-[1600px] items-center gap-10 px-6 pb-8 pt-2 sm:px-7">
+      <div className="app-container flex items-center gap-10 pb-8 pt-2">
         {showArtwork && (
           <div className="hidden w-[340px] shrink-0 xl:block">
             <MenuArtwork />
@@ -49,7 +49,7 @@ export default function ServiceMegaMenu({
       </div>
 
       {footerLink && (
-        <div className="mx-auto w-full max-w-[1600px] px-6 pb-6 sm:px-7">
+        <div className="app-container pb-6">
           <Link
             href={footerLink.href}
             onClick={onNavigate}

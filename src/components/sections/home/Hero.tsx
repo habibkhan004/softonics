@@ -19,7 +19,7 @@ export default function Hero() {
         ]}
       />
 
-      <div className="relative mx-auto grid w-full max-w-[1600px] grid-cols-1 items-start gap-12 px-6 pb-20 pt-14 sm:px-7 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:items-center lg:gap-6 lg:pb-24 lg:pt-[88px]">
+      <div className="app-container relative grid grid-cols-1 items-start gap-10 pb-16 pt-8 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:items-center lg:gap-6 lg:pb-20 lg:pt-10">
         {/* Copy */}
         <div className="max-w-[700px]">
           <p className="font-mono text-[15px] leading-none text-accent-indigo sm:text-[17px]">

@@ -15,7 +15,6 @@ export const serviceImages: Record<string, string> = {
 export const projectImages: Record<string, string> = {
   "vantage-retail-headless-commerce": unsplash("1556742049-0cfed4f6a45d"),
   "helios-robotics-fleet-dashboard": unsplash("1558494949-ef010cbdcc31"),
-  "northwind-analytics-loan-decisioning": unsplash("1620121692029-d088224ddc74"),
   "meridian-health-patient-portal": unsplash("1616469829581-73993eb86b02"),
   "brightpath-seo-programmatic": unsplash("1460925895917-afdab827c52f"),
   "cascade-logistics-cloud-migration": unsplash("1581091226825-a6a2a5aee158"),
@@ -31,11 +30,6 @@ export const projectGalleries: Record<string, { url: string; caption: string }[]
     { url: unsplash("1485827404703-89b55fcc595e"), caption: "Live fleet map with anomaly overlays" },
     { url: unsplash("1518770660439-4636190af475"), caption: "Telemetry playback for a regional incident" },
     { url: unsplash("1504384308090-c894fdcc538d"), caption: "Ops center rollout in the third region" },
-  ],
-  "northwind-analytics-loan-decisioning": [
-    { url: unsplash("1551288049-bebda4e38f71"), caption: "Analyst workspace with model explanations" },
-    { url: unsplash("1460925895917-afdab827c52f"), caption: "Audit trail linking decisions to policy docs" },
-    { url: unsplash("1454165804606-c3d57bc86b40"), caption: "Hybrid rules + ML underwriting pipeline" },
   ],
   "meridian-health-patient-portal": [
     { url: unsplash("1576091160399-112ba8d25d1d"), caption: "Patient home with upcoming visits" },
@@ -56,7 +50,6 @@ export const projectGalleries: Record<string, { url: string; caption: string }[]
 
 export const blogImages: Record<string, string> = {
   "core-web-vitals-seo-2026": unsplash("1460925895917-afdab827c52f"),
-  "rag-vs-fine-tuning": unsplash("1620712943543-bcc4688e7485"),
   "legacy-php-migration-guide": unsplash("1517694712202-14dd9538aa97"),
   "react-native-vs-native-2026": unsplash("1512428813834-c702c7702b78"),
   "soc2-for-startups": unsplash("1573164713988-8665fc963095"),

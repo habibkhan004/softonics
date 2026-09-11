@@ -64,7 +64,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Since then we&apos;ve grown into a full-service partner spanning custom software, web and
-                mobile development, AI/ML systems, SEO, and WordPress — but the founding
+                mobile development, SEO, and WordPress — but the founding
                 principle hasn&apos;t changed. Every engagement is staffed by senior people, scoped honestly,
                 and delivered with the kind of transparency we wished we&apos;d gotten as clients ourselves.
               </p>

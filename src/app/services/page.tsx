@@ -13,7 +13,7 @@ import { process } from "@/lib/data/process";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom software, web & mobile development, AI/ML solutions, SEO, WordPress, and UI/UX design — everything a modern software partner should offer.",
+    "Custom software, web & mobile development, SEO, WordPress, and UI/UX design — everything a modern software partner should offer.",
 };
 
 export default function ServicesPage() {

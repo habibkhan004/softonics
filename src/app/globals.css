@@ -1,30 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #111522;
-  --background-elevated: #171c2c;
-  --surface: #222838;
-  --surface-hover: #2a3143;
-  --border: #2b3346;
-  --foreground: #ffffff;
-  --foreground-muted: #9ca8bd;
+  --background: #f5f0e4;
+  --background-elevated: #efe8d8;
+  --surface: #ece4d2;
+  --surface-hover: #e4dac4;
+  --border: #dbd1ba;
+  --foreground: #0f1211;
+  --foreground-muted: #57605a;
 
-  /* Accent green is the single brand accent; violet is reserved for 3D artwork. */
-  --accent-indigo: #65df80;
+  /* Green is the only accent in the palette. --accent-violet is a legacy token kept so
+     nothing breaks if it is referenced; no public surface uses it. */
+  --accent-indigo: #0c6b3c;
   --accent-violet: #7313eb;
-  --accent-blue: #65df80;
-  --ink: #111522;
-  --paper: #ffffff;
+  --accent-blue: #0c6b3c;
+  /* Inverse panel pair: --ink is always the dark ground, --paper the light type on it. */
+  --ink: #0f1211;
+  --paper: #f5f0e4;
 
-  --grid-line: rgba(150, 160, 180, 0.1);
+  --grid-line: rgba(30, 40, 34, 0.09);
 
   /* Flat green — the reference uses solid accent fills, not gradients. */
   --gradient-brand: linear-gradient(135deg, var(--accent-indigo), var(--accent-indigo));
-  --gradient-radial-glow: radial-gradient(circle at 50% 0%, rgba(101, 223, 128, 0.16), transparent 60%);
+  --gradient-radial-glow: radial-gradient(circle at 50% 0%, rgba(12, 107, 60, 0.12), transparent 60%);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   overflow-x: clip;
 }
 
@@ -187,7 +189,7 @@ canvas {
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: -0.015em;
-  line-height: 1.03;
+  line-height: 1;
 }
 
 /* Huge editorial display type for the hero headline. */
@@ -197,9 +199,9 @@ canvas {
   font-style: normal;
   text-transform: uppercase;
   /* Slightly open tracking + leading so the heavy face doesn't read as cramped. */
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   font-size: clamp(1.5rem, 7vw, 4rem);
-  line-height: 1.5;
+  line-height: 1;
 }
 
 .display-hero > span {
@@ -210,7 +212,7 @@ canvas {
 @media (min-width: 768px) {
   .display-hero {
     font-size: clamp(1.5rem, 4vw, 4rem);
-    line-height: 1.16;
+    line-height: 1;
   }
 
   .display-hero > span {
@@ -302,8 +304,20 @@ canvas {
 }
 
 ::selection {
-  background: var(--accent-violet);
-  color: white;
+  background: var(--accent-indigo);
+  color: var(--paper);
+}
+
+/*
+ * Inverse panels — a dark ground dropped into the cream page (case-study hero, portrait
+ * cards). The page green is tuned for cream and goes muddy on near-black, so inside these
+ * panels the accent is raised to a lighter tint. Same mechanism as .admin-root: the
+ * @theme mapping resolves var(--accent-indigo) at the use site, so it re-scopes cleanly.
+ */
+.on-ink {
+  --accent-indigo: #4ec573;
+  --accent-blue: #4ec573;
+  --border: rgba(245, 240, 228, 0.14);
 }
 
 .admin-root {

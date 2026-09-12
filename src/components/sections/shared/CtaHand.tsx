@@ -20,18 +20,18 @@ export default function CtaHand({ src, className = "" }: { src?: string; classNa
       viewBox="0 0 320 360"
       role="presentation"
       className={`animate-wave h-auto w-full ${className}`}
-      style={{ filter: "drop-shadow(0 30px 50px rgba(0,0,0,0.5))" }}
+      style={{ filter: "drop-shadow(0 30px 50px rgba(15,18,17,0.18))" }}
     >
       <defs>
         <linearGradient id="hand-body" x1="0.25" y1="0" x2="0.85" y2="1">
-          <stop offset="0%" stopColor="#a763ff" />
-          <stop offset="45%" stopColor="#7f24f0" />
-          <stop offset="100%" stopColor="#4f0fae" />
+          <stop offset="0%" stopColor="#4ec573" />
+          <stop offset="45%" stopColor="#1f8a50" />
+          <stop offset="100%" stopColor="#0b5530" />
         </linearGradient>
         <linearGradient id="hand-finger" x1="0.2" y1="0" x2="0.9" y2="1">
-          <stop offset="0%" stopColor="#b482ff" />
-          <stop offset="60%" stopColor="#8434f5" />
-          <stop offset="100%" stopColor="#5a13bd" />
+          <stop offset="0%" stopColor="#62d487" />
+          <stop offset="60%" stopColor="#2a9f5c" />
+          <stop offset="100%" stopColor="#12703f" />
         </linearGradient>
       </defs>
 
@@ -54,7 +54,7 @@ export default function CtaHand({ src, className = "" }: { src?: string; classNa
       />
 
       {/* soft interior shading */}
-      <ellipse cx="176" cy="248" rx="66" ry="54" fill="#3c0a8a" opacity="0.28" />
+      <ellipse cx="176" cy="248" rx="66" ry="54" fill="#07381f" opacity="0.3" />
       <ellipse cx="150" cy="212" rx="30" ry="18" fill="#ffffff" opacity="0.12" />
     </svg>
   );

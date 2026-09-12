@@ -15,12 +15,12 @@ export default function TestimonialArtwork({ src }: { src?: string }) {
     <svg viewBox="0 0 200 140" role="presentation" className="h-[110px] w-auto">
       <defs>
         <linearGradient id="ta-green" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8df5a4" />
-          <stop offset="100%" stopColor="#3fbe60" />
+          <stop offset="0%" stopColor="#4ec573" />
+          <stop offset="100%" stopColor="#12703f" />
         </linearGradient>
         <linearGradient id="ta-purple" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#a672ff" />
-          <stop offset="100%" stopColor="#6512d8" />
+          <stop offset="0%" stopColor="#3a4440" />
+          <stop offset="100%" stopColor="#1a211f" />
         </linearGradient>
       </defs>
 
@@ -34,7 +34,7 @@ export default function TestimonialArtwork({ src }: { src?: string }) {
       <rect x="86" y="48" width="78" height="7" fill="url(#ta-green)" />
       <rect x="86" y="62" width="52" height="7" fill="url(#ta-green)" />
       {/* folded corner */}
-      <path d="M74 96 L108 96 L74 118 Z" fill="#e4e8ef" />
+      <path d="M74 96 L108 96 L74 118 Z" fill="#ded7c6" />
 
       {/* thumbs-up */}
       <path

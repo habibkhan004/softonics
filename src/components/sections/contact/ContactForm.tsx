@@ -107,7 +107,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium text-black transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="mt-2 inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium text-paper transition-opacity hover:opacity-90 disabled:opacity-60"
         style={{ backgroundImage: "var(--gradient-brand)" }}
       >
         {pending ? (

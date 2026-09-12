@@ -18,7 +18,7 @@ export default function TechStack() {
         {techStack.map((group, i) => (
           <MotionReveal key={group.category} delay={i * 0.08}>
             <Card hover={false} className="h-full">
-              <group.icon className="h-7 w-7 text-accent-violet" strokeWidth={1.5} />
+              <group.icon className="h-7 w-7 text-accent-indigo" strokeWidth={1.5} />
               <h3 className="mt-4 text-sm font-semibold text-foreground">{group.category}</h3>
               <ul className="mt-3 flex flex-col gap-1.5">
                 {group.items.map((item) => (

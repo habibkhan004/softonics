@@ -21,7 +21,7 @@ export default function ServiceCard({
       onClick={onClick}
       className="group relative flex min-h-[132px] flex-col rounded-sm bg-surface p-4 transition-colors duration-200 hover:bg-surface-hover"
     >
-      <p className="pr-6 text-[16px] font-medium leading-snug text-white">{title}</p>
+      <p className="pr-6 text-[16px] font-medium leading-snug text-foreground">{title}</p>
       <p className="mt-1.5 text-[15px] leading-[1.5] text-foreground-muted">{description}</p>
 
       <svg

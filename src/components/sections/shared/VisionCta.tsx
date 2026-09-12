@@ -21,7 +21,7 @@ export default function VisionCta({
     <section
       className="relative isolate overflow-hidden bg-background"
       /* Lift the grid a little above the site-wide default so the room reads clearly. */
-      style={{ "--grid-line": "rgba(150, 160, 180, 0.2)" } as React.CSSProperties}
+      style={{ "--grid-line": "rgba(30, 40, 34, 0.18)" } as React.CSSProperties}
     >
       <PerspectiveRoom />
 
@@ -35,7 +35,7 @@ export default function VisionCta({
         </div>
 
         <h2 className="display-type relative text-center text-[2.4rem] leading-[1.05] sm:text-[4rem] lg:text-[5rem]">
-          <span className="text-white">{title} </span>
+          <span className="text-foreground">{title} </span>
           <span className="text-accent-indigo">{accentWord}</span>
         </h2>
 

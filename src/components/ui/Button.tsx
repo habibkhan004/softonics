@@ -31,7 +31,7 @@ const sizeClasses: Record<Size, string> = {
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "text-black shadow-[0_0_0_1px_rgba(109,218,132,0.4),0_8px_30px_-6px_rgba(109,218,132,0.45)] hover:shadow-[0_0_0_1px_rgba(109,218,132,0.6),0_0_16px_2px_rgba(109,218,132,0.5)] [&>svg:last-child]:h-6 [&>svg:last-child]:w-6 [&>svg:last-child]:shrink-0 [&>svg:last-child]:rounded-md [&>svg:last-child]:bg-ink [&>svg:last-child]:p-1 [&>svg:last-child]:text-accent-indigo",
+    "text-paper shadow-[0_0_0_1px_rgba(12,107,60,0.35),0_8px_30px_-6px_rgba(12,107,60,0.25)] hover:shadow-[0_0_0_1px_rgba(12,107,60,0.55),0_0_16px_2px_rgba(12,107,60,0.3)] [&>svg:last-child]:h-6 [&>svg:last-child]:w-6 [&>svg:last-child]:shrink-0 [&>svg:last-child]:rounded-md [&>svg:last-child]:bg-paper [&>svg:last-child]:p-1 [&>svg:last-child]:text-accent-indigo",
   outline:
     "border border-border bg-transparent text-foreground hover:bg-surface-hover hover:border-accent-indigo/50",
   ghost: "bg-transparent text-foreground-muted hover:text-foreground hover:bg-surface-hover",

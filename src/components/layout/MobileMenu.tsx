@@ -92,18 +92,18 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             className="pointer-events-none absolute inset-0 opacity-[0.18]"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+                "linear-gradient(rgba(15,18,17,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(15,18,17,0.07) 1px, transparent 1px)",
               backgroundSize: "48px 48px",
             }}
           />
           <div
-            className="pointer-events-none absolute -left-16 top-24 h-64 w-64 rounded-full opacity-30 blur-3xl"
-            style={{ background: "radial-gradient(circle, #65df80, transparent 70%)" }}
+            className="pointer-events-none absolute -left-16 top-24 h-64 w-64 rounded-full opacity-20 blur-3xl"
+            style={{ background: "radial-gradient(circle, var(--accent-indigo), transparent 70%)" }}
           />
 
           <div className="relative flex h-full min-h-0 flex-col pt-[calc(4.3rem+env(safe-area-inset-top))]">
             <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-[1.125rem] pb-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-white/40">Navigate</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground-muted">Navigate</p>
 
               <nav className="mt-5 flex flex-col">
                 {sections.map((section, i) => {
@@ -121,13 +121,13 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                         <Link
                           href={section.href}
                           onClick={onClose}
-                          className="group flex items-center gap-4 border-b border-white/[0.07] py-4"
+                          className="group flex items-center gap-4 border-b border-border py-4"
                         >
                           <span className="font-mono text-[11px] tabular-nums text-accent-indigo/70">{index}</span>
-                          <span className="text-[1.05rem] font-medium tracking-tight text-paper/90 transition-colors group-hover:text-accent-indigo">
+                          <span className="text-[1.05rem] font-medium tracking-tight text-foreground transition-colors group-hover:text-accent-indigo">
                             {section.label}
                           </span>
-                          <ArrowUpRight className="ml-auto h-4 w-4 text-white/25 transition-colors group-hover:text-accent-indigo" />
+                          <ArrowUpRight className="ml-auto h-4 w-4 text-foreground-muted transition-colors group-hover:text-accent-indigo" />
                         </Link>
                       </motion.div>
                     );
@@ -139,7 +139,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                       initial={{ opacity: 0, x: 14 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.05 + i * 0.05, duration: 0.3 }}
-                      className="border-b border-white/[0.07]"
+                      className="border-b border-border"
                     >
                       <button
                         type="button"
@@ -150,14 +150,14 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                         <span className="font-mono text-[11px] tabular-nums text-accent-indigo/70">{index}</span>
                         <span
                           className={`text-[1.05rem] font-medium tracking-tight transition-colors ${
-                            isOpen ? "text-accent-indigo" : "text-paper/90"
+                            isOpen ? "text-accent-indigo" : "text-foreground"
                           }`}
                         >
                           {section.label}
                         </span>
                         <ChevronDown
                           className={`ml-auto h-4 w-4 transition-all duration-300 ${
-                            isOpen ? "rotate-180 text-accent-indigo" : "text-white/25"
+                            isOpen ? "rotate-180 text-accent-indigo" : "text-foreground-muted"
                           }`}
                         />
                       </button>
@@ -177,9 +177,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                                   <Link
                                     href={item.href}
                                     onClick={onClose}
-                                    className="block rounded-sm border border-white/[0.07] bg-white/[0.03] px-3 py-2.5 transition-colors hover:border-accent-indigo/40 hover:bg-white/[0.06]"
+                                    className="block rounded-sm border border-border bg-surface px-3 py-2.5 transition-colors hover:border-accent-indigo/40 hover:bg-surface-hover"
                                   >
-                                    <span className="block text-[14px] font-medium text-paper/90">{item.label}</span>
+                                    <span className="block text-[14px] font-medium text-foreground">{item.label}</span>
                                     {item.description && (
                                       <span className="mt-0.5 block text-[12px] leading-snug text-foreground-muted">
                                         {item.description}
@@ -214,15 +214,15 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.3 }}
-              className="shrink-0 border-t border-white/10 px-[1.125rem] py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]"
+              className="shrink-0 border-t border-border px-[1.125rem] py-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]"
             >
-              <a href={`mailto:${brand.email}`} className="text-sm text-white/55 transition-colors hover:text-paper">
+              <a href={`mailto:${brand.email}`} className="text-sm text-foreground-muted transition-colors hover:text-accent-indigo">
                 {brand.email}
               </a>
               <Link
                 href="/contact"
                 onClick={onClose}
-                className="mt-3 flex w-full items-center justify-between rounded-md px-5 py-3.5 text-sm font-semibold text-black"
+                className="mt-3 flex w-full items-center justify-between rounded-md px-5 py-3.5 text-sm font-semibold text-paper"
                 style={{ backgroundImage: "var(--gradient-brand)" }}
               >
                 Start a Project

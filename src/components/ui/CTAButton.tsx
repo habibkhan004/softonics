@@ -26,7 +26,7 @@ export default function CTAButton({
 
   const variants: Record<Variant, string> = {
     primary:
-      "border border-accent-indigo bg-accent-indigo text-ink hover:shadow-[0_0_6px_var(--accent-indigo),inset_0_0_6px_var(--accent-indigo)]",
+      "border border-accent-indigo bg-accent-indigo text-paper hover:shadow-[0_0_6px_var(--accent-indigo),inset_0_0_6px_var(--accent-indigo)]",
     outline:
       "border border-accent-indigo bg-transparent text-accent-indigo hover:shadow-[0_0_6px_var(--accent-indigo)]",
   };
@@ -35,7 +35,7 @@ export default function CTAButton({
     <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
       {children}
       {withArrow && (
-        <span className="flex items-center justify-center rounded bg-ink p-[3px]">
+        <span className="flex items-center justify-center rounded bg-paper p-[3px]">
           <ArrowRight className="h-3.5 w-3.5 text-accent-indigo transition-transform duration-200 group-hover:translate-x-0.5" />
         </span>
       )}

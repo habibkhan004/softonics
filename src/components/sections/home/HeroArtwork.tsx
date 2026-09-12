@@ -42,41 +42,40 @@ export default function HeroArtwork({ src }: { src?: string }) {
   );
 }
 
+
+/**
+ * The hero scene: a workstation on a green stage — editor, phone and a live metrics card,
+ * i.e. the work this studio actually ships. It replaces an abstract blob composition that
+ * said nothing about the business.
+ */
 function AbstractRender() {
+  const INK = "#0f1211";
+  const GRAPHITE = "#2a3330";
+  const GREEN = "#2a9f56";
+  const GREEN_LIGHT = "#4ec573";
+  const GREEN_DEEP = "#12703f";
+  const CREAM = "#f5f0e4";
+  const MUTED = "#8e978f";
+
   return (
-    <svg
-      viewBox="0 0 720 560"
-      role="presentation"
-      className="h-auto w-full overflow-visible"
-      style={{ filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.45))" }}
-    >
+    <svg viewBox="0 0 720 560" role="presentation" className="h-auto w-full overflow-visible">
       <defs>
-        <linearGradient id="ha-green-top" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8df5a4" />
-          <stop offset="55%" stopColor="#57d977" />
-          <stop offset="100%" stopColor="#34b256" />
+        <linearGradient id="ha-stage-top" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#4ec573" />
+          <stop offset="55%" stopColor="#2a9f56" />
+          <stop offset="100%" stopColor="#167a3d" />
         </linearGradient>
-        <linearGradient id="ha-green-side" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#2fa04d" />
-          <stop offset="100%" stopColor="#1d6c34" />
+        <linearGradient id="ha-stage-side" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#12693a" />
+          <stop offset="100%" stopColor="#0a4224" />
         </linearGradient>
-        <radialGradient id="ha-purple-a" cx="32%" cy="26%" r="78%">
-          <stop offset="0%" stopColor="#a672ff" />
-          <stop offset="52%" stopColor="#7c26ec" />
-          <stop offset="100%" stopColor="#4a0da3" />
-        </radialGradient>
-        <radialGradient id="ha-purple-b" cx="36%" cy="22%" r="80%">
-          <stop offset="0%" stopColor="#b98bff" />
-          <stop offset="50%" stopColor="#8734f0" />
-          <stop offset="100%" stopColor="#51119f" />
-        </radialGradient>
         <linearGradient id="ha-paper" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="100%" stopColor="#dfe4ec" />
+          <stop offset="100%" stopColor="#e8e2d4" />
         </linearGradient>
         <radialGradient id="ha-glow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#65df80" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#65df80" stopOpacity="0" />
+          <stop offset="0%" stopColor="#0c6b3c" stopOpacity="0.14" />
+          <stop offset="100%" stopColor="#0c6b3c" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -84,69 +83,118 @@ function AbstractRender() {
       <ellipse cx="380" cy="300" rx="300" ry="210" fill="url(#ha-glow)" />
 
       {/* contact shadow */}
-      <ellipse cx="370" cy="488" rx="240" ry="26" fill="#05070d" opacity="0.55" />
+      <ellipse cx="370" cy="488" rx="240" ry="26" fill={INK} opacity="0.14" />
 
-      {/* green platform — side face then top face */}
-      <path d="M84 424 L362 500 L664 388 L664 356 L362 468 L84 392 Z" fill="url(#ha-green-side)" />
-      <path d="M84 392 L362 468 L664 356 L386 280 Z" fill="url(#ha-green-top)" />
+      {/* isometric stage — side face then top face */}
+      <path d="M84 424 L362 500 L664 388 L664 356 L362 468 L84 392 Z" fill="url(#ha-stage-side)" />
+      <path d="M84 392 L362 468 L664 356 L386 280 Z" fill="url(#ha-stage-top)" />
 
-      {/* green ribbon rising through the composition */}
-      <path
-        d="M392 286 C356 214 420 152 476 132 C438 182 420 230 438 280 Z"
-        fill="url(#ha-green-top)"
-        opacity="0.95"
-      />
-
-      {/* purple volumetric masses */}
+      {/* ---- editor window, centre ---- */}
       <g>
-        <ellipse cx="246" cy="352" rx="118" ry="98" fill="url(#ha-purple-a)" />
-        <ellipse cx="206" cy="310" rx="64" ry="56" fill="url(#ha-purple-a)" />
-        <ellipse cx="296" cy="292" rx="56" ry="50" fill="url(#ha-purple-b)" opacity="0.92" />
+        {/* stand */}
+        <path d="M352 330 h40 v40 h-40 z" fill={GRAPHITE} />
+        <ellipse cx="372" cy="372" rx="58" ry="12" fill={INK} />
+
+        <rect x="196" y="104" width="352" height="232" rx="10" fill={INK} />
+        <rect x="196" y="104" width="352" height="30" rx="10" fill={GRAPHITE} />
+        <rect x="196" y="122" width="352" height="12" fill={GRAPHITE} />
+        <circle cx="216" cy="119" r="5" fill={GREEN_LIGHT} />
+        <circle cx="232" cy="119" r="5" fill={MUTED} opacity="0.5" />
+        <circle cx="248" cy="119" r="5" fill={MUTED} opacity="0.3" />
+
+        {/* file gutter */}
+        <rect x="196" y="134" width="46" height="202" fill={GRAPHITE} opacity="0.5" />
+        <rect x="208" y="152" width="22" height="5" rx="2.5" fill={MUTED} opacity="0.45" />
+        <rect x="208" y="168" width="22" height="5" rx="2.5" fill={GREEN_LIGHT} opacity="0.8" />
+        <rect x="208" y="184" width="22" height="5" rx="2.5" fill={MUTED} opacity="0.3" />
+
+        {/* code */}
+        <rect x="262" y="152" width="92" height="8" rx="4" fill={GREEN_LIGHT} />
+        <rect x="278" y="174" width="150" height="8" rx="4" fill={MUTED} opacity="0.5" />
+        <rect x="278" y="196" width="108" height="8" rx="4" fill={GREEN} />
+        <rect x="294" y="218" width="176" height="8" rx="4" fill={MUTED} opacity="0.38" />
+        <rect x="294" y="240" width="84" height="8" rx="4" fill={GREEN} opacity="0.7" />
+        <rect x="278" y="262" width="140" height="8" rx="4" fill={MUTED} opacity="0.42" />
+        <rect x="262" y="284" width="60" height="8" rx="4" fill={GREEN_LIGHT} />
+
+        {/* blinking caret block */}
+        <rect x="332" y="284" width="12" height="10" fill={GREEN_LIGHT} opacity="0.85" />
       </g>
+
+      {/* ---- phone, left ---- */}
       <g>
-        <ellipse cx="516" cy="268" rx="110" ry="92" fill="url(#ha-purple-b)" />
-        <ellipse cx="482" cy="224" rx="58" ry="50" fill="url(#ha-purple-b)" />
-        <ellipse cx="564" cy="218" rx="48" ry="42" fill="url(#ha-purple-a)" opacity="0.9" />
+        <ellipse cx="150" cy="406" rx="52" ry="11" fill={INK} opacity="0.16" />
+        <g transform="rotate(-8 150 320)">
+          <rect x="106" y="210" width="92" height="180" rx="14" fill={INK} />
+          <rect x="114" y="226" width="76" height="146" rx="5" fill={GREEN} />
+          <rect x="138" y="217" width="28" height="5" rx="2.5" fill={GRAPHITE} />
+          <rect x="124" y="238" width="42" height="6" rx="3" fill={CREAM} opacity="0.9" />
+          <rect x="124" y="256" width="56" height="18" rx="4" fill={CREAM} opacity="0.85" />
+          <rect x="124" y="280" width="56" height="18" rx="4" fill={CREAM} opacity="0.55" />
+          <rect x="124" y="304" width="56" height="18" rx="4" fill={CREAM} opacity="0.35" />
+          <rect x="124" y="336" width="56" height="14" rx="7" fill={INK} />
+          <rect x="136" y="340.5" width="32" height="5" rx="2.5" fill={GREEN_LIGHT} />
+        </g>
       </g>
 
-      {/* specular highlights */}
-      <ellipse cx="208" cy="300" rx="28" ry="17" fill="#ffffff" opacity="0.18" />
-      <ellipse cx="488" cy="216" rx="25" ry="15" fill="#ffffff" opacity="0.2" />
+      {/* ---- metrics card, right ---- */}
+      <g>
+        <ellipse cx="580" cy="382" rx="58" ry="12" fill={INK} opacity="0.14" />
+        <g transform="rotate(7 580 300)">
+          <rect x="506" y="216" width="148" height="156" rx="8" fill="url(#ha-paper)" />
+          <rect x="522" y="234" width="62" height="7" rx="3.5" fill={GRAPHITE} opacity="0.55" />
+          <rect x="522" y="250" width="40" height="12" rx="3" fill={GREEN_DEEP} />
 
-      {/* floating paper fragments */}
+          {/* bar chart */}
+          <rect x="522" y="316" width="18" height="34" rx="2" fill={GRAPHITE} opacity="0.4" />
+          <rect x="548" y="300" width="18" height="50" rx="2" fill={GREEN_DEEP} opacity="0.65" />
+          <rect x="574" y="286" width="18" height="64" rx="2" fill={GREEN} />
+          <rect x="600" y="268" width="18" height="82" rx="2" fill={GREEN_LIGHT} />
+          <path
+            d="M528 306 L556 292 L584 276 L612 258"
+            stroke={INK}
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          />
+          <circle cx="612" cy="258" r="5" fill={INK} />
+        </g>
+      </g>
+
+      {/* ---- deploy tick, floating ---- */}
       <g className="animate-float">
-        <g transform="rotate(-14 210 96)">
-          <rect x="174" y="64" width="72" height="62" rx="4" fill="url(#ha-paper)" />
-          <rect x="186" y="80" width="46" height="4" rx="2" fill="#8f9bb3" />
-          <rect x="186" y="92" width="34" height="4" rx="2" fill="#c2cad8" />
-        </g>
+        <circle cx="596" cy="150" r="34" fill={GREEN_DEEP} />
+        <path
+          d="M581 150 L592 161 L613 138"
+          stroke={CREAM}
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
       </g>
+
+      {/* ---- floating document fragments ---- */}
       <g className="animate-float-slow">
-        <g transform="rotate(12 588 86)">
-          <rect x="554" y="56" width="66" height="58" rx="4" fill="url(#ha-paper)" />
-          <rect x="566" y="72" width="42" height="4" rx="2" fill="#8f9bb3" />
-          <rect x="566" y="84" width="28" height="4" rx="2" fill="#c2cad8" />
-        </g>
-      </g>
-      <g className="animate-float-slow">
-        <g transform="rotate(-8 646 336)">
-          <rect x="618" y="310" width="58" height="52" rx="4" fill="url(#ha-paper)" />
-          <rect x="628" y="324" width="36" height="4" rx="2" fill="#8f9bb3" />
-          <rect x="628" y="336" width="24" height="4" rx="2" fill="#c2cad8" />
+        <g transform="rotate(-14 154 106)">
+          <rect x="118" y="74" width="72" height="62" rx="4" fill="url(#ha-paper)" />
+          <rect x="130" y="90" width="46" height="4" rx="2" fill={MUTED} />
+          <rect x="130" y="102" width="34" height="4" rx="2" fill={MUTED} opacity="0.55" />
         </g>
       </g>
       <g className="animate-float">
-        <g transform="rotate(16 104 246)">
-          <rect x="76" y="220" width="54" height="50" rx="4" fill="url(#ha-paper)" />
-          <rect x="86" y="234" width="32" height="4" rx="2" fill="#8f9bb3" />
-          <rect x="86" y="246" width="22" height="4" rx="2" fill="#c2cad8" />
+        <g transform="rotate(12 428 74)">
+          <rect x="396" y="46" width="66" height="58" rx="4" fill="url(#ha-paper)" />
+          <rect x="408" y="62" width="42" height="4" rx="2" fill={MUTED} />
+          <rect x="408" y="74" width="28" height="4" rx="2" fill={MUTED} opacity="0.55" />
         </g>
       </g>
       <g className="animate-float-slow">
-        <g transform="rotate(-18 372 122)">
-          <rect x="346" y="98" width="50" height="46" rx="4" fill="url(#ha-paper)" />
-          <rect x="356" y="112" width="30" height="4" rx="2" fill="#8f9bb3" />
-          <rect x="356" y="124" width="20" height="4" rx="2" fill="#c2cad8" />
+        <g transform="rotate(-8 660 314)">
+          <rect x="632" y="288" width="58" height="52" rx="4" fill="url(#ha-paper)" />
+          <rect x="642" y="302" width="36" height="4" rx="2" fill={MUTED} />
+          <rect x="642" y="314" width="24" height="4" rx="2" fill={MUTED} opacity="0.55" />
         </g>
       </g>
     </svg>

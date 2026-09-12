@@ -54,13 +54,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </span>
           </div>
 
-          <h1 className="display-type mt-5 max-w-3xl text-[1.9rem] text-white sm:text-[2.75rem]">
+          <h1 className="display-type mt-5 max-w-3xl text-[1.9rem] text-foreground sm:text-[2.75rem]">
             {post.title}
           </h1>
 
           <div className="mt-6 flex items-center gap-3">
             <div
-              className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-black"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold text-paper"
               style={{ backgroundImage: "var(--gradient-brand)" }}
             >
               {post.author.name
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {related.length > 0 && (
         <SectionWrapper grid>
-          <h2 className="display-type text-2xl text-white">Related Reading</h2>
+          <h2 className="display-type text-2xl text-foreground">Related Reading</h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {related.map((r) => {
               const Icon = postIcon(r.category);

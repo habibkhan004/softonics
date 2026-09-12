@@ -33,7 +33,7 @@ export default function PageHero({ eyebrow, title, gradientWord, subtitle }: Pag
           <SectionLabel>{eyebrow}</SectionLabel>
         </MotionReveal>
         <MotionReveal delay={0.08}>
-          <h1 className="display-type mx-auto mt-6 max-w-[16ch] text-[1.85rem] text-white sm:text-[2.6rem] lg:mx-0 lg:text-[3.4rem]">
+          <h1 className="display-type mx-auto mt-6 max-w-[16ch] text-[1.85rem] text-foreground sm:text-[2.6rem] lg:mx-0 lg:text-[3.4rem]">
             {renderTitle()}
           </h1>
         </MotionReveal>

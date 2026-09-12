@@ -10,8 +10,8 @@ export default function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle
   if (state?.ok) {
     return (
       <div className="rounded-sm border border-border bg-surface p-8 text-center">
-        <CheckCircle2 className="mx-auto h-10 w-10 text-accent-violet" />
-        <h3 className="mt-4 text-xl font-medium text-white">Application received</h3>
+        <CheckCircle2 className="mx-auto h-10 w-10 text-accent-indigo" />
+        <h3 className="mt-4 text-xl font-medium text-foreground">Application received</h3>
         <p className="mt-2 text-sm text-foreground-muted">We&apos;ll be in touch if there&apos;s a fit.</p>
       </div>
     );
@@ -51,7 +51,7 @@ export default function ApplyForm({ jobId, jobTitle }: { jobId: string; jobTitle
       <button
         type="submit"
         disabled={pending}
-        className="rounded-md px-6 py-3 text-sm font-semibold text-black disabled:opacity-60"
+        className="rounded-md px-6 py-3 text-sm font-semibold text-paper disabled:opacity-60"
         style={{ backgroundImage: "var(--gradient-brand)" }}
       >
         {pending ? (

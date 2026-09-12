@@ -60,15 +60,22 @@ function NavDropdown({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-full items-center" onMouseEnter={onOpen} onMouseLeave={onClose}>
+    <div className="relative flex h-full items-center" onMouseEnter={onOpen} onMouseLeave={onClose}>
       <button
-        className={`flex items-center gap-1 text-[15px] font-medium transition-colors duration-200 ${
-          open ? "text-accent-indigo" : "text-white hover:text-accent-indigo"
+        className={`group relative flex items-center gap-1 text-[15px] font-medium transition-colors duration-200 ${
+          open ? "text-accent-indigo" : "text-foreground hover:text-accent-indigo"
         }`}
         aria-expanded={open}
       >
         {label}
         <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        {/* Green rule wipes in from the left to mark the open branch. */}
+        <span
+          aria-hidden="true"
+          className={`absolute -bottom-1.5 left-0 h-[2px] w-full origin-left bg-accent-indigo transition-transform duration-200 ${
+            open ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+          }`}
+        />
       </button>
       <AnimatePresence>{open && children}</AnimatePresence>
     </div>
@@ -126,12 +133,13 @@ export default function Navbar() {
                 items={serviceItems}
                 onNavigate={() => setOpenMenu(null)}
                 footerLink={{ label: "View all services", href: "/services" }}
+                align="center"
               />
             </NavDropdown>
 
             <Link
               href="/projects"
-              className="text-[15px] font-medium text-white transition-colors duration-200 hover:text-accent-indigo"
+              className="text-[15px] font-medium text-foreground transition-colors duration-200 hover:text-accent-indigo"
             >
               Case Studies
             </Link>
@@ -142,13 +150,13 @@ export default function Navbar() {
               onOpen={() => setOpenMenu("company")}
               onClose={() => setOpenMenu(null)}
             >
-              <ServiceMegaMenu items={companyItems} onNavigate={() => setOpenMenu(null)} showArtwork={false} />
+              <ServiceMegaMenu items={companyItems} onNavigate={() => setOpenMenu(null)} align="right" />
             </NavDropdown>
 
             <button
               type="button"
               aria-label="Search"
-              className="text-white transition-colors duration-200 hover:text-accent-indigo"
+              className="text-foreground transition-colors duration-200 hover:text-accent-indigo"
             >
               <Search className="h-4 w-4" />
             </button>

@@ -32,7 +32,7 @@ export default function SectionHeading({
   return (
     <div className={`flex max-w-3xl flex-col gap-5 ${alignClasses}`}>
       <SectionLabel>{eyebrow}</SectionLabel>
-      <h2 className="display-type text-[1.75rem] text-white sm:text-[2.5rem] lg:text-[3rem]">
+      <h2 className="display-type text-[1.75rem] text-foreground sm:text-[2.5rem] lg:text-[3rem]">
         {renderTitle()}
       </h2>
       {subtitle && (

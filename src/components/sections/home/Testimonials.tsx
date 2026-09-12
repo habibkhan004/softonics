@@ -113,7 +113,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="3"
-                        className="text-white/10"
+                        className="text-foreground/10"
                       />
                       <motion.circle
                         key={current.id}

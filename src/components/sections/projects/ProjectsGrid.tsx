@@ -28,7 +28,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             key={cat}
             onClick={() => setActive(cat)}
             className={`rounded-md border px-4 py-2 text-sm font-medium transition-colors ${
-              active === cat ? "border-transparent text-black" : "border-border text-foreground-muted hover:text-foreground"
+              active === cat ? "border-transparent text-paper" : "border-border text-foreground-muted hover:text-foreground"
             }`}
             style={active === cat ? { backgroundImage: "var(--gradient-brand)" } : undefined}
           >

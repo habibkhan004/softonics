@@ -16,7 +16,7 @@ export default function CtaBanner({
       <MotionReveal>
         <div className="relative overflow-hidden rounded-sm border border-border bg-surface px-6 py-14 sm:px-14 sm:py-16">
           <div className="relative z-10 max-w-2xl">
-            <h2 className="display-type text-[1.75rem] text-white sm:text-[2.5rem]">{title}</h2>
+            <h2 className="display-type text-[1.75rem] text-foreground sm:text-[2.5rem]">{title}</h2>
             <p className="mt-5 max-w-[650px] text-[16px] leading-[1.55] text-foreground-muted sm:text-[18px]">
               {subtitle}
             </p>

@@ -18,7 +18,7 @@ export default function WhyChooseUs() {
       <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
         <MotionReveal>
           <SectionLabel>Why Desynt</SectionLabel>
-          <h2 className="display-type mt-5 text-[1.75rem] text-white sm:text-[2.5rem]">
+          <h2 className="display-type mt-5 text-[1.75rem] text-foreground sm:text-[2.5rem]">
             Built for teams who&apos;ve been burned by agencies before
           </h2>
           <ul className="mt-8 flex flex-col gap-4">

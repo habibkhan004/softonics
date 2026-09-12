@@ -40,7 +40,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
         </div>
       </section>
 
-      <section className="border-b border-border bg-ink text-paper">
+      <section className="on-ink border-b border-border bg-ink text-paper">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/10 sm:grid-cols-4">
           {(project.metrics.length ? project.metrics : project.results.slice(0, 4).map((result) => ({ value: result, label: "Outcome" }))).map(
             (metric) => (
@@ -88,7 +88,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
                 <div className="mt-1 font-medium">{project.duration || "—"}</div>
               </div>
               <div className="rounded-sm border border-border bg-surface p-5">
-                <Users className="h-4 w-4 text-accent-violet" />
+                <Users className="h-4 w-4 text-accent-indigo" />
                 <div className="mt-3 text-xs uppercase tracking-widest text-foreground-muted">Team</div>
                 <div className="mt-1 font-medium">{project.teamSize || "—"}</div>
               </div>
@@ -115,7 +115,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
               <p className="mt-4 leading-relaxed text-foreground-muted">{project.challenge}</p>
             </MotionReveal>
             <MotionReveal delay={0.08}>
-              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent-violet">02 — What we built</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent-indigo">02 — What we built</p>
               <h2 className="mt-3 display-type text-3xl">The solution</h2>
               <p className="mt-4 leading-relaxed text-foreground-muted">{project.solution}</p>
             </MotionReveal>
@@ -154,7 +154,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
           </MotionReveal>
 
           {project.testimonial && (
-            <blockquote className="mt-16 rounded-sm bg-ink px-8 py-12 text-paper">
+            <blockquote className="on-ink mt-16 rounded-sm bg-ink px-8 py-12 text-paper">
               <p className="quote-serif text-2xl leading-snug sm:text-3xl">&ldquo;{project.testimonial.quote}&rdquo;</p>
               <footer className="mt-6 text-sm text-paper/70">
                 {project.testimonial.name}, {project.testimonial.role}
@@ -164,7 +164,7 @@ export default function CaseStudyView({ project, related }: { project: Project; 
 
           {project.gallery.length > 0 && (
             <div id="gallery" className="mt-20">
-              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent-violet">05 — Frames</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent-indigo">05 — Frames</p>
               <h2 className="mt-3 display-type text-3xl">Inside the work</h2>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {project.gallery.map((item) => (

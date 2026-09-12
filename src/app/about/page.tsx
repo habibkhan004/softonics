@@ -110,7 +110,7 @@ export default function AboutPage() {
             <Image src={aboutImages.culture} alt={`${brand.legalName} team culture`} fill sizes="100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/30 to-transparent" />
             <div className="relative flex h-full max-w-md flex-col justify-center px-8 sm:px-12">
-              <h3 className="display-type text-2xl text-white sm:text-3xl">Remote-first, output-focused</h3>
+              <h3 className="display-type text-2xl text-foreground sm:text-3xl">Remote-first, output-focused</h3>
               <p className="mt-2 text-sm text-foreground-muted">
                 We hire the best people wherever they are and measure work by what ships, not hours online.
               </p>

@@ -15,18 +15,18 @@ export default function MenuArtwork({ src }: { src?: string }) {
     <svg viewBox="0 0 340 250" role="presentation" className="h-auto w-full">
       <defs>
         <radialGradient id="mm-purple" cx="32%" cy="24%" r="78%">
-          <stop offset="0%" stopColor="#c09aff" />
-          <stop offset="48%" stopColor="#8734f0" />
-          <stop offset="100%" stopColor="#43099a" />
+          <stop offset="0%" stopColor="#45514c" />
+          <stop offset="48%" stopColor="#222b28" />
+          <stop offset="100%" stopColor="#0f1211" />
         </radialGradient>
         <radialGradient id="mm-purple-2" cx="38%" cy="28%" r="76%">
-          <stop offset="0%" stopColor="#a672ff" />
-          <stop offset="58%" stopColor="#7313eb" />
-          <stop offset="100%" stopColor="#3a0885" />
+          <stop offset="0%" stopColor="#3a4440" />
+          <stop offset="58%" stopColor="#1d2523" />
+          <stop offset="100%" stopColor="#0f1211" />
         </radialGradient>
         <linearGradient id="mm-green" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8df5a4" />
-          <stop offset="100%" stopColor="#3fbe60" />
+          <stop offset="0%" stopColor="#4ec573" />
+          <stop offset="100%" stopColor="#12703f" />
         </linearGradient>
       </defs>
 
@@ -45,7 +45,7 @@ export default function MenuArtwork({ src }: { src?: string }) {
       <ellipse cx="118" cy="104" rx="50" ry="44" fill="url(#mm-purple-2)" />
       <ellipse cx="238" cy="108" rx="42" ry="37" fill="url(#mm-purple-2)" opacity="0.94" />
       <ellipse cx="124" cy="98" rx="20" ry="12" fill="#ffffff" opacity="0.2" />
-      <ellipse cx="172" cy="236" rx="96" ry="14" fill="#05070d" opacity="0.5" />
+      <ellipse cx="172" cy="236" rx="96" ry="14" fill="#0f1211" opacity="0.14" />
     </svg>
   );
 }

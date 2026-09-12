@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="app-container relative grid grid-cols-1 items-start gap-12 pb-14 pt-10 sm:gap-10 sm:pb-16 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] lg:items-center lg:gap-6 lg:pb-20 lg:pt-10">
         {/* Copy — centred while stacked, left-aligned once the two-column layout kicks in. */}
         <div className="mx-auto max-w-[700px] text-center lg:mx-0 lg:text-left">
-          <h1 className="display-hero text-white">
+          <h1 className="display-hero text-foreground">
             {heroContent.headline.map((line) => (
               <span key={line.text} className={`block ${line.accent ? "text-accent-indigo" : ""}`}>
                 {line.text}

@@ -72,7 +72,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="rounded-md px-4 py-2.5 text-sm font-medium text-black transition-opacity hover:opacity-90"
+                className="rounded-md px-4 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90"
                 style={{ backgroundImage: "var(--gradient-brand)" }}
               >
                 Subscribe

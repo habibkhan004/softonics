@@ -22,7 +22,7 @@ export default function ServicesOverview() {
 
           <h2 className="font-hero mt-6 text-[1.9rem] leading-[1.12] sm:text-[2.4rem] lg:text-[2.9rem]">
             <span className="block text-accent-indigo">Focus on what matters.</span>
-            <span className="block text-white">Ship the work that moves the business.</span>
+            <span className="block text-foreground">Ship the work that moves the business.</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-[520px] text-[15px] leading-[1.6] text-foreground-muted sm:text-[17px] lg:mx-0">
@@ -46,9 +46,9 @@ export default function ServicesOverview() {
                   [{String(i + 1).padStart(2, "0")}]
                 </span>
 
-                <ServiceArtwork icon={service.icon} index={i} />
+                <ServiceArtwork slug={service.slug} />
 
-                <h3 className="font-hero mt-6 text-[1.3rem] text-white sm:text-[1.6rem]">{service.title}</h3>
+                <h3 className="font-hero mt-6 text-[1.3rem] text-foreground sm:text-[1.6rem]">{service.title}</h3>
 
                 <p className="mt-3 max-w-[560px] text-[15px] leading-[1.6] text-foreground-muted sm:text-[17px]">
                   {service.shortDescription}

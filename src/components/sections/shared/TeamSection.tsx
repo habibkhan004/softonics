@@ -16,7 +16,7 @@ function TeamCard({ member, ariaHidden = false }: { member: TeamMember; ariaHidd
   return (
     <article
       aria-hidden={ariaHidden}
-      className="group/card relative aspect-[3/4] w-[300px] shrink-0 overflow-hidden bg-[#0e1a2e] sm:w-[360px] lg:w-[400px]"
+      className="on-ink group/card relative aspect-[3/4] w-[300px] shrink-0 overflow-hidden bg-ink sm:w-[360px] lg:w-[400px]"
     >
       {member.photo ? (
         <Image
@@ -31,16 +31,16 @@ function TeamCard({ member, ariaHidden = false }: { member: TeamMember; ariaHidd
         <div className="absolute inset-0 flex items-center justify-center">
           <div
             className="absolute h-48 w-48 rounded-full opacity-25 blur-3xl"
-            style={{ background: "radial-gradient(circle, #65df80, transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, var(--accent-indigo), transparent 70%)" }}
           />
           <span className="font-hero relative text-[4.5rem] text-white/15">{member.initials}</span>
         </div>
       )}
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0e1a2e] via-[#0e1a2e]/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
 
       {/* Bio reveals on hover / focus, sitting under the name row. */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center bg-[#080f1a]/95 p-6 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 group-focus-within/card:opacity-100">
+      <div className="absolute inset-0 z-10 flex items-center justify-center bg-ink/95 p-6 opacity-0 transition-opacity duration-300 group-hover/card:opacity-100 group-focus-within/card:opacity-100">
         <p className="text-center text-[15px] leading-relaxed text-white sm:text-[16px]">{member.bio}</p>
       </div>
 
@@ -84,7 +84,7 @@ export default function TeamSection() {
 
         <MotionReveal delay={0.08}>
           <h2 className="font-hero mt-6 text-[2rem] leading-[1.12] sm:text-[2.6rem] lg:text-[3.1rem]">
-            <span className="text-white">Meet The </span>
+            <span className="text-foreground">Meet The </span>
             <span className="text-accent-indigo">Team</span>
           </h2>
         </MotionReveal>

@@ -183,7 +183,7 @@ canvas {
 /* Editorial display type — page and section headings across the site. */
 .display-type {
   font-family: var(--font-hero);
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: -0.015em;
@@ -193,7 +193,7 @@ canvas {
 /* Huge editorial display type for the hero headline. */
 .display-hero {
   font-family: var(--font-hero);
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
   /* Slightly open tracking + leading so the heavy face doesn't read as cramped. */
@@ -228,11 +228,15 @@ canvas {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/*
+ * Big numerals (case-study years, step counters). Uses the same display face as the
+ * headings — it previously used Syne, which read as a different typeface mid-page.
+ */
 .editorial-number {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.06em;
-  line-height: 0.8;
+  font-family: var(--font-hero);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
 }
 
 .quote-serif {

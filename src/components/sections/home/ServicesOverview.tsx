@@ -4,6 +4,7 @@ import GridBackground from "@/components/ui/GridBackground";
 import MotionReveal from "@/components/ui/MotionReveal";
 import ServiceArtwork from "@/components/sections/home/ServiceArtwork";
 import { services } from "@/lib/data/services";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 export default function ServicesOverview() {
   return (
@@ -17,7 +18,7 @@ export default function ServicesOverview() {
       <div className="app-container relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,40fr)_minmax(0,60fr)] lg:items-start lg:gap-14">
         {/* Left column stays pinned while the cards scroll past it. */}
         <div className="text-center lg:sticky lg:top-28 lg:self-start lg:text-left">
-          <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[Our Services]</p>
+          <SectionLabel>Our Services</SectionLabel>
 
           <h2 className="font-hero mt-6 text-[1.9rem] leading-[1.12] sm:text-[2.4rem] lg:text-[2.9rem]">
             <span className="block text-accent-indigo">Focus on what matters.</span>

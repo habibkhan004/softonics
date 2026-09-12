@@ -1,3 +1,4 @@
+import SectionLabel from "@/components/ui/SectionLabel";
 interface SectionHeadingProps {
   eyebrow: string;
   title: string;
@@ -30,7 +31,7 @@ export default function SectionHeading({
 
   return (
     <div className={`flex max-w-3xl flex-col gap-5 ${alignClasses}`}>
-      <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[{eyebrow}]</p>
+      <SectionLabel>{eyebrow}</SectionLabel>
       <h2 className="display-type text-[1.75rem] text-white sm:text-[2.5rem] lg:text-[3rem]">
         {renderTitle()}
       </h2>

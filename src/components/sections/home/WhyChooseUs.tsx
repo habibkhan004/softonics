@@ -3,6 +3,7 @@ import SectionWrapper from "@/components/ui/SectionWrapper";
 import StatCard from "@/components/ui/StatCard";
 import MotionReveal from "@/components/ui/MotionReveal";
 import { stats } from "@/lib/data/stats";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const differentiators = [
   "Senior engineers only — no outsourced juniors learning on your project",
@@ -16,7 +17,7 @@ export default function WhyChooseUs() {
     <SectionWrapper>
       <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
         <MotionReveal>
-          <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[Why Desynt]</p>
+          <SectionLabel>Why Desynt</SectionLabel>
           <h2 className="display-type mt-5 text-[1.75rem] text-white sm:text-[2.5rem]">
             Built for teams who&apos;ve been burned by agencies before
           </h2>

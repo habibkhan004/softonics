@@ -55,7 +55,7 @@ export default function Logo({
           {brand.name}
         </span>
         <span
-          className={`mt-0.5 hidden text-[9px] font-medium uppercase tracking-[0.2em] min-[400px]:block ${
+          className={`mt-1 hidden text-[10px] font-medium uppercase tracking-[0.16em] min-[400px]:block sm:text-[11px] ${
             inverted ? "text-white/55" : "text-foreground-muted"
           }`}
         >

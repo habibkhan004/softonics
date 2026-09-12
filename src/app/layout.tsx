@@ -15,10 +15,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Only 600 (logo wordmark) and 700 (admin headings) are used — 500/800 were dead weight.
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["600", "700"],
 });
 
 const instrument = Instrument_Serif({

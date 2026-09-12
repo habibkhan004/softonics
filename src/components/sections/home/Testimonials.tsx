@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import MotionReveal from "@/components/ui/MotionReveal";
 import TestimonialArtwork from "@/components/sections/home/TestimonialArtwork";
 import type { Testimonial } from "@/lib/types";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 const AUTO_ADVANCE_SECONDS = 7;
 
@@ -47,7 +48,7 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
     <section className="relative overflow-hidden bg-background-elevated py-16 sm:py-24">
       <div className="app-container flex flex-col items-center text-center">
         <MotionReveal>
-          <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[Testimonials]</p>
+          <SectionLabel>Testimonials</SectionLabel>
         </MotionReveal>
 
         <MotionReveal delay={0.08}>

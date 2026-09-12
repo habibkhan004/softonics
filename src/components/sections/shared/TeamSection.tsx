@@ -2,6 +2,7 @@ import Image from "next/image";
 import MotionReveal from "@/components/ui/MotionReveal";
 import { team } from "@/lib/data/team";
 import type { TeamMember } from "@/lib/types";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 function LinkedInIcon({ className = "" }: { className?: string }) {
   return (
@@ -78,7 +79,7 @@ export default function TeamSection() {
     <section className="relative overflow-hidden py-16 sm:py-24">
       <div className="app-container">
         <MotionReveal>
-          <p className="font-mono text-[13px] leading-none text-accent-indigo sm:text-[15px]">[Our Team]</p>
+          <SectionLabel>Our Team</SectionLabel>
         </MotionReveal>
 
         <MotionReveal delay={0.08}>

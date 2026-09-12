@@ -1,5 +1,6 @@
 import GridBackground from "@/components/ui/GridBackground";
 import MotionReveal from "@/components/ui/MotionReveal";
+import SectionLabel from "@/components/ui/SectionLabel";
 
 interface PageHeroProps {
   eyebrow: string;
@@ -29,7 +30,7 @@ export default function PageHero({ eyebrow, title, gradientWord, subtitle }: Pag
       {/* Centred while stacked on small screens, left-aligned from large up. */}
       <div className="app-container relative z-10 text-center lg:text-left">
         <MotionReveal>
-          <p className="font-mono text-[14px] leading-none text-accent-indigo sm:text-[16px]">[{eyebrow}]</p>
+          <SectionLabel>{eyebrow}</SectionLabel>
         </MotionReveal>
         <MotionReveal delay={0.08}>
           <h1 className="display-type mx-auto mt-6 max-w-[16ch] text-[1.85rem] text-white sm:text-[2.6rem] lg:mx-0 lg:text-[3.4rem]">

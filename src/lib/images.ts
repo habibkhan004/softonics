@@ -12,39 +12,91 @@ export const serviceImages: Record<string, string> = {
   "ui-ux-design": unsplash("1519389950473-47ba0277781c"),
 };
 
+function sunspire(file: string) {
+  return `https://sunspiretourism.com/wp-content/uploads/${file}`;
+}
+
+function altahady(file: string) {
+  return `https://altahadybikerent.com/wp-content/uploads/${file}`;
+}
+
+function spicemaster(file: string) {
+  return `https://spicemastersa.com/assets/img/${file}`;
+}
+
+function gulfroutes(file: string) {
+  return `https://gulfroutes.com/wp-content/uploads/${file}`;
+}
+
 export const projectImages: Record<string, string> = {
-  "vantage-retail-headless-commerce": unsplash("1556742049-0cfed4f6a45d"),
-  "helios-robotics-fleet-dashboard": unsplash("1558494949-ef010cbdcc31"),
-  "meridian-health-patient-portal": unsplash("1616469829581-73993eb86b02"),
-  "brightpath-seo-programmatic": unsplash("1460925895917-afdab827c52f"),
-  "cascade-logistics-cloud-migration": unsplash("1581091226825-a6a2a5aee158"),
+  "sunspire-tourism-booking-platform": sunspire("2025/08/desert-safari-main-pic.jpg"),
+  "altahady-bike-rental-booking": altahady("2026/02/Quad_Bike1-scaled.webp"),
+  "excelia-academy-lms": unsplash("1522202176988-66273c2fd55f"),
+  "spicemaster-riyadh-restaurant": spicemaster("about-2.jpg"),
+  "zaman-tiles-inventory-invoicing": unsplash("1581091226825-a6a2a5aee158"),
+  "saudi-ai-sales-assistant": unsplash("1620712943543-bcc4688e7485"),
+  "gulf-supply-corporate-site": unsplash("1504328345606-18bbc8c9d7d1"),
+  "gulf-routes-trade-divisions": gulfroutes("2025/10/Ocean-Transport-150-1.jpg"),
+  "huria-collections-storefront": unsplash("1596462502278-27bfdc403348"),
 };
 
 export const projectGalleries: Record<string, { url: string; caption: string }[]> = {
-  "vantage-retail-headless-commerce": [
-    { url: unsplash("1483985988355-763728e1935b"), caption: "Mobile storefront after the headless replatform" },
-    { url: unsplash("1556741533-6e6a62bdcc1f"), caption: "Semantic search results on a collection page" },
-    { url: unsplash("1441986300917-64674bd600d8"), caption: "Peak-season merchandising dashboard" },
+  "sunspire-tourism-booking-platform": [
+    { url: sunspire("2025/08/dune-bashing.jpg"), caption: "Dune bashing on the evening desert safari trip page" },
+    { url: sunspire("2025/08/morning-desert-safari.jpg"), caption: "Morning safari listing with itinerary and inclusions" },
+    { url: sunspire("2025/08/special-bugy-tour.jpg"), caption: "Buggy and quad-bike add-ons sold as standalone trips" },
+    { url: sunspire("2025/08/burji-khalifa-dubai.jpg"), caption: "Dubai city tour hub linking full-day and half-day options" },
+    { url: sunspire("2025/08/sheikh-zayed-mosque-6686295-scaled.jpg"), caption: "Abu Dhabi destination page with theme-park bundles" },
   ],
-  "helios-robotics-fleet-dashboard": [
-    { url: unsplash("1485827404703-89b55fcc595e"), caption: "Live fleet map with anomaly overlays" },
-    { url: unsplash("1518770660439-4636190af475"), caption: "Telemetry playback for a regional incident" },
-    { url: unsplash("1504384308090-c894fdcc538d"), caption: "Ops center rollout in the third region" },
+  "altahady-bike-rental-booking": [
+    { url: altahady("2026/02/Funco-2-scaled.webp"), caption: "Funco 2-seater buggy on the fleet grid" },
+    { url: altahady("2026/02/Funco-4-scaled.webp"), caption: "Funco 4-seater listing for group bookings" },
+    { url: altahady("2026/02/Polaris-2-scaled.webp"), caption: "Polaris buggy detail page with booking calendar" },
+    { url: altahady("2026/03/sunset--scaled.jpg"), caption: "Sunset ride package landing page" },
+    { url: altahady("2026/03/kids.jpeg"), caption: "Kids quad bike listed as its own bookable unit" },
   ],
-  "meridian-health-patient-portal": [
-    { url: unsplash("1576091160399-112ba8d25d1d"), caption: "Patient home with upcoming visits" },
-    { url: unsplash("1516575538188-4d0e12bf61a6"), caption: "In-app telehealth session" },
-    { url: unsplash("1584515933487-779824d29309"), caption: "Clinic staff console used during beta" },
+  "excelia-academy-lms": [
+    { url: unsplash("1516321318423-f06f85e504b3"), caption: "Course catalogue with category filtering" },
+    { url: unsplash("1517245386807-bb43f82c33c4"), caption: "Lesson player inside an enrolled course" },
+    { url: unsplash("1454165804606-c3d57bc86b40"), caption: "Instructor portal for building and managing courses" },
+    { url: unsplash("1551288049-bebda4e38f71"), caption: "Admin console for users, payments and applications" },
   ],
-  "brightpath-seo-programmatic": [
-    { url: unsplash("1434030216411-0b7c2763d0c5"), caption: "Generated program landing pages" },
-    { url: unsplash("1456513080800-7d1b2e31c0f4"), caption: "Internal linking and schema preview" },
-    { url: unsplash("1501504905252-473c47e087f8"), caption: "Core Web Vitals monitoring board" },
+  "spicemaster-riyadh-restaurant": [
+    { url: spicemaster("menu/mutton-biryani.jpg"), caption: "Menu card for the house mutton biryani" },
+    { url: spicemaster("menu/butter-chicken.jpg"), caption: "Main course section with per-dish photography" },
+    { url: spicemaster("menu/bbq.png"), caption: "BBQ mix platter on the grill menu" },
+    { url: spicemaster("gallery/gallery-image-1.jpeg"), caption: "Dining room gallery carousel" },
+    { url: spicemaster("gallery/gallery-image-5.jpeg"), caption: "Interior shots used across the gallery lightbox" },
   ],
-  "cascade-logistics-cloud-migration": [
-    { url: unsplash("1451187580459-43490279c0fa"), caption: "Kubernetes topology after cutover" },
-    { url: unsplash("1517430816045-df4b7de11d1d"), caption: "CI/CD pipeline replacing manual deploys" },
-    { url: unsplash("1494412574291-17d85f79c8bb"), caption: "Peak-season autoscaling during shipping week" },
+  "zaman-tiles-inventory-invoicing": [
+    { url: unsplash("1504328345606-18bbc8c9d7d1"), caption: "Stock search across tile codes, sizes and colours" },
+    { url: unsplash("1454165804606-c3d57bc86b40"), caption: "Invoice register with paid and pending states" },
+    { url: unsplash("1543286386-713bdd548da4"), caption: "Owner-only profit reporting across branches" },
+    { url: unsplash("1507925921958-8a62f3d1a50d"), caption: "Branch switcher covering all four locations" },
+  ],
+  "saudi-ai-sales-assistant": [
+    { url: unsplash("1611746872915-64382b5c76da"), caption: "WhatsApp inbox with AI-drafted replies" },
+    { url: unsplash("1551288049-bebda4e38f71"), caption: "Dashboard tracking messages, voice notes and video ads" },
+    { url: unsplash("1492691527719-9d1e07e534b4"), caption: "Video ad builder generating an Instagram-ready MP4" },
+    { url: unsplash("1556742049-0cfed4f6a45d"), caption: "Product catalogue feeding both AI replies and ads" },
+  ],
+  "gulf-supply-corporate-site": [
+    { url: unsplash("1521791136064-7986c2920216"), caption: "Manpower supply across eleven skill categories" },
+    { url: unsplash("1566576912321-d58ddd7a6088"), caption: "SFDA-compliant cold-chain and last-mile logistics" },
+    { url: unsplash("1581091226825-a6a2a5aee158"), caption: "Preventive and corrective MEP maintenance" },
+    { url: unsplash("1487958449943-2429e8be8625"), caption: "Portable cabins and modular site infrastructure" },
+  ],
+  "gulf-routes-trade-divisions": [
+    { url: gulfroutes("2026/06/DayMar-and-gulf-routes-rice.webp"), caption: "DAYMAR rice and agro-export division" },
+    { url: gulfroutes("2026/06/Gulf-Routes-and-DayMar-Transport.webp"), caption: "Transport and freight across the trade network" },
+    { url: gulfroutes("2026/06/2.webp"), caption: "Minerals division — limestone and Himalayan pink salt" },
+    { url: gulfroutes("2026/06/5.webp"), caption: "BOULDER premium tire manufacturing" },
+  ],
+  "huria-collections-storefront": [
+    { url: unsplash("1512436991641-6745cdb1723f"), caption: "Cosmetics collection with search and filters" },
+    { url: unsplash("1519415943484-9fa1873496d4"), caption: "Shoes category and product detail pages" },
+    { url: unsplash("1522335789203-aabd1fc54bc9"), caption: "Cart and cash-on-delivery checkout" },
+    { url: unsplash("1570172619644-dfd03ed5d881"), caption: "Admin order management with PDF export" },
   ],
 };
 

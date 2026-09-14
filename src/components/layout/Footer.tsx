@@ -81,9 +81,35 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
-          <p className="text-xs text-foreground-muted">
-            &copy; {new Date().getFullYear()} {brand.legalName}. All rights reserved.
+        <div className="mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 text-sm text-foreground-muted sm:grid-cols-3">
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">Registered Office</h3>
+            <address className="mt-2 not-italic leading-relaxed">
+              {brand.company.name}
+              <br />
+              {brand.company.street}
+              <br />
+              {brand.company.city}, {brand.company.country}
+            </address>
+          </div>
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">Email</h3>
+            <a href={`mailto:${brand.email}`} className="mt-2 block transition-colors hover:text-foreground">
+              {brand.email}
+            </a>
+          </div>
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground">Phone</h3>
+            <a href={brand.phone.href} className="mt-2 block transition-colors hover:text-foreground">
+              {brand.phone.display}
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+          <p className="text-center text-xs text-foreground-muted sm:text-left">
+            &copy; {new Date().getFullYear()} {brand.legalName}. All rights reserved. {brand.legalName} is operated by{" "}
+            {brand.company.name}, a registered {brand.company.jurisdiction} limited liability company.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-xs text-foreground-muted hover:text-foreground">

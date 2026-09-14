@@ -12,13 +12,15 @@ export const metadata: Metadata = {
   description: `Get in touch with ${brand.legalName} to discuss your next software, web, or SEO project.`,
 };
 
-const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? brand.email;
-
 const infoItems: { icon: typeof Mail; label: string; value: string; href?: string }[] = [
-  { icon: Mail, label: "Email", value: contactEmail, href: `mailto:${contactEmail}` },
-  { icon: Phone, label: "Phone", value: process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+1 (415) 555-0182" },
-  { icon: MapPin, label: "Office", value: process.env.NEXT_PUBLIC_CONTACT_OFFICE ?? "540 Market Street, San Francisco, CA" },
-  { icon: Clock, label: "Hours", value: "Mon – Fri, 9am – 6pm PT" },
+  { icon: Mail, label: "Email", value: brand.email, href: `mailto:${brand.email}` },
+  { icon: Phone, label: "Phone", value: brand.phone.display, href: brand.phone.href },
+  {
+    icon: MapPin,
+    label: "Registered Office",
+    value: `${brand.company.name}, ${brand.company.street}, ${brand.company.city}`,
+  },
+  { icon: Clock, label: "Hours", value: "Mon – Fri, 9am – 6pm MT" },
 ];
 
 export default function ContactPage() {
@@ -67,7 +69,7 @@ export default function ContactPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-accent-indigo/10 via-transparent to-accent-indigo/10" />
                 <div className="relative text-center">
                   <MapPin className="mx-auto h-6 w-6 text-accent-blue" />
-                  <p className="mt-2 text-xs text-foreground-muted">San Francisco, CA</p>
+                  <p className="mt-2 text-xs text-foreground-muted">Albuquerque, New Mexico</p>
                 </div>
               </div>
             </div>

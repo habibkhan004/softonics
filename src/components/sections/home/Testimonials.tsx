@@ -148,12 +148,15 @@ export default function Testimonials({ items }: { items: Testimonial[] }) {
               className="mt-8"
             >
               <div className="text-[16px] text-accent-indigo sm:text-[17px]">{current.name}</div>
+              {/* Company-attributed quotes carry a description in `role`, so skip the "at {company}" suffix. */}
               <div className="mt-1 text-[15px] text-foreground-muted">
-                {current.role} at {current.company}
+                {current.company.startsWith(current.name) ? current.role : `${current.role} at ${current.company}`}
               </div>
-              <div className="mt-4 font-mono text-[15px] uppercase tracking-[0.18em] text-foreground/70">
-                {current.company}
-              </div>
+              {!current.company.startsWith(current.name) && (
+                <div className="mt-4 font-mono text-[15px] uppercase tracking-[0.18em] text-foreground/70">
+                  {current.company}
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>

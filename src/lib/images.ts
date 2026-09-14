@@ -12,49 +12,41 @@ export const serviceImages: Record<string, string> = {
   "ui-ux-design": unsplash("1519389950473-47ba0277781c"),
 };
 
-function sunspire(file: string) {
-  return `https://sunspiretourism.com/wp-content/uploads/${file}`;
-}
-
-function altahady(file: string) {
-  return `https://altahadybikerent.com/wp-content/uploads/${file}`;
-}
-
-function spicemaster(file: string) {
-  return `https://spicemastersa.com/assets/img/${file}`;
-}
-
-function gulfroutes(file: string) {
-  return `https://gulfroutes.com/wp-content/uploads/${file}`;
+/**
+ * Client photography, copied into public/projects/ from each client's live site.
+ * Served locally because the client hosts are slow enough to time out the image optimizer.
+ */
+function clientPhoto(client: string, file: string) {
+  return `/projects/${client}/${file}.webp`;
 }
 
 export const projectImages: Record<string, string> = {
-  "sunspire-tourism-booking-platform": sunspire("2025/08/desert-safari-main-pic.jpg"),
-  "altahady-bike-rental-booking": altahady("2026/02/Quad_Bike1-scaled.webp"),
+  "sunspire-tourism-booking-platform": clientPhoto("sunspire", "2025-08-desert-safari-main-pic"),
+  "altahady-bike-rental-booking": clientPhoto("altahady", "2026-02-Quad_Bike1-scaled"),
   "excelia-academy-lms": unsplash("1522202176988-66273c2fd55f"),
-  "spicemaster-riyadh-restaurant": spicemaster("about-2.jpg"),
+  "spicemaster-riyadh-restaurant": clientPhoto("spicemaster", "about-2"),
   "zaman-tiles-inventory-invoicing": unsplash("1581091226825-a6a2a5aee158"),
   "saudi-ai-sales-assistant": unsplash("1620712943543-bcc4688e7485"),
   "gulf-supply-corporate-site": unsplash("1504328345606-18bbc8c9d7d1"),
-  "gulf-routes-trade-divisions": gulfroutes("2025/10/Ocean-Transport-150-1.jpg"),
+  "gulf-routes-trade-divisions": clientPhoto("gulfroutes", "2026-06-DayMar-and-gulf-routes-rice"),
   "huria-collections-storefront": unsplash("1596462502278-27bfdc403348"),
-  "synergy-mall-storefront": "https://synergymall.shop/hero-shirts.png",
+  "synergy-mall-storefront": clientPhoto("synergymall", "hero-shirts"),
 };
 
 export const projectGalleries: Record<string, { url: string; caption: string }[]> = {
   "sunspire-tourism-booking-platform": [
-    { url: sunspire("2025/08/dune-bashing.jpg"), caption: "Dune bashing on the evening desert safari trip page" },
-    { url: sunspire("2025/08/morning-desert-safari.jpg"), caption: "Morning safari listing with itinerary and inclusions" },
-    { url: sunspire("2025/08/special-bugy-tour.jpg"), caption: "Buggy and quad-bike add-ons sold as standalone trips" },
-    { url: sunspire("2025/08/burji-khalifa-dubai.jpg"), caption: "Dubai city tour hub linking full-day and half-day options" },
-    { url: sunspire("2025/08/sheikh-zayed-mosque-6686295-scaled.jpg"), caption: "Abu Dhabi destination page with theme-park bundles" },
+    { url: clientPhoto("sunspire", "2025-08-dune-bashing"), caption: "Dune bashing — the headline evening safari trip" },
+    { url: clientPhoto("sunspire", "2025-08-morning-desert-safari"), caption: "Morning desert safari, one of 24 bookable trips" },
+    { url: clientPhoto("sunspire", "2025-08-special-bugy-tour"), caption: "Buggy tours sold as standalone trips" },
+    { url: clientPhoto("sunspire", "2025-08-burji-khalifa-dubai"), caption: "Dubai city tours hub" },
+    { url: clientPhoto("sunspire", "2025-08-sheikh-zayed-mosque-6686295-scaled"), caption: "Abu Dhabi destination tours" },
   ],
   "altahady-bike-rental-booking": [
-    { url: altahady("2026/02/Funco-2-scaled.webp"), caption: "Funco 2-seater buggy on the fleet grid" },
-    { url: altahady("2026/02/Funco-4-scaled.webp"), caption: "Funco 4-seater listing for group bookings" },
-    { url: altahady("2026/02/Polaris-2-scaled.webp"), caption: "Polaris buggy detail page with booking calendar" },
-    { url: altahady("2026/03/sunset--scaled.jpg"), caption: "Sunset ride package landing page" },
-    { url: altahady("2026/03/kids.jpeg"), caption: "Kids quad bike listed as its own bookable unit" },
+    { url: clientPhoto("altahady", "2026-02-Funco-2-scaled"), caption: "Funco 2-seater buggy from the fleet catalogue" },
+    { url: clientPhoto("altahady", "2026-02-Funco-4-scaled"), caption: "Funco 4-seater for group bookings" },
+    { url: clientPhoto("altahady", "2026-02-Polaris-2-scaled"), caption: "Polaris buggy, bookable by date and time slot" },
+    { url: clientPhoto("altahady", "2026-03-sunset--scaled"), caption: "Sunset ride package" },
+    { url: clientPhoto("altahady", "2026-03-kids"), caption: "Kids quad bike, listed as its own unit" },
   ],
   "excelia-academy-lms": [
     { url: unsplash("1516321318423-f06f85e504b3"), caption: "Course catalogue with category filtering" },
@@ -63,11 +55,11 @@ export const projectGalleries: Record<string, { url: string; caption: string }[]
     { url: unsplash("1551288049-bebda4e38f71"), caption: "Admin console for users, payments and applications" },
   ],
   "spicemaster-riyadh-restaurant": [
-    { url: spicemaster("menu/mutton-biryani.jpg"), caption: "Menu card for the house mutton biryani" },
-    { url: spicemaster("menu/butter-chicken.jpg"), caption: "Main course section with per-dish photography" },
-    { url: spicemaster("menu/bbq.png"), caption: "BBQ mix platter on the grill menu" },
-    { url: spicemaster("gallery/gallery-image-1.jpeg"), caption: "Dining room gallery carousel" },
-    { url: spicemaster("gallery/gallery-image-5.jpeg"), caption: "Interior shots used across the gallery lightbox" },
+    { url: clientPhoto("spicemaster", "menu-mutton-biryani"), caption: "Mutton biryani from the digital menu" },
+    { url: clientPhoto("spicemaster", "menu-butter-chicken"), caption: "Butter chicken — per-dish photography on the menu" },
+    { url: clientPhoto("spicemaster", "menu-bbq"), caption: "BBQ mix platter" },
+    { url: clientPhoto("spicemaster", "gallery-gallery-image-1"), caption: "From the restaurant gallery" },
+    { url: clientPhoto("spicemaster", "gallery-gallery-image-5"), caption: "From the restaurant gallery" },
   ],
   "zaman-tiles-inventory-invoicing": [
     { url: unsplash("1504328345606-18bbc8c9d7d1"), caption: "Stock search across tile codes, sizes and colours" },
@@ -88,10 +80,8 @@ export const projectGalleries: Record<string, { url: string; caption: string }[]
     { url: unsplash("1487958449943-2429e8be8625"), caption: "Portable cabins and modular site infrastructure" },
   ],
   "gulf-routes-trade-divisions": [
-    { url: gulfroutes("2026/06/DayMar-and-gulf-routes-rice.webp"), caption: "DAYMAR rice and agro-export division" },
-    { url: gulfroutes("2026/06/Gulf-Routes-and-DayMar-Transport.webp"), caption: "Transport and freight across the trade network" },
-    { url: gulfroutes("2026/06/2.webp"), caption: "Minerals division — limestone and Himalayan pink salt" },
-    { url: gulfroutes("2026/06/5.webp"), caption: "BOULDER premium tire manufacturing" },
+    { url: clientPhoto("gulfroutes", "2026-06-DayMar-and-gulf-routes-rice"), caption: "DAYMAR basmati rice — the agro-export division" },
+    { url: clientPhoto("gulfroutes", "2026-06-Gulf-Routes-and-DayMar-Transport"), caption: "Gulf Routes and DAYMAR freight transport" },
   ],
   "huria-collections-storefront": [
     { url: unsplash("1512436991641-6745cdb1723f"), caption: "Cosmetics collection with search and filters" },
@@ -100,7 +90,7 @@ export const projectGalleries: Record<string, { url: string; caption: string }[]
     { url: unsplash("1570172619644-dfd03ed5d881"), caption: "Admin order management with PDF export" },
   ],
   "synergy-mall-storefront": [
-    { url: "https://synergymall.shop/hero-shirts.png", caption: "Hero treatment for the Synergy Mall collection" },
+    { url: clientPhoto("synergymall", "hero-shirts"), caption: "Hero treatment for the Synergy Mall collection" },
     { url: unsplash("1441984904996-e0b6ba687e04"), caption: "Collection page with category, price and sort filters" },
     { url: unsplash("1490481651871-ab68de25d43d"), caption: "AI fit flow capturing height, weight, chest and waist" },
     { url: unsplash("1483985988355-763728e1935b"), caption: "Editorial journal layout for brand storytelling" },

@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import type { ReactNode } from "react";
 
 export default function SiteChrome({ children }: { children: ReactNode }) {
@@ -19,7 +18,6 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
       <main className="min-w-0 flex-1">{children}</main>
       <Footer />
       <BackToTop />
-      <WhatsAppButton />
     </>
   );
 }

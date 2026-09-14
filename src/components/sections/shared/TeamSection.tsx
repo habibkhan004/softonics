@@ -75,6 +75,8 @@ function TeamRow({ ariaHidden = false }: { ariaHidden?: boolean }) {
 }
 
 export default function TeamSection() {
+  if (!team.length) return null;
+
   return (
     <section className="relative overflow-hidden py-16 sm:py-24">
       <div className="app-container">

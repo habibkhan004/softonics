@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CheckCircle2, Loader2, Send } from "lucide-react";
 import { submitInquiryAction } from "@/lib/actions";
 
-const budgets = ["Under $10k", "$10k – $25k", "$25k – $75k", "$75k+", "Not sure yet"];
+const budgets = ["Under $5k", "$5k – $10k", "$10k – $25k", "$25k – $75k", "$75k+", "Not sure yet"];
 
 export default function ContactForm() {
   const [state, action, pending] = useActionState(submitInquiryAction, undefined);

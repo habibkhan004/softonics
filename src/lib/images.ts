@@ -38,6 +38,7 @@ export const projectImages: Record<string, string> = {
   "gulf-supply-corporate-site": unsplash("1504328345606-18bbc8c9d7d1"),
   "gulf-routes-trade-divisions": gulfroutes("2025/10/Ocean-Transport-150-1.jpg"),
   "huria-collections-storefront": unsplash("1596462502278-27bfdc403348"),
+  "synergy-mall-storefront": "https://synergymall.shop/hero-shirts.png",
 };
 
 export const projectGalleries: Record<string, { url: string; caption: string }[]> = {
@@ -97,6 +98,12 @@ export const projectGalleries: Record<string, { url: string; caption: string }[]
     { url: unsplash("1519415943484-9fa1873496d4"), caption: "Shoes category and product detail pages" },
     { url: unsplash("1522335789203-aabd1fc54bc9"), caption: "Cart and cash-on-delivery checkout" },
     { url: unsplash("1570172619644-dfd03ed5d881"), caption: "Admin order management with PDF export" },
+  ],
+  "synergy-mall-storefront": [
+    { url: "https://synergymall.shop/hero-shirts.png", caption: "Hero treatment for the Synergy Mall collection" },
+    { url: unsplash("1441984904996-e0b6ba687e04"), caption: "Collection page with category, price and sort filters" },
+    { url: unsplash("1490481651871-ab68de25d43d"), caption: "AI fit flow capturing height, weight, chest and waist" },
+    { url: unsplash("1483985988355-763728e1935b"), caption: "Editorial journal layout for brand storytelling" },
   ],
 };
 

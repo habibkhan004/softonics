@@ -27,6 +27,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "gulfroutes.com",
       },
+      {
+        protocol: "https",
+        hostname: "synergymall.shop",
+      },
     ],
   },
   serverExternalPackages: ["cloudinary", "nodemailer"],

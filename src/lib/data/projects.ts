@@ -448,4 +448,50 @@ export const projects: Project[] = [
     featured: false,
     published: true,
   },
+  {
+    id: "4f8a1b52-6d37-4e94-a2c8-5b0e7f3d9c26",
+    slug: "synergy-mall-storefront",
+    title: "Brand-Led Storefront with AI Fit Matching",
+    client: "Synergy Mall",
+    category: "E-Commerce",
+    industry: "Fashion & Lifestyle",
+    tags: ["Next.js", "Brand Design", "AI Fit", "Editorial Commerce"],
+    techStack: ["Next.js App Router", "React", "Tailwind CSS", "next/image", "LiteSpeed on Hostinger"],
+    summary:
+      "Built a brand-led fashion storefront on the Next.js App Router — editorial art direction, filterable collection architecture, and an AI fit-matching flow that sizes from four body measurements.",
+    overview:
+      "Synergy Mall sells modern wardrobe essentials on a promise of precision — \"the only luxury we permit.\" A promise like that has to be felt in the interface before a customer believes it about the clothes. The build is deliberately restrained: architectural typography, a lot of space, and one genuinely differentiating feature — sizing that doesn't ask you to guess.",
+    challenge:
+      "Returns are the tax on selling clothes online, and almost all of them come down to fit. Synergy Mall needed a storefront that could carry a quiet-luxury brand position without the visual noise most commerce templates impose, and that could tackle sizing head-on rather than shipping another generic size chart. It also needed a content architecture the team could grow into — collection, categories and editorial — before the catalogue existed.",
+    solution:
+      "We built the storefront on the Next.js App Router with an editorial design system: architectural type, generous space and a restrained palette carrying the brand position. The collection page ships with category, price-range and sort filtering ready for catalogue growth, a categories browser and an editorial journal give the brand somewhere to speak, and an AI fit flow captures height, weight, chest and waist to match a customer to a silhouette instead of a generic size chart.",
+    approach: [
+      "Built the site on the Next.js App Router with an editorial, architecture-led design system",
+      "Designed an AI fit flow capturing height, weight, chest and waist for silhouette matching",
+      "Shipped a collection page with category, price-range and sort filtering ready for catalogue growth",
+      "Built a categories browser and editorial journal so the brand has room to tell its story",
+      "Optimised imagery through next/image with responsive srcsets across all breakpoints",
+      "Structured the front end so products and editorial can be populated without a rebuild",
+    ],
+    results: [
+      "Editorial storefront carrying a quiet-luxury position without template noise",
+      "AI fit flow addressing sizing from four measurements instead of a generic chart",
+      "Filterable collection architecture ready for catalogue growth",
+      "Content architecture — collection, categories and journal — in place ahead of launch",
+    ],
+    metrics: [
+      { value: "4", label: "Fit measurements captured" },
+      { value: "3", label: "Filter dimensions on collection" },
+      { value: "App Router", label: "Next.js architecture" },
+      { value: "Pre-launch", label: "Build stage" },
+    ],
+    year: "2026",
+    duration: "7 weeks",
+    teamSize: "2 people",
+    liveUrl: "https://synergymall.shop",
+    coverImage: projectImages["synergy-mall-storefront"],
+    gallery: projectGalleries["synergy-mall-storefront"],
+    featured: false,
+    published: true,
+  },
 ];
